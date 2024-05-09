@@ -1,0 +1,25 @@
+import { FN001008_DEP_react } from './rules/FN001008_DEP_react';
+import { FN001009_DEP_react_dom } from './rules/FN001009_DEP_react_dom';
+import { FN001035_DEP_fluentui_react } from './rules/FN001035_DEP_fluentui_react';
+import { FN002004_DEVDEP_gulp } from './rules/FN002004_DEVDEP_gulp';
+import { FN002007_DEVDEP_ajv } from './rules/FN002007_DEVDEP_ajv';
+import { FN002013_DEVDEP_types_webpack_env } from './rules/FN002013_DEVDEP_types_webpack_env';
+import { FN002015_DEVDEP_types_react } from './rules/FN002015_DEVDEP_types_react';
+import { FN002016_DEVDEP_types_react_dom } from './rules/FN002016_DEVDEP_types_react_dom';
+import { FN002019_DEVDEP_microsoft_rush_stack_compiler } from './rules/FN002019_DEVDEP_microsoft_rush_stack_compiler';
+import { FN021001_PKG_spfx_deps_versions_match_project_version } from './rules/FN021001_PKG_spfx_deps_versions_match_project_version';
+import { FN021013_PKG_spfx_devdeps_match_version } from './rules/FN021013_PKG_spfx_devdeps_match_version';
+
+export default [
+  new FN001008_DEP_react('17'),
+  new FN001009_DEP_react_dom('17'),
+  new FN001035_DEP_fluentui_react('^8.106.4'),
+  new FN002004_DEVDEP_gulp('4.0.2'),
+  new FN002007_DEVDEP_ajv('^6.12.5'),
+  new FN002013_DEVDEP_types_webpack_env('~1.15.2'),
+  new FN002015_DEVDEP_types_react('17'),
+  new FN002016_DEVDEP_types_react_dom('17'),
+  new FN002019_DEVDEP_microsoft_rush_stack_compiler(['4.7']),
+  new FN021001_PKG_spfx_deps_versions_match_project_version(false),
+  new FN021013_PKG_spfx_devdeps_match_version('1.20.1')
+];
