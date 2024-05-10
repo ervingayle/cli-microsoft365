@@ -14,7 +14,7 @@ import commands from '../commands';
 const command: Command = require('./adaptivecard-send');
 // required to avoid tests from timing out due to dynamic imports
 import 'adaptivecards-templating';
-import { settingsNames } from '../../../settingsNames.js';
+import { settingsNames } from '../../../settingsNames';
 
 describe(commands.SEND, () => {
   let cli: Cli;

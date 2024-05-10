@@ -8,7 +8,7 @@ import request from '../../../../request';
 import { pid } from '../../../../utils/pid';
 import { session } from '../../../../utils/session';
 import { sinonUtil } from '../../../../utils/sinonUtil';
-import { Cli } from '../../../../cli/Cli.js';
+import { Cli } from '../../../../cli/Cli';
 import { CommandInfo } from '../../../../cli/CommandInfo';
 import commands from '../../commands';
 import { formatting } from '../../../../utils/formatting';

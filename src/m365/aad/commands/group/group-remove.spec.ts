@@ -1,18 +1,18 @@
 import * as assert from 'assert';
 import * as sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import commands from '../../commands.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import { aadGroup } from '../../../../utils/aadGroup.js';
-import { Cli } from '../../../../cli/Cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import command from './group-remove.js';
+import auth from '../../../../Auth';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import { aadGroup } from '../../../../utils/aadGroup';
+import { Cli } from '../../../../cli/Cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import commands from '../../commands';
+const command: Command = require('./group-remove');
 
 describe(commands.GROUP_REMOVE, () => {
   const groupId = '2c1ba4c4-cd9b-4417-832f-92a34bc34b2a';

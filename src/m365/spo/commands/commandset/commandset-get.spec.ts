@@ -13,7 +13,7 @@ import { sinonUtil } from '../../../../utils/sinonUtil';
 import commands from '../../commands';
 import { odata } from '../../../../utils/odata';
 import { v4 } from 'uuid';
-import { settingsNames } from '../../../../settingsNames.js';
+import { settingsNames } from '../../../../settingsNames';
 const command: Command = require('./commandset-get');
 
 describe(commands.COMMANDSET_GET, () => {

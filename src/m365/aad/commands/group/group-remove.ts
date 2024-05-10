@@ -1,11 +1,11 @@
-import { Cli } from '../../../../cli/Cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { aadGroup } from '../../../../utils/aadGroup.js';
-import { validation } from '../../../../utils/validation.js';
+import { Cli } from '../../../../cli/Cli';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import request, { CliRequestOptions } from '../../../../request';
+import { aadGroup } from '../../../../utils/aadGroup';
+import { validation } from '../../../../utils/validation';
 
 interface CommandArgs {
   options: Options;
@@ -129,4 +129,4 @@ class AadGroupRemoveCommand extends GraphCommand {
   }
 }
 
-export default new AadGroupRemoveCommand();
+module.exports = new AadGroupRemoveCommand();

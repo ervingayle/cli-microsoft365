@@ -7,7 +7,7 @@ import { validation } from '../../../../utils/validation';
 import GraphCommand from '../../../base/GraphCommand';
 import commands from '../../commands';
 import { ServicePrincipal } from '@microsoft/microsoft-graph-types';
-import { Cli } from '../../../../cli/Cli.js';
+import { Cli } from '../../../../cli/Cli';
 
 interface AppRole {
   objectId: string;

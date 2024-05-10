@@ -6,7 +6,7 @@ import commands from '../../commands';
 import { HubSite } from './HubSite';
 import request, { CliRequestOptions } from '../../../../request';
 import { spo } from '../../../../utils/spo';
-import { Cli } from '../../../../cli/Cli.js';
+import { Cli } from '../../../../cli/Cli';
 import { formatting } from '../../../../utils/formatting';
 
 interface CommandArgs {

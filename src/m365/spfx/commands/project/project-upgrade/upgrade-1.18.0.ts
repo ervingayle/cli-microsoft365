@@ -24,12 +24,12 @@ import { FN002001_DEVDEP_microsoft_sp_build_web } from './rules/FN002001_DEVDEP_
 import { FN002002_DEVDEP_microsoft_sp_module_interfaces } from './rules/FN002002_DEVDEP_microsoft_sp_module_interfaces';
 import { FN002022_DEVDEP_microsoft_eslint_plugin_spfx } from './rules/FN002022_DEVDEP_microsoft_eslint_plugin_spfx';
 import { FN002023_DEVDEP_microsoft_eslint_config_spfx } from './rules/FN002023_DEVDEP_microsoft_eslint_config_spfx';
-import { FN002026_DEVDEP_typescript } from './rules/FN002026_DEVDEP_typescript.js';
-import { FN002028_DEVDEP_microsoft_rush_stack_compiler_4_7 } from './rules/FN002028_DEVDEP_microsoft_rush_stack_compiler_4_7.js';
+import { FN002026_DEVDEP_typescript } from './rules/FN002026_DEVDEP_typescript';
+import { FN002028_DEVDEP_microsoft_rush_stack_compiler_4_7 } from './rules/FN002028_DEVDEP_microsoft_rush_stack_compiler_4_7';
 import { FN010001_YORC_version } from './rules/FN010001_YORC_version';
 import { FN010010_YORC_sdkVersions_teams_js } from './rules/FN010010_YORC_sdkVersions_teams_js';
-import { FN012017_TSC_extends } from './rules/FN012017_TSC_extends.js';
-import { FN021003_PKG_engines_node } from './rules/FN021003_PKG_engines_node.js';
+import { FN012017_TSC_extends } from './rules/FN012017_TSC_extends';
+import { FN021003_PKG_engines_node } from './rules/FN021003_PKG_engines_node';
 
 module.exports = [
   new FN001001_DEP_microsoft_sp_core_library('1.18.0'),

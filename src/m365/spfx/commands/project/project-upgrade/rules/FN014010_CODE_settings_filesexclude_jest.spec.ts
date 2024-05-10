@@ -1,9 +1,9 @@
 import * as assert from 'assert';
 import * as fs from 'fs';
-import { sinonUtil } from '../../../../../../utils/sinonUtil.js';
+import { sinonUtil } from '../../../../../../utils/sinonUtil';
 import { Project } from '../../project-model';
-import { Finding } from '../../report-model/Finding.js';
-import { FN014010_CODE_settings_filesexclude_jest } from './FN014010_CODE_settings_filesexclude_jest.js';
+import { Finding } from '../../report-model/Finding';
+import { FN014010_CODE_settings_filesexclude_jest } from './FN014010_CODE_settings_filesexclude_jest';
 
 describe('FN014010_CODE_settings_filesexclude_jest', () => {
   let findings: Finding[];

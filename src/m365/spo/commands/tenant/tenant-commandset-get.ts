@@ -1,4 +1,4 @@
-import { Cli } from '../../../../cli/Cli.js';
+import { Cli } from '../../../../cli/Cli';
 import { Logger } from '../../../../cli/Logger';
 import { CommandError } from '../../../../Command';
 import GlobalOptions from '../../../../GlobalOptions';

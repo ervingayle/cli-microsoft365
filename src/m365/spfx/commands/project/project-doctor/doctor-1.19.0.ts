@@ -10,7 +10,7 @@ import { FN002019_DEVDEP_microsoft_rush_stack_compiler } from './rules/FN002019_
 import { FN021001_PKG_spfx_deps_versions_match_project_version } from './rules/FN021001_PKG_spfx_deps_versions_match_project_version';
 import { FN021013_PKG_spfx_devdeps_match_version } from './rules/FN021013_PKG_spfx_devdeps_match_version';
 
-export default [
+module.exports = [
   new FN001008_DEP_react('17'),
   new FN001009_DEP_react_dom('17'),
   new FN001035_DEP_fluentui_react('^8.106.4'),

@@ -5,7 +5,7 @@ import { aadGroup } from './aadGroup';
 import { formatting } from './formatting';
 import { sinonUtil } from "./sinonUtil";
 import { Logger } from '../cli/Logger';
-import { Cli } from '../cli/Cli.js';
+import { Cli } from '../cli/Cli';
 import { settingsNames } from '../settingsNames';
 
 const validGroupName = 'Group name';
