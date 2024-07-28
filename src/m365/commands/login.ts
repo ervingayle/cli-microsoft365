@@ -215,7 +215,7 @@ class LoginCommand extends Command {
         });
       }
       else {
-        logger.logToStderr({
+        logger.log({
           connectedAs: accessToken.getUserNameFromAccessToken(auth.service.accessTokens[auth.defaultResource].accessToken),
           authType: AuthType[auth.service.authType],
           appId: auth.service.appId,
