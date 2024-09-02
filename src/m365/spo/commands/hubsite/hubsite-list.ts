@@ -1,13 +1,13 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { odata } from '../../../../utils/odata.js';
-import { spo } from '../../../../utils/spo.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { AssociatedSite } from './AssociatedSite.js';
-import { HubSite } from './HubSite.js';
-import { QueryListResult } from './QueryListResult.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { odata } from '../../../../utils/odata';
+import { spo } from '../../../../utils/spo';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { AssociatedSite } from './AssociatedSite';
+import { HubSite } from './HubSite';
+import { QueryListResult } from './QueryListResult';
 
 interface CommandArgs {
   options: Options;
@@ -142,4 +142,4 @@ class SpoHubSiteListCommand extends SpoCommand {
   }
 }
 
-export default new SpoHubSiteListCommand();
+module.exports = new SpoHubSiteListCommand();

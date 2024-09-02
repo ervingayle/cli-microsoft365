@@ -1,8 +1,8 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import request from '../../../../request.js';
-import { SpoAppBaseCommand } from './SpoAppBaseCommand.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import request from '../../../../request';
+import { SpoAppBaseCommand } from './SpoAppBaseCommand';
+import { sinonUtil } from '../../../../utils/sinonUtil';
 
 class MockCommand extends SpoAppBaseCommand {
   public get name(): string {

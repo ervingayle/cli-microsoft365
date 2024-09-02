@@ -1,5 +1,5 @@
-import { Project } from './project-model/index.js';
-import { Finding, Occurrence } from './report-model/index.js';
+import { Project } from './project-model/index';
+import { Finding, Occurrence } from './report-model/index';
 
 export abstract class Rule {
   abstract get id(): string;

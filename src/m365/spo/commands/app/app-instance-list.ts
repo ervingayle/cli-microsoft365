@@ -1,9 +1,9 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { validation } from '../../../../utils/validation.js';
-import commands from '../../commands.js';
-import { SpoAppBaseCommand } from './SpoAppBaseCommand.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { validation } from '../../../../utils/validation';
+import commands from '../../commands';
+import { SpoAppBaseCommand } from './SpoAppBaseCommand';
 
 
 interface CommandArgs {
@@ -86,4 +86,4 @@ class SpoAppInStanceListCommand extends SpoAppBaseCommand {
   }
 }
 
-export default new SpoAppInStanceListCommand();
+module.exports = new SpoAppInStanceListCommand();

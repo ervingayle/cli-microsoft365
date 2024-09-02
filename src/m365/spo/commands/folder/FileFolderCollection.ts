@@ -1,5 +1,5 @@
-import { FileProperties } from '../file/FileProperties.js';
-import { FolderProperties } from './FolderProperties.js';
+import { FileProperties } from '../file/FileProperties';
+import { FolderProperties } from './FolderProperties';
 
 // Represents folder properties along with Files and Folder within.
 export interface FileFolderCollection {

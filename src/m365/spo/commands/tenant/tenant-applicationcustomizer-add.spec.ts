@@ -1,20 +1,20 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { telemetry } from '../../../../telemetry.js';
-import { CommandError } from '../../../../Command.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
-import commands from '../../commands.js';
-import spoListItemAddCommand from '../listitem/listitem-add.js';
-import spoListItemListCommand from '../listitem/listitem-list.js';
-import spoTenantAppCatalogUrlGetCommand from '../tenant/tenant-appcatalogurl-get.js';
-import command from './tenant-applicationcustomizer-add.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import { telemetry } from '../../../../telemetry';
+import Command, { CommandError } from '../../../../Command';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import { urlUtil } from '../../../../utils/urlUtil';
+import commands from '../../commands';
+import * as spoListItemAddCommand from '../listitem/listitem-add';
+import * as spoListItemListCommand from '../listitem/listitem-list';
+import * as spoTenantAppCatalogUrlGetCommand from '../tenant/tenant-appcatalogurl-get';
+const command: Command = require('./tenant-applicationcustomizer-add');
 
 describe(commands.TENANT_APPLICATIONCUSTOMIZER_ADD, () => {
   const clientSideComponentId = '9748c81b-d72e-4048-886a-e98649543743';

@@ -1,10 +1,10 @@
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { validation } from '../../../../utils/validation.js';
-import PowerAppsCommand from '../../../base/PowerAppsCommand.js';
-import commands from '../../commands.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { validation } from '../../../../utils/validation';
+import PowerAppsCommand from '../../../base/PowerAppsCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -106,4 +106,4 @@ class PaAppConsentSetCommand extends PowerAppsCommand {
   }
 }
 
-export default new PaAppConsentSetCommand();
+module.exports = new PaAppConsentSetCommand();

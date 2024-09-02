@@ -1,11 +1,11 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import { entraDevice } from './entraDevice.js';
-import { cli } from "../cli/cli.js";
-import request from "../request.js";
-import { sinonUtil } from "./sinonUtil.js";
-import { formatting } from './formatting.js';
-import { settingsNames } from '../settingsNames.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import { entraDevice } from './entraDevice';
+import { cli } from "../cli/cli";
+import request from "../request";
+import { sinonUtil } from "./sinonUtil";
+import { formatting } from './formatting';
+import { settingsNames } from '../settingsNames';
 
 
 describe('utils/entraDevice', () => {

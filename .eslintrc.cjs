@@ -5,7 +5,6 @@ const dictionary = [
   'activation',
   'activations',
   'adaptive',
-  'administrative',
   'ai',
   'app',
   'application',
@@ -13,30 +12,20 @@ const dictionary = [
   'approve',
   'assessment',
   'assets',
-  'assignment',
   'audit',
-  'azure',
   'bin',
   'builder',
-  'card',
   'catalog',
   'checklist',
   'client',
   'comm',
   'command',
-  'community',
-  'containertype',
   'content',
   'conversation',
   'custom',
   'customizer',
   'dataverse',
   'default',
-  'dev',
-  'details',
-  'eligibility',
-  'enterprise',
-  'entra',
   'event',
   'eventreceiver',
   'external',
@@ -44,7 +33,6 @@ const dictionary = [
   'fun',
   'group',
   'groupify',
-  'groupmembership',
   'guest',
   'health',
   'hide',
@@ -59,7 +47,6 @@ const dictionary = [
   'installed',
   'is',
   'issue',
-  'item',
   'label',
   'list',
   'link',
@@ -70,26 +57,19 @@ const dictionary = [
   'member',
   'messaging',
   'model',
-  'multitenant',
   'm365',
   'news',
   'oauth2',
   'office365',
   'one',
-  'ops',
   'org',
   'owner',
   'permission',
-  'pim',
   'place',
   'policy',
-  'profile',
   'property',
   'records',
   'recycle',
-  'request',
-  'resolver',
-  'registration',
   'retention',
   'role',
   'room',
@@ -108,12 +88,8 @@ const dictionary = [
   'table',
   'teams',
   'threat',
-  'to',
-  'todo',
   'token',
   'type',
-  'unit',
-  'url',
   'user',
   'web',
   'webhook'
@@ -144,8 +120,7 @@ module.exports = {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2015,
-    "sourceType": "module",
-    "project": "./tsconfig.json"
+    "sourceType": "module"
   },
   "plugins": [
     "@typescript-eslint",
@@ -156,14 +131,11 @@ module.exports = {
     "**/package-generate/assets/**",
     "**/test-projects/**",
     "clientsidepages.ts",
-    "*.d.ts",
-    "*.js",
-    "*.cjs"
+    "*.js"
   ],
   "rules": {
     "cli-microsoft365/correct-command-class-name": ["error", sortedDictionary, capitalized],
     "cli-microsoft365/correct-command-name": "error",
-    "cli-microsoft365/no-by-server-relative-url-usage": "error",
     "indent": "off",
     "@typescript-eslint/indent": [
       "error",
@@ -238,8 +210,7 @@ module.exports = {
       }
     ],
     "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
-    "mocha/no-identical-title": "error",
-    "@typescript-eslint/no-floating-promises": "error"
+    "mocha/no-identical-title": "error"
   },
   "overrides": [
     {
@@ -256,11 +227,11 @@ module.exports = {
     },
     {
       "files": [
-        "**/viva/commands/engage/**"
+        "**/yammer/**"
       ],
       "rules": {
         "camelcase": "off"
       }
     }
   ]
-};
+}

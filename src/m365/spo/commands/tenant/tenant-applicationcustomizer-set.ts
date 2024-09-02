@@ -1,18 +1,19 @@
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { odata } from '../../../../utils/odata.js';
-import { spo } from '../../../../utils/spo.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { ListItemInstance } from '../listitem/ListItemInstance.js';
-import spoListItemListCommand, { Options as spoListItemListCommandOptions } from '../listitem/listitem-list.js';
-import { Solution } from './Solution.js';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { odata } from '../../../../utils/odata';
+import { spo } from '../../../../utils/spo';
+import { urlUtil } from '../../../../utils/urlUtil';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { ListItemInstance } from '../listitem/ListItemInstance';
+import * as spoListItemListCommand from '../listitem/listitem-list';
+import { Options as spoListItemListCommandOptions } from '../listitem/listitem-list';
+import { Solution } from './Solution';
 
 interface CommandArgs {
   options: Options;
@@ -290,4 +291,4 @@ class SpoTenantApplicationCustomizerSetCommand extends SpoCommand {
   }
 }
 
-export default new SpoTenantApplicationCustomizerSetCommand();
+module.exports = new SpoTenantApplicationCustomizerSetCommand();

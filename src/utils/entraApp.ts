@@ -1,8 +1,8 @@
 import { RequiredResourceAccess, ResourceAccess } from '@microsoft/microsoft-graph-types';
-import fs from 'fs';
-import { Logger } from '../cli/Logger.js';
-import request, { CliRequestOptions } from '../request.js';
-import { odata } from './odata.js';
+import * as fs from 'fs';
+import { Logger } from '../cli/Logger';
+import request, { CliRequestOptions } from '../request';
+import { odata } from './odata';
 
 export interface AppInfo {
   appId: string;

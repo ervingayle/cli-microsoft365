@@ -1,4 +1,4 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import { CommandSetManifest, Manifest, Project } from '../../project-model/index.js';
 import { Finding } from '../../report-model/Finding.js';
 import { FN011006_MAN_listViewCommandSet_items } from './FN011006_MAN_listViewCommandSet_items.js';

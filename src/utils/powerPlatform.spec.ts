@@ -1,9 +1,9 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import request from "../request.js";
-import auth from '../Auth.js';
-import { powerPlatform } from './powerPlatform.js';
-import { sinonUtil } from "./sinonUtil.js";
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import request from "../request";
+import auth from '../Auth';
+import { powerPlatform } from './powerPlatform';
+import { sinonUtil } from "./sinonUtil";
 
 describe('utils/powerPlatform', () => {
   before(() => {

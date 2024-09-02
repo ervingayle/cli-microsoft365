@@ -1,15 +1,16 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import { cli } from '../../cli/cli.js';
-import { Logger } from '../../cli/Logger.js';
-import { telemetry } from '../../telemetry.js';
-import { app } from '../../utils/app.js';
-import { browserUtil } from '../../utils/browserUtil.js';
-import { pid } from '../../utils/pid.js';
-import { session } from '../../utils/session.js';
-import { sinonUtil } from '../../utils/sinonUtil.js';
-import commands from './commands.js';
-import command from './docs.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import { cli } from '../../cli/cli';
+import { Logger } from '../../cli/Logger';
+import { telemetry } from '../../telemetry';
+import { app } from '../../utils/app';
+import { browserUtil } from '../../utils/browserUtil';
+import { pid } from '../../utils/pid';
+import { session } from '../../utils/session';
+import { sinonUtil } from '../../utils/sinonUtil';
+import commands from './commands';
+import Command from '../../Command';
+const command: Command = require('./docs');
 
 describe(commands.DOCS, () => {
   let log: any[];

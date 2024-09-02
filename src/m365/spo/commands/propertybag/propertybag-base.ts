@@ -1,10 +1,10 @@
-import { Logger } from '../../../../cli/Logger.js';
-import config from '../../../../config.js';
-import request from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { ClientSvcResponse, ClientSvcResponseContents, IdentityResponse, spo } from '../../../../utils/spo.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import { BasePermissions, PermissionKind } from '../../base-permissions.js';
+import { Logger } from '../../../../cli/Logger';
+import config from '../../../../config';
+import request from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { ClientSvcResponse, ClientSvcResponseContents, IdentityResponse, spo } from '../../../../utils/spo';
+import SpoCommand from '../../../base/SpoCommand';
+import { BasePermissions, PermissionKind } from '../../base-permissions';
 
 export interface Property {
   key: string;

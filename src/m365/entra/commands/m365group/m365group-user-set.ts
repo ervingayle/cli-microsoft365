@@ -1,14 +1,14 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { validation } from '../../../../utils/validation.js';
-import { formatting } from '../../../../utils/formatting.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import teamsCommands from '../../../teams/commands.js';
-import commands from '../../commands.js';
-import { entraGroup } from '../../../../utils/entraGroup.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import aadCommands from '../../aadCommands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { validation } from '../../../../utils/validation';
+import { formatting } from '../../../../utils/formatting';
+import GraphCommand from '../../../base/GraphCommand';
+import teamsCommands from '../../../teams/commands';
+import commands from '../../commands';
+import { entraGroup } from '../../../../utils/entraGroup';
+import { entraUser } from '../../../../utils/entraUser';
+import aadCommands from '../../aadCommands';
 
 interface CommandArgs {
   options: Options;
@@ -301,4 +301,4 @@ class EntraM365GroupUserSetCommand extends GraphCommand {
   }
 }
 
-export default new EntraM365GroupUserSetCommand();
+module.exports = new EntraM365GroupUserSetCommand();

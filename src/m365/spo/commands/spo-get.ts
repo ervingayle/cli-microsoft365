@@ -1,7 +1,7 @@
-import auth from '../../../Auth.js';
-import { Logger } from '../../../cli/Logger.js';
-import SpoCommand from '../../base/SpoCommand.js';
-import commands from '../commands.js';
+import auth from '../../../Auth';
+import { Logger } from '../../../cli/Logger';
+import SpoCommand from '../../base/SpoCommand';
+import commands from '../commands';
 
 interface SpoContext {
   SpoUrl: string;
@@ -24,4 +24,4 @@ class SpoGetCommand extends SpoCommand {
   }
 }
 
-export default new SpoGetCommand();
+module.exports = new SpoGetCommand();

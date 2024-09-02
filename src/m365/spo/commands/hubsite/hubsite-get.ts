@@ -1,16 +1,17 @@
-import { cli, CommandOutput } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { spo } from '../../../../utils/spo.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import spoListItemListCommand, { Options as SpoListItemListCommandOptions } from '../listitem/listitem-list.js';
-import { AssociatedSite } from './AssociatedSite.js';
-import { HubSite } from './HubSite.js';
+import { cli, CommandOutput } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { spo } from '../../../../utils/spo';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import * as spoListItemListCommand from '../listitem/listitem-list';
+import { Options as SpoListItemListCommandOptions } from '../listitem/listitem-list';
+import { AssociatedSite } from './AssociatedSite';
+import { HubSite } from './HubSite';
 
 interface CommandArgs {
   options: Options;
@@ -161,4 +162,4 @@ class SpoHubSiteGetCommand extends SpoCommand {
   }
 }
 
-export default new SpoHubSiteGetCommand();
+module.exports = new SpoHubSiteGetCommand();

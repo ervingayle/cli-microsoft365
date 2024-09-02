@@ -1,12 +1,12 @@
 import { Drive, DriveItem } from '@microsoft/microsoft-graph-types';
-import { Logger } from '../../../cli/Logger.js';
-import GlobalOptions from '../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../request.js';
-import { urlUtil } from '../../../utils/urlUtil.js';
-import { spo } from '../../../utils/spo.js';
-import { validation } from '../../../utils/validation.js';
-import GraphCommand from '../../base/GraphCommand.js';
-import commands from '../commands.js';
+import { Logger } from '../../../cli/Logger';
+import GlobalOptions from '../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../request';
+import { urlUtil } from '../../../utils/urlUtil';
+import { spo } from '../../../utils/spo';
+import { validation } from '../../../utils/validation';
+import GraphCommand from '../../base/GraphCommand';
+import commands from '../commands';
 
 interface CommandArgs {
   options: Options;
@@ -201,4 +201,4 @@ class FileCopyCommand extends GraphCommand {
   }
 }
 
-export default new FileCopyCommand();
+module.exports = new FileCopyCommand();

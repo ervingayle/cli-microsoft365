@@ -1,20 +1,20 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import commands from '../../commands.js';
-import aadCommands from '../../aadCommands.js';
-import request from '../../../../request.js';
-import command from './user-registrationdetails-list.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { cli } from '../../../../cli/cli.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { formatting } from '../../../../utils/formatting.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import commands from '../../commands';
+import aadCommands from '../../aadCommands';
+import request from '../../../../request';
+const command: Command = require('./user-registrationdetails-list');
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { cli } from '../../../../cli/cli';
+import { entraUser } from '../../../../utils/entraUser';
+import { formatting } from '../../../../utils/formatting';
 
 describe(commands.USER_REGISTRATIONDETAILS_LIST, () => {
   const registrationDetails = [

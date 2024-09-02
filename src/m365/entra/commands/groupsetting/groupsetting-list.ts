@@ -1,9 +1,9 @@
 import { GroupSetting } from '@microsoft/microsoft-graph-types';
-import { Logger } from '../../../../cli/Logger.js';
-import { odata } from '../../../../utils/odata.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import aadCommands from '../../aadCommands.js';
+import { Logger } from '../../../../cli/Logger';
+import { odata } from '../../../../utils/odata';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import aadCommands from '../../aadCommands';
 
 class EntraGroupSettingListCommand extends GraphCommand {
   public get name(): string {
@@ -35,4 +35,4 @@ class EntraGroupSettingListCommand extends GraphCommand {
   }
 }
 
-export default new EntraGroupSettingListCommand();
+module.exports = new EntraGroupSettingListCommand();

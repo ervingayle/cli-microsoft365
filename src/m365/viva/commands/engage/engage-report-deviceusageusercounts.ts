@@ -1,8 +1,8 @@
 
-import { Logger } from '../../../../cli/Logger.js';
-import PeriodBasedReport, { CommandArgs } from '../../../base/PeriodBasedReport.js';
-import commands from '../../commands.js';
-import yammerCommands from './yammerCommands.js';
+import { Logger } from '../../../../cli/Logger';
+import PeriodBasedReport, { CommandArgs } from '../../../base/PeriodBasedReport';
+import commands from '../../commands';
+import yammerCommands from './yammerCommands';
 
 class VivaEngageReportDeviceUsageUserCountsCommand extends PeriodBasedReport {
   public get name(): string {
@@ -28,4 +28,4 @@ class VivaEngageReportDeviceUsageUserCountsCommand extends PeriodBasedReport {
   }
 }
 
-export default new VivaEngageReportDeviceUsageUserCountsCommand();
+module.exports = new VivaEngageReportDeviceUsageUserCountsCommand();

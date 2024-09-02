@@ -1,4 +1,4 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import { Project } from '../../project-model/index.js';
 import { Finding } from '../../report-model/Finding.js';
 import { FN021005_PKG_types_installed_as_devdep } from './FN021005_PKG_types_installed_as_devdep.js';

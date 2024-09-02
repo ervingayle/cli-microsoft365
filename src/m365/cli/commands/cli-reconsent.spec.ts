@@ -1,15 +1,15 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import { CommandError } from '../../../Command.js';
-import { cli } from '../../../cli/cli.js';
-import { Logger } from '../../../cli/Logger.js';
-import { telemetry } from '../../../telemetry.js';
-import { browserUtil } from '../../../utils/browserUtil.js';
-import { pid } from '../../../utils/pid.js';
-import { session } from '../../../utils/session.js';
-import commands from '../commands.js';
-import command from './cli-reconsent.js';
-import { sinonUtil } from '../../../utils/sinonUtil.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import Command, { CommandError } from '../../../Command';
+import { cli } from '../../../cli/cli';
+import { Logger } from '../../../cli/Logger';
+import { telemetry } from '../../../telemetry';
+import { browserUtil } from '../../../utils/browserUtil';
+import { pid } from '../../../utils/pid';
+import { session } from '../../../utils/session';
+import commands from '../commands';
+const command: Command = require('./cli-reconsent');
+import { sinonUtil } from '../../../utils/sinonUtil';
 
 describe(commands.RECONSENT, () => {
   let log: string[];

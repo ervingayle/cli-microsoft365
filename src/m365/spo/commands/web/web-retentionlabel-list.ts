@@ -1,10 +1,10 @@
-import { Logger } from "../../../../cli/Logger.js";
-import GlobalOptions from "../../../../GlobalOptions.js";
-import { formatting } from '../../../../utils/formatting.js';
-import { odata } from "../../../../utils/odata.js";
-import { validation } from "../../../../utils/validation.js";
-import SpoCommand from "../../../base/SpoCommand.js";
-import commands from "../../commands.js";
+import { Logger } from "../../../../cli/Logger";
+import GlobalOptions from "../../../../GlobalOptions";
+import { formatting } from "../../../../utils/formatting";
+import { odata } from "../../../../utils/odata";
+import { validation } from "../../../../utils/validation";
+import SpoCommand from "../../../base/SpoCommand";
+import commands from "../../commands";
 
 interface CommandArgs {
   options: Options;
@@ -65,4 +65,4 @@ class SpoWebRetentionLabelListCommand extends SpoCommand {
   }
 }
 
-export default new SpoWebRetentionLabelListCommand();
+module.exports = new SpoWebRetentionLabelListCommand();

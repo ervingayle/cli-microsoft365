@@ -1,5 +1,5 @@
-import DateAndPeriodBasedReport from '../../../base/DateAndPeriodBasedReport.js';
-import commands from '../../commands.js';
+import DateAndPeriodBasedReport from '../../../base/DateAndPeriodBasedReport';
+import commands from '../../commands';
 
 class OneDriveReportActivityUserDetailCommand extends DateAndPeriodBasedReport {
   public get name(): string {
@@ -15,4 +15,4 @@ class OneDriveReportActivityUserDetailCommand extends DateAndPeriodBasedReport {
   }
 }
 
-export default new OneDriveReportActivityUserDetailCommand();
+module.exports = new OneDriveReportActivityUserDetailCommand();

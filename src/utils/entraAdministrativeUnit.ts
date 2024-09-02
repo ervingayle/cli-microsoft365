@@ -1,7 +1,7 @@
 import { AdministrativeUnit } from '@microsoft/microsoft-graph-types';
-import { odata } from './odata.js';
-import { formatting } from './formatting.js';
-import { cli } from '../cli/cli.js';
+import { odata } from './odata';
+import { formatting } from './formatting';
+import { cli } from '../cli/cli';
 
 export const entraAdministrativeUnit = {
   /**

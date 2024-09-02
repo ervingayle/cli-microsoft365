@@ -1,6 +1,6 @@
 import { AadUserConversationMember, Chat, ConversationMember } from '@microsoft/microsoft-graph-types';
-import { formatting } from '../../../../utils/formatting.js';
-import { odata } from '../../../../utils/odata.js';
+import { formatting } from '../../../../utils/formatting';
+import { odata } from '../../../../utils/odata';
 
 export const chatUtil = {
 

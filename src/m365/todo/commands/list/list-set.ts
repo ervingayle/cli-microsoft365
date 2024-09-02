@@ -1,8 +1,8 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import DelegatedGraphCommand from '../../../base/DelegatedGraphCommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import DelegatedGraphCommand from '../../../base/DelegatedGraphCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -108,4 +108,4 @@ class TodoListSetCommand extends DelegatedGraphCommand {
   }
 }
 
-export default new TodoListSetCommand();
+module.exports = new TodoListSetCommand();

@@ -1,18 +1,18 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './customaction-set.js';
-import { settingsNames } from '../../../../settingsNames.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+const command: Command = require('./customaction-set');
+import { settingsNames } from '../../../../settingsNames';
 
 describe(commands.CUSTOMACTION_SET, () => {
   let log: string[];
@@ -216,7 +216,7 @@ describe(commands.CUSTOMACTION_SET, () => {
       sequence: 105,
       location: 'ScriptLink',
       description: 'description1',
-      scriptSrc: '~sitecollection/SiteAssets/YourScript.js',
+      scriptSrc: '~sitecollection/SiteAssets/YourScript',
       scope: 'Site'
     };
 
@@ -228,7 +228,7 @@ describe(commands.CUSTOMACTION_SET, () => {
         Location: 'ScriptLink',
         Description: 'description1',
         Sequence: 105,
-        ScriptSrc: '~sitecollection/SiteAssets/YourScript.js'
+        ScriptSrc: '~sitecollection/SiteAssets/YourScript'
       }
     })));
   });

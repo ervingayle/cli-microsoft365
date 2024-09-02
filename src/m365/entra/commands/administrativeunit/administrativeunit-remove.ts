@@ -1,12 +1,12 @@
-import { entraAdministrativeUnit } from '../../../../utils/entraAdministrativeUnit.js';
-import GlobalOptions from "../../../../GlobalOptions.js";
-import { Logger } from "../../../../cli/Logger.js";
-import { validation } from "../../../../utils/validation.js";
-import request, { CliRequestOptions } from "../../../../request.js";
-import GraphCommand from "../../../base/GraphCommand.js";
-import commands from "../../commands.js";
-import { cli } from "../../../../cli/cli.js";
-import aadCommands from '../../aadCommands.js';
+import { entraAdministrativeUnit } from '../../../../utils/entraAdministrativeUnit';
+import GlobalOptions from "../../../../GlobalOptions";
+import { Logger } from "../../../../cli/Logger";
+import { validation } from "../../../../utils/validation";
+import request, { CliRequestOptions } from "../../../../request";
+import GraphCommand from "../../../base/GraphCommand";
+import commands from "../../commands";
+import { cli } from "../../../../cli/cli";
+import aadCommands from '../../aadCommands';
 
 
 interface CommandArgs {
@@ -128,4 +128,4 @@ class EntraAdministrativeUnitRemoveCommand extends GraphCommand {
   }
 }
 
-export default new EntraAdministrativeUnitRemoveCommand();
+module.exports = new EntraAdministrativeUnitRemoveCommand();

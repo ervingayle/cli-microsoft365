@@ -1,18 +1,18 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import { telemetry } from '../../../../telemetry.js';
-import { odata } from '../../../../utils/odata.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './team-app-list.js';
-import teamGetCommand from './team-get.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import { telemetry } from '../../../../telemetry';
+import { odata } from '../../../../utils/odata';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+const command: Command = require('./team-app-list');
+import * as teamGetCommand from './team-get';
 
 describe(commands.TEAM_APP_LIST, () => {
   const teamId = '0ad55b5d-6a79-467b-ad21-d4bef7948a79';

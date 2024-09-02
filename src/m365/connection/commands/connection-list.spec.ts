@@ -1,15 +1,15 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth, { AuthType, CertificateType, CloudType } from '../../../Auth.js';
-import { Logger } from '../../../cli/Logger.js';
-import { telemetry } from '../../../telemetry.js';
-import { pid } from '../../../utils/pid.js';
-import { session } from '../../../utils/session.js';
-import { spo } from '../../../utils/spo.js';
-import commands from '../commands.js';
-import command from './connection-list.js';
-import { sinonUtil } from '../../../utils/sinonUtil.js';
-import { CommandError } from '../../../Command.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth, { AuthType, CertificateType, CloudType } from '../../../Auth';
+import { Logger } from '../../../cli/Logger';
+import { telemetry } from '../../../telemetry';
+import { pid } from '../../../utils/pid';
+import { session } from '../../../utils/session';
+import { spo } from '../../../utils/spo';
+import commands from '../commands';
+const command: Command = require('./connection-list');
+import { sinonUtil } from '../../../utils/sinonUtil';
+import Command, { CommandError } from '../../../Command';
 
 describe(commands.LIST, () => {
   let log: string[];

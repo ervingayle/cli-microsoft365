@@ -1,16 +1,17 @@
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command from '../../../../Command.js';
-import config from '../../../../config.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { ClientSvcResponse, ClientSvcResponseContents, spo } from '../../../../utils/spo.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import spoContentTypeGetCommand, { Options as SpoContentTypeGetCommandOptions } from './contenttype-get.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command from '../../../../Command';
+import config from '../../../../config';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { ClientSvcResponse, ClientSvcResponseContents, spo } from '../../../../utils/spo';
+import { urlUtil } from '../../../../utils/urlUtil';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import * as spoContentTypeGetCommand from './contenttype-get';
+import { Options as SpoContentTypeGetCommandOptions } from './contenttype-get';
 
 interface CommandArgs {
   options: Options;
@@ -245,4 +246,4 @@ class SpoContentTypeAddCommand extends SpoCommand {
   }
 }
 
-export default new SpoContentTypeAddCommand();
+module.exports = new SpoContentTypeAddCommand();

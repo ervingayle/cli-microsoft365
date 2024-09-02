@@ -1,9 +1,9 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import VivaEngageCommand from '../../../base/VivaEngageCommand.js';
-import commands from '../../commands.js';
-import yammerCommands from './yammerCommands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import VivaEngageCommand from '../../../base/VivaEngageCommand';
+import commands from '../../commands';
+import yammerCommands from './yammerCommands';
 
 interface CommandArgs {
   options: Options;
@@ -79,4 +79,4 @@ class VivaEngageNetworkListCommand extends VivaEngageCommand {
   }
 }
 
-export default new VivaEngageNetworkListCommand();
+module.exports = new VivaEngageNetworkListCommand();

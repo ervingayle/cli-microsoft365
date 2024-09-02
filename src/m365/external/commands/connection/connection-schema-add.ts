@@ -1,10 +1,10 @@
 import { ExternalConnectors, NullableOption } from '@microsoft/microsoft-graph-types';
 import { AxiosResponse } from 'axios';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -161,4 +161,4 @@ class ExternalConnectionSchemaAddCommand extends GraphCommand {
   }
 }
 
-export default new ExternalConnectionSchemaAddCommand();
+module.exports = new ExternalConnectionSchemaAddCommand();

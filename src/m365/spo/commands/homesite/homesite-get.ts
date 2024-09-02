@@ -1,8 +1,8 @@
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { spo } from '../../../../utils/spo.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import { spo } from '../../../../utils/spo';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
 
 class SpoHomeSiteGetCommand extends SpoCommand {
   public get name(): string {
@@ -35,4 +35,4 @@ class SpoHomeSiteGetCommand extends SpoCommand {
   }
 }
 
-export default new SpoHomeSiteGetCommand();
+module.exports = new SpoHomeSiteGetCommand();

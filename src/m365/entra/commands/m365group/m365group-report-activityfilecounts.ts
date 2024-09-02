@@ -1,6 +1,6 @@
-import PeriodBasedReport from '../../../base/PeriodBasedReport.js';
-import aadCommands from '../../aadCommands.js';
-import commands from '../../commands.js';
+import PeriodBasedReport from '../../../base/PeriodBasedReport';
+import aadCommands from '../../aadCommands';
+import commands from '../../commands';
 
 class M365GroupReportActivityFileCountsCommand extends PeriodBasedReport {
   public get name(): string {
@@ -20,4 +20,4 @@ class M365GroupReportActivityFileCountsCommand extends PeriodBasedReport {
   }
 }
 
-export default new M365GroupReportActivityFileCountsCommand();
+module.exports = new M365GroupReportActivityFileCountsCommand();

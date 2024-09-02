@@ -1,11 +1,12 @@
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import VivaEngageCommand from '../../../base/VivaEngageCommand.js';
-import commands from '../../commands.js';
-import yammerCommands from './yammerCommands.js';
+/* eslint-disable camelcase */
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import VivaEngageCommand from '../../../base/VivaEngageCommand';
+import commands from '../../commands';
+import yammerCommands from './yammerCommands';
 
 interface CommandArgs {
   options: Options;
@@ -340,4 +341,4 @@ class VivaEngageSearchCommand extends VivaEngageCommand {
   }
 }
 
-export default new VivaEngageSearchCommand();
+module.exports = new VivaEngageSearchCommand();

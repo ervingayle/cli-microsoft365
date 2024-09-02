@@ -1,11 +1,11 @@
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request,  { CliRequestOptions } from '../../../../request.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { validation } from '../../../../utils/validation.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import { ODataResponse } from '../../../../utils/odata.js';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import { entraUser } from '../../../../utils/entraUser';
+import { validation } from '../../../../utils/validation';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import { ODataResponse } from '../../../../utils/odata';
 
 interface CommandArgs {
   options: Options;
@@ -128,4 +128,4 @@ class EntraUserGroupmembershipListCommand extends GraphCommand {
   }
 }
 
-export default new EntraUserGroupmembershipListCommand();
+module.exports = new EntraUserGroupmembershipListCommand();

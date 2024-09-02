@@ -1,23 +1,16 @@
-import { z } from 'zod';
-import { Logger } from '../../../../cli/Logger.js';
-import { globalOptionsZod } from '../../../../Command.js';
-import request from '../../../../request.js';
-import { validation } from '../../../../utils/validation.js';
-import { zod } from '../../../../utils/zod.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-
-const options = globalOptionsZod
-  .extend({
-    url: zod.alias('u', z.string().refine(url => validation.isValidSharePointUrl(url) === true, {
-      message: 'Specify a valid SharePoint site URL'
-    }))
-  })
-  .strict();
-declare type Options = z.infer<typeof options>;
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
+}
+
+interface Options extends GlobalOptions {
+  url: string;
 }
 
 class SpoSiteGetCommand extends SpoCommand {
@@ -29,8 +22,23 @@ class SpoSiteGetCommand extends SpoCommand {
     return 'Gets information about the specific site collection';
   }
 
-  public get schema(): z.ZodTypeAny | undefined {
-    return options;
+  constructor() {
+    super();
+
+    this.#initOptions();
+    this.#initValidators();
+  }
+
+  #initOptions(): void {
+    this.options.unshift(
+      { option: '-u, --url <url>' }
+    );
+  }
+
+  #initValidators(): void {
+    this.validators.push(
+      async (args) => validation.isValidSharePointUrl(args.options.url)
+    );
   }
 
   public async commandAction(logger: Logger, args: CommandArgs): Promise<void> {
@@ -44,7 +52,7 @@ class SpoSiteGetCommand extends SpoCommand {
 
     try {
       const res = await request.get(requestOptions);
-      await logger.log(res);
+      logger.log(res);
     }
     catch (err: any) {
       this.handleRejectedODataJsonPromise(err);
@@ -52,4 +60,4 @@ class SpoSiteGetCommand extends SpoCommand {
   }
 }
 
-export default new SpoSiteGetCommand();
+module.exports = new SpoSiteGetCommand();

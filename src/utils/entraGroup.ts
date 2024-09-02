@@ -1,9 +1,9 @@
 import { Group } from "@microsoft/microsoft-graph-types";
-import request, { CliRequestOptions } from "../request.js";
-import { formatting } from "./formatting.js";
-import { odata } from "./odata.js";
-import { Logger } from '../cli/Logger.js';
-import { cli } from '../cli/cli.js';
+import request, { CliRequestOptions } from "../request";
+import { formatting } from "./formatting";
+import { odata } from "./odata";
+import { Logger } from '../cli/Logger';
+import { cli } from '../cli/cli';
 
 const graphResource = 'https://graph.microsoft.com';
 

@@ -1,7 +1,7 @@
-import { Logger } from '../../../../cli/Logger.js';
-import { odata } from '../../../../utils/odata.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import { odata } from '../../../../utils/odata';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
 
 class ExternalConnectionListCommand extends GraphCommand {
   public get name(): string {
@@ -31,4 +31,4 @@ class ExternalConnectionListCommand extends GraphCommand {
   }
 }
 
-export default new ExternalConnectionListCommand();
+module.exports = new ExternalConnectionListCommand();

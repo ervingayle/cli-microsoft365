@@ -1,11 +1,11 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth, { CloudType } from '../../Auth.js';
-import { CommandError } from '../../Command.js';
-import { telemetry } from '../../telemetry.js';
-import PowerPlatformCommand from './PowerPlatformCommand.js';
-import { accessToken } from '../../utils/accessToken.js';
-import { sinonUtil } from '../../utils/sinonUtil.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth, { CloudType } from '../../Auth';
+import { CommandError } from '../../Command';
+import { telemetry } from '../../telemetry';
+import PowerPlatformCommand from './PowerPlatformCommand';
+import { accessToken } from '../../utils/accessToken';
+import { sinonUtil } from '../../utils/sinonUtil';
 
 class MockCommand extends PowerPlatformCommand {
   public get name(): string {

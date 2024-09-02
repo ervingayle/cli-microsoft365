@@ -1,4 +1,4 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import { PackageJson, Project } from '../../project-model/index.js';
 import { Finding } from '../../report-model/index.js';
 import { PackageRule } from './PackageRule.js';

@@ -1,11 +1,11 @@
-import os from 'os';
-import auth from '../../../Auth.js';
-import { cli } from '../../../cli/cli.js';
-import { Logger } from '../../../cli/Logger.js';
-import Command from '../../../Command.js';
-import { app } from '../../../utils/app.js';
-import { validation } from '../../../utils/validation.js';
-import commands from '../commands.js';
+import * as os from 'os';
+import auth from '../../../Auth';
+import { cli } from '../../../cli/cli';
+import { Logger } from '../../../cli/Logger';
+import Command from '../../../Command';
+import { app } from '../../../utils/app';
+import { validation } from '../../../utils/validation';
+import commands from '../commands';
 
 interface CliDiagnosticInfo {
   os: {
@@ -113,4 +113,4 @@ class CliDoctorCommand extends Command {
   }
 }
 
-export default new CliDoctorCommand();
+module.exports = new CliDoctorCommand();

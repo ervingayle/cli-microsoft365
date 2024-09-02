@@ -1,12 +1,12 @@
 import { AdministrativeUnit } from "@microsoft/microsoft-graph-types";
-import GlobalOptions from "../../../../GlobalOptions.js";
-import { Logger } from "../../../../cli/Logger.js";
-import { validation } from "../../../../utils/validation.js";
-import request, { CliRequestOptions } from "../../../../request.js";
-import GraphCommand from "../../../base/GraphCommand.js";
-import commands from "../../commands.js";
-import { entraAdministrativeUnit } from "../../../../utils/entraAdministrativeUnit.js";
-import aadCommands from "../../aadCommands.js";
+import GlobalOptions from "../../../../GlobalOptions";
+import { Logger } from "../../../../cli/Logger";
+import { validation } from "../../../../utils/validation";
+import request, { CliRequestOptions } from "../../../../request";
+import GraphCommand from "../../../base/GraphCommand";
+import commands from "../../commands";
+import { entraAdministrativeUnit } from "../../../../utils/entraAdministrativeUnit";
+import aadCommands from "../../aadCommands";
 
 interface CommandArgs {
   options: Options;
@@ -113,4 +113,4 @@ class EntraAdministrativeUnitGetCommand extends GraphCommand {
   }
 }
 
-export default new EntraAdministrativeUnitGetCommand();
+module.exports = new EntraAdministrativeUnitGetCommand();

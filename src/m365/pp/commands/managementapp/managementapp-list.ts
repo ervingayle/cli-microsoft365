@@ -1,7 +1,7 @@
-import { Logger } from '../../../../cli/Logger.js';
-import { odata } from '../../../../utils/odata.js';
-import PowerPlatformCommand from '../../../base/PowerPlatformCommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import { odata } from '../../../../utils/odata';
+import PowerPlatformCommand from '../../../base/PowerPlatformCommand';
+import commands from '../../commands';
 
 interface ManagementApp {
   applicationId: string
@@ -29,4 +29,4 @@ class PpManagementAppListCommand extends PowerPlatformCommand {
   }
 }
 
-export default new PpManagementAppListCommand();
+module.exports = new PpManagementAppListCommand();

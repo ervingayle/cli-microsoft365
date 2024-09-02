@@ -1,5 +1,5 @@
 import { UnifiedRoleAssignment } from '@microsoft/microsoft-graph-types';
-import request, { CliRequestOptions } from '../request.js';
+import request, { CliRequestOptions } from '../request';
 
 const getRequestOptions = (roleDefinitionId: string, principalId: string, directoryScopeId: string): CliRequestOptions => ({
   url: `https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments`,

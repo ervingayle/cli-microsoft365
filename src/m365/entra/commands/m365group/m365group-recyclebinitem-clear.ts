@@ -1,12 +1,12 @@
 import { DirectoryObject } from '@microsoft/microsoft-graph-types';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import { odata } from '../../../../utils/odata.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import aadCommands from '../../aadCommands.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import { odata } from '../../../../utils/odata';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import aadCommands from '../../aadCommands';
 
 interface CommandArgs {
   options: Options;
@@ -102,4 +102,4 @@ class EntraM365GroupRecycleBinItemClearCommand extends GraphCommand {
   }
 }
 
-export default new EntraM365GroupRecycleBinItemClearCommand();
+module.exports = new EntraM365GroupRecycleBinItemClearCommand();

@@ -1,16 +1,16 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { Logger } from '../../../../cli/Logger.js';
-import commands from '../../commands.js';
-import { cli } from '../../../../cli/cli.js';
-import request from '../../../../request.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import command from './multitenant-remove.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { CommandError } from '../../../../Command.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { Logger } from '../../../../cli/Logger';
+import commands from '../../commands';
+import { cli } from '../../../../cli/cli';
+import request from '../../../../request';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+const command: Command = require('./multitenant-remove');
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import Command, { CommandError } from '../../../../Command';
 
 describe(commands.MULTITENANT_REMOVE, () => {
   const tenantId = "526dcbd1-4f42-469e-be90-ba4a7c0b7802";
@@ -167,12 +167,12 @@ describe(commands.MULTITENANT_REMOVE, () => {
     sinonUtil.restore(cli.promptForConfirmation);
     sinon.stub(cli, 'promptForConfirmation').resolves(true);
 
-    await command.action(logger, { options: { } });
+    await command.action(logger, { options: {} });
     assert(deleteRequestStub.calledTwice);
   });
 
   it('prompts before removing the multitenant organization when prompt option not passed', async () => {
-    await command.action(logger, { options: { } });
+    await command.action(logger, { options: {} });
 
     assert(promptIssued);
   });
@@ -180,7 +180,7 @@ describe(commands.MULTITENANT_REMOVE, () => {
   it('aborts removing the multitenant organization when prompt not confirmed', async () => {
     const deleteSpy = sinon.stub(request, 'delete').resolves();
 
-    await command.action(logger, { options: { } });
+    await command.action(logger, { options: {} });
     assert(deleteSpy.notCalled);
   });
 

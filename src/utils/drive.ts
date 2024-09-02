@@ -1,7 +1,7 @@
 
 import { Drive, DriveItem } from '@microsoft/microsoft-graph-types';
-import request, { CliRequestOptions } from "../request.js";
-import { Logger } from "../cli/Logger.js";
+import request, { CliRequestOptions } from "../request";
+import { Logger } from "../cli/Logger";
 
 export const drive = {
   /**

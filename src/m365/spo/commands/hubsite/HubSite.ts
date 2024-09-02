@@ -1,4 +1,4 @@
-import { AssociatedSite } from './AssociatedSite.js';
+import { AssociatedSite } from './AssociatedSite';
 
 export interface HubSite {
   'odata.etag'?: string;

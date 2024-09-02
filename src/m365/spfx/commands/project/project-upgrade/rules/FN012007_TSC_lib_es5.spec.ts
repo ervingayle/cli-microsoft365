@@ -1,4 +1,4 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import { Project } from '../../project-model/index.js';
 import { Finding } from '../../report-model/Finding.js';
 import { FN012007_TSC_lib_es5 } from './FN012007_TSC_lib_es5.js';

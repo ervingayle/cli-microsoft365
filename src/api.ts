@@ -1,4 +1,4 @@
-import { CommandOutput, cli } from "./cli/cli.js";
+import { CommandOutput, cli } from "./cli/cli";
 
 export async function executeCommand(commandName: string, options: any, listener?: {
   stdout: (message: any) => void,

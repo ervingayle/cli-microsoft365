@@ -1,4 +1,5 @@
-import ts, { CreateSourceFileOptions, ScriptKind, ScriptTarget, SourceFile } from 'typescript';
+import * as ts from 'typescript';
+import { CreateSourceFileOptions, ScriptKind, ScriptTarget, SourceFile } from 'typescript';
 
 export const tsUtil = {
   // wrapper needed to avoid the

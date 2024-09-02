@@ -1,14 +1,14 @@
-import Auth from '../../../../Auth.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { entraGroup } from '../../../../utils/entraGroup.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { accessToken } from '../../../../utils/accessToken.js';
-import { validation } from '../../../../utils/validation.js';
-import PowerAppsCommand from '../../../base/PowerAppsCommand.js';
-import commands from '../../commands.js';
+import Auth from '../../../../Auth';
+import GlobalOptions from '../../../../GlobalOptions';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import { entraGroup } from '../../../../utils/entraGroup';
+import { entraUser } from '../../../../utils/entraUser';
+import { accessToken } from '../../../../utils/accessToken';
+import { validation } from '../../../../utils/validation';
+import PowerAppsCommand from '../../../base/PowerAppsCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -194,4 +194,4 @@ class PaAppPermissionRemoveCommand extends PowerAppsCommand {
   }
 }
 
-export default new PaAppPermissionRemoveCommand();
+module.exports = new PaAppPermissionRemoveCommand();

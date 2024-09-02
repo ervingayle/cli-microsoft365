@@ -1,20 +1,21 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './group-member-add.js';
-import { settingsNames } from '../../../../settingsNames.js';
-import { entraGroup } from '../../../../utils/entraGroup.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+import type * as Chalk from 'chalk';
+const command: Command = require('./group-member-add');
+import { settingsNames } from '../../../../settingsNames';
+import { entraGroup } from '../../../../utils/entraGroup';
 import { Group } from '@microsoft/microsoft-graph-types';
-import { CommandError } from '../../../../Command.js';
+import Command, { CommandError } from '../../../../Command';
 
 describe(commands.GROUP_MEMBER_ADD, () => {
   //#region API responses
@@ -387,7 +388,7 @@ describe(commands.GROUP_MEMBER_ADD, () => {
   });
 
   it('correctly logs deprecation warning for aadGroupIds option', async () => {
-    const chalk = (await import('chalk')).default;
+    const chalk: typeof Chalk = require('chalk');
     const loggerErrSpy = sinon.spy(logger, 'logToStderr');
     sinon.stub(request, 'post').resolves();
 
@@ -398,7 +399,7 @@ describe(commands.GROUP_MEMBER_ADD, () => {
   });
 
   it('correctly logs deprecation warning for aadGroupNames option', async () => {
-    const chalk = (await import('chalk')).default;
+    const chalk: typeof Chalk = require('chalk');
     const loggerErrSpy = sinon.spy(logger, 'logToStderr');
     sinon.stub(request, 'post').resolves();
 

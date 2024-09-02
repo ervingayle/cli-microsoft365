@@ -1,4 +1,4 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import { Project } from '../../project-model/index.js';
 import { Finding } from '../../report-model/Finding.js';
 import { FN010006_YORC_framework } from './FN010006_YORC_framework.js';

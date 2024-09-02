@@ -1,19 +1,20 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './engage-user-get.js';
-import yammerCommands from './yammerCommands.js';
-import { accessToken } from '../../../../utils/accessToken.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+import type * as Chalk from 'chalk';
+const command: Command = require('./engage-user-get');
+import yammerCommands from './yammerCommands';
+import { accessToken } from '../../../../utils/accessToken';
 
 describe(commands.ENGAGE_USER_GET, () => {
   let log: string[];
@@ -77,7 +78,7 @@ describe(commands.ENGAGE_USER_GET, () => {
   });
 
   it('correctly logs deprecation warning for yammer command', async () => {
-    const chalk = (await import('chalk')).default;
+    const chalk: typeof Chalk = require('chalk');
     const loggerErrSpy = sinon.spy(logger, 'logToStderr');
     const commandNameStub = sinon.stub(cli, 'currentCommandName').value(yammerCommands.USER_GET);
     sinon.stub(request, 'get').resolves({ 'type': 'user', 'id': 1496550646, 'network_id': 801445, 'state': 'active', 'full_name': 'John Doe' });

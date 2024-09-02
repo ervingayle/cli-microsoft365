@@ -1,11 +1,11 @@
-import auth from '../../../../Auth.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import commands from '../../commands.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { validation } from '../../../../utils/validation.js';
-import { accessToken } from '../../../../utils/accessToken.js';
+import auth from '../../../../Auth';
+import { Logger } from '../../../../cli/Logger';
+import GraphCommand from '../../../base/GraphCommand';
+import GlobalOptions from '../../../../GlobalOptions';
+import commands from '../../commands';
+import request, { CliRequestOptions } from '../../../../request';
+import { validation } from '../../../../utils/validation';
+import { accessToken } from '../../../../utils/accessToken';
 
 interface CommandArgs {
   options: Options;
@@ -109,4 +109,4 @@ class PurviewSensitivityLabelGetCommand extends GraphCommand {
   }
 }
 
-export default new PurviewSensitivityLabelGetCommand();
+module.exports = new PurviewSensitivityLabelGetCommand();

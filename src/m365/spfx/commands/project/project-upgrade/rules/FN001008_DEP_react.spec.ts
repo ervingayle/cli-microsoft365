@@ -1,4 +1,4 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import { Project } from '../../project-model/index.js';
 import { Finding } from '../../report-model/Finding.js';
 import { FN001008_DEP_react } from './FN001008_DEP_react.js';

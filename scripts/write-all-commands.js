@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
 import url, { pathToFileURL } from 'url';
 import Command from '../dist/Command.js';
 import { cli } from '../dist/cli/cli.js';

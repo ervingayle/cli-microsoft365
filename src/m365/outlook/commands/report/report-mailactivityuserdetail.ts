@@ -1,5 +1,5 @@
-import DateAndPeriodBasedReport from '../../../base/DateAndPeriodBasedReport.js';
-import commands from '../../commands.js';
+import DateAndPeriodBasedReport from '../../../base/DateAndPeriodBasedReport';
+import commands from '../../commands';
 
 class OutlookReportMailActivityUserDetailCommand extends DateAndPeriodBasedReport {
   public get name(): string {
@@ -15,4 +15,4 @@ class OutlookReportMailActivityUserDetailCommand extends DateAndPeriodBasedRepor
   }
 }
 
-export default new OutlookReportMailActivityUserDetailCommand();
+module.exports = new OutlookReportMailActivityUserDetailCommand();

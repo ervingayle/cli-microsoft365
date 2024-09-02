@@ -1,5 +1,5 @@
-import assert from 'assert';
-import PlannerCommand from './PlannerCommand.js';
+import * as assert from 'assert';
+import PlannerCommand from './PlannerCommand';
 
 class MockCommand extends PlannerCommand {
   public get name(): string {

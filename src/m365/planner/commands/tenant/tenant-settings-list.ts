@@ -1,7 +1,7 @@
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import PlannerCommand from '../../../base/PlannerCommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import PlannerCommand from '../../../base/PlannerCommand';
+import commands from '../../commands';
 
 class PlannerTenantSettingsListCommand extends PlannerCommand {
   public get name(): string {
@@ -35,4 +35,4 @@ class PlannerTenantSettingsListCommand extends PlannerCommand {
   }
 }
 
-export default new PlannerTenantSettingsListCommand();
+module.exports = new PlannerTenantSettingsListCommand();

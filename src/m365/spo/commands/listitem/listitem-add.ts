@@ -1,17 +1,17 @@
-import os from 'os';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request from '../../../../request.js';
-import { basic } from '../../../../utils/basic.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { ODataResponse } from '../../../../utils/odata.js';
-import { spo } from '../../../../utils/spo.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { ListItemFieldValueResult } from './ListItemFieldValueResult.js';
-import { ListItemInstance } from './ListItemInstance.js';
+import * as os from 'os';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import request from '../../../../request';
+import { basic } from '../../../../utils/basic';
+import { formatting } from '../../../../utils/formatting';
+import { ODataResponse } from '../../../../utils/odata';
+import { spo } from '../../../../utils/spo';
+import { urlUtil } from '../../../../utils/urlUtil';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { ListItemFieldValueResult } from './ListItemFieldValueResult';
+import { ListItemInstance } from './ListItemInstance';
 
 interface CommandArgs {
   options: Options;
@@ -299,4 +299,4 @@ class SpoListItemAddCommand extends SpoCommand {
   }
 }
 
-export default new SpoListItemAddCommand();
+module.exports = new SpoListItemAddCommand();

@@ -1,4 +1,4 @@
-import request, { CliRequestOptions } from "../request.js";
+import request, { CliRequestOptions } from "../request";
 
 export interface ODataResponse<T> {
   '@odata.nextLink'?: string;

@@ -1,20 +1,20 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { CommandError } from '../../../../Command.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { powerPlatform } from '../../../../utils/powerPlatform.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import ppChatbotGetCommand from './chatbot-get.js';
-import command from './chatbot-remove.js';
-import { accessToken } from '../../../../utils/accessToken.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import Command, { CommandError } from '../../../../Command';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { powerPlatform } from '../../../../utils/powerPlatform';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+import * as ppChatbotGetCommand from './chatbot-get';
+const command: Command = require('./chatbot-remove');
+import { accessToken } from '../../../../utils/accessToken';
 
 describe(commands.CHATBOT_REMOVE, () => {
   let commandInfo: CommandInfo;

@@ -1,4 +1,4 @@
-import appInsights from './appInsights.js';
+import appInsights from './appInsights';
 import * as process from 'process';
 import * as fs from 'fs';
 

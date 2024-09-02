@@ -1,4 +1,4 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import { Project } from '../../project-model/index.js';
 import { Finding } from '../../report-model/Finding.js';
 import { FN003003_CFG_bundles } from './FN003003_CFG_bundles.js';

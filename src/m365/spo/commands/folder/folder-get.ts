@@ -1,14 +1,14 @@
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { ListPrincipalType } from '../list/ListPrincipalType.js';
-import { FolderProperties } from './FolderProperties.js';
+import { Logger } from '../../../../cli/Logger';
+import { CommandError } from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { urlUtil } from '../../../../utils/urlUtil';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { ListPrincipalType } from '../list/ListPrincipalType';
+import { FolderProperties } from './FolderProperties';
 interface CommandArgs {
   options: Options;
 }
@@ -144,4 +144,4 @@ class SpoFolderGetCommand extends SpoCommand {
   }
 }
 
-export default new SpoFolderGetCommand();
+module.exports = new SpoFolderGetCommand();

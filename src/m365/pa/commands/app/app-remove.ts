@@ -1,12 +1,12 @@
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { validation } from '../../../../utils/validation.js';
-import PowerAppsCommand from '../../../base/PowerAppsCommand.js';
-import commands from '../../commands.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import { CommandError } from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { validation } from '../../../../utils/validation';
+import PowerAppsCommand from '../../../base/PowerAppsCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -130,4 +130,4 @@ class PaAppRemoveCommand extends PowerAppsCommand {
   }
 }
 
-export default new PaAppRemoveCommand();
+module.exports = new PaAppRemoveCommand();

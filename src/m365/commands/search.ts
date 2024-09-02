@@ -1,10 +1,10 @@
 import { SearchHit, SearchResponse } from '@microsoft/microsoft-graph-types';
-import { Logger } from '../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../request.js';
-import GraphCommand from '../base/GraphCommand.js';
-import GlobalOptions from '../../GlobalOptions.js';
-import { ODataResponse } from '../../utils/odata.js';
-import commands from './commands.js';
+import { Logger } from '../../cli/Logger';
+import request, { CliRequestOptions } from '../../request';
+import GraphCommand from '../base/GraphCommand';
+import GlobalOptions from '../../GlobalOptions';
+import { ODataResponse } from '../../utils/odata';
+import commands from './commands';
 
 interface CommandArgs {
   options: Options;
@@ -235,4 +235,4 @@ class SearchCommand extends GraphCommand {
   }
 }
 
-export default new SearchCommand();
+module.exports = new SearchCommand();

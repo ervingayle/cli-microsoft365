@@ -1,20 +1,20 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { CommandError } from '../../../../Command.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { accessToken } from '../../../../utils/accessToken.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import { formatting } from '../../../../utils/formatting.js';
-import commands from '../../commands.js';
-import command from './meeting-list.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import Command, { CommandError } from '../../../../Command';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { entraUser } from '../../../../utils/entraUser';
+import { accessToken } from '../../../../utils/accessToken';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import { formatting } from '../../../../utils/formatting';
+import commands from '../../commands';
+const command: Command = require('./meeting-list');
 
 describe(commands.MEETING_LIST, () => {
   const userId = '68be84bf-a585-4776-80b3-30aa5207aa21';

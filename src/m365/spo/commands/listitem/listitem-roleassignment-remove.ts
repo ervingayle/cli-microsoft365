@@ -1,15 +1,17 @@
-import { cli, CommandOutput } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import spoGroupGetCommand, { Options as SpoGroupGetCommandOptions } from '../group/group-get.js';
-import spoUserGetCommand, { Options as SpoUserGetCommandOptions } from '../user/user-get.js';
+import { cli, CommandOutput } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { urlUtil } from '../../../../utils/urlUtil';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import * as spoGroupGetCommand from '../group/group-get';
+import * as spoUserGetCommand from '../user/user-get';
+import { Options as SpoGroupGetCommandOptions } from '../group/group-get';
+import { Options as SpoUserGetCommandOptions } from '../user/user-get';
 
 interface CommandArgs {
   options: Options;
@@ -218,4 +220,4 @@ class SpoListItemRoleAssignmentRemoveCommand extends SpoCommand {
   }
 }
 
-export default new SpoListItemRoleAssignmentRemoveCommand();
+module.exports = new SpoListItemRoleAssignmentRemoveCommand();

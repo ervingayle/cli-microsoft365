@@ -1,11 +1,12 @@
 import { Application, AppRole, AppRoleAssignment, OAuth2PermissionGrant, PermissionScope, RequiredResourceAccess, ResourceAccess, ServicePrincipal } from '@microsoft/microsoft-graph-types';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command from '../../../../Command.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import appGetCommand, { Options as AppGetCommandOptions } from '../../../entra/commands/app/app-get.js';
-import AppCommand from '../../../base/AppCommand.js';
-import commands from '../../commands.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command from '../../../../Command';
+import request, { CliRequestOptions } from '../../../../request';
+import * as appGetCommand from '../../../entra/commands/app/app-get';
+import { Options as AppGetCommandOptions } from '../../../entra/commands/app/app-get';
+import AppCommand from '../../../base/AppCommand';
+import commands from '../../commands';
 
 interface ApiPermission {
   resource: string;
@@ -295,4 +296,4 @@ class AppPermissionListCommand extends AppCommand {
   }
 }
 
-export default new AppPermissionListCommand();
+module.exports = new AppPermissionListCommand();

@@ -1,20 +1,16 @@
-import assert from 'assert';
-import chalk from 'chalk';
-import sinon from 'sinon';
-import { z } from 'zod';
-import auth from './Auth.js';
-import Command, {
-  CommandError,
-  globalOptionsZod
-} from './Command.js';
-import { CommandOptionInfo } from './cli/CommandOptionInfo.js';
-import { Logger } from './cli/Logger.js';
-import { cli } from './cli/cli.js';
-import { telemetry } from './telemetry.js';
-import { accessToken } from './utils/accessToken.js';
-import { pid } from './utils/pid.js';
-import { session } from './utils/session.js';
-import { sinonUtil } from './utils/sinonUtil.js';
+import * as assert from 'assert';
+import * as chalk from 'chalk';
+import * as sinon from 'sinon';
+import auth from './Auth';
+import Command, { CommandError } from './Command';
+import { CommandOptionInfo } from './cli/CommandOptionInfo';
+import { Logger } from './cli/Logger';
+import { cli } from './cli/cli';
+import { telemetry } from './telemetry';
+import { accessToken } from './utils/accessToken';
+import { pid } from './utils/pid';
+import { session } from './utils/session';
+import { sinonUtil } from './utils/sinonUtil';
 
 class MockCommand1 extends Command {
   public get name(): string {
@@ -136,10 +132,6 @@ class MockCommandWithSchema extends Command {
 
   public get description(): string {
     return 'Mock command description';
-  }
-
-  public get schema(): z.ZodTypeAny | undefined {
-    return globalOptionsZod;
   }
 
   public optionsInfo: CommandOptionInfo[] = [

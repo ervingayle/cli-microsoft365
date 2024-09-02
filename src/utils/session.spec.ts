@@ -1,8 +1,8 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import { session } from '../utils/session.js';
-import { cache } from './cache.js';
-import { sinonUtil } from './sinonUtil.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import { session } from '../utils/session';
+import { cache } from './cache';
+import { sinonUtil } from './sinonUtil';
 
 describe('utils/session', () => {
   afterEach(() => {

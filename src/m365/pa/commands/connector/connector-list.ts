@@ -1,11 +1,11 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { odata } from '../../../../utils/odata.js';
-import PowerAppsCommand from '../../../base/PowerAppsCommand.js';
-import flowCommands from '../../../flow/commands.js';
-import commands from '../../commands.js';
-import { Connector } from './Connector.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import { formatting } from '../../../../utils/formatting';
+import { odata } from '../../../../utils/odata';
+import PowerAppsCommand from '../../../base/PowerAppsCommand';
+import flowCommands from '../../../flow/commands';
+import commands from '../../commands';
+import { Connector } from './Connector';
 
 interface CommandArgs {
   options: Options;
@@ -71,4 +71,4 @@ class PaConnectorListCommand extends PowerAppsCommand {
   }
 }
 
-export default new PaConnectorListCommand();
+module.exports = new PaConnectorListCommand();

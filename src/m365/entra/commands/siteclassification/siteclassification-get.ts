@@ -1,10 +1,10 @@
 import { GroupSetting, SettingValue } from '@microsoft/microsoft-graph-types';
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import { SiteClassificationSettings } from './SiteClassificationSettings.js';
-import aadCommands from '../../aadCommands.js';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import { SiteClassificationSettings } from './SiteClassificationSettings';
+import aadCommands from '../../aadCommands';
 
 class EntraSiteClassificationGetCommand extends GraphCommand {
   public get name(): string {
@@ -94,4 +94,4 @@ class EntraSiteClassificationGetCommand extends GraphCommand {
   }
 }
 
-export default new EntraSiteClassificationGetCommand();
+module.exports = new EntraSiteClassificationGetCommand();

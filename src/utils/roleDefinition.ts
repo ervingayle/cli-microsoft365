@@ -1,7 +1,7 @@
 import { RoleDefinition } from '@microsoft/microsoft-graph-types';
-import { cli } from '../cli/cli.js';
-import { formatting } from './formatting.js';
-import { odata } from './odata.js';
+import { cli } from '../cli/cli';
+import { formatting } from './formatting';
+import { odata } from './odata';
 
 export const roleDefinition = {
   /**

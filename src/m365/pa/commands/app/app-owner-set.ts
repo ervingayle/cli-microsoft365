@@ -1,10 +1,10 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { validation } from '../../../../utils/validation.js';
-import PowerAppsCommand from '../../../base/PowerAppsCommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { entraUser } from '../../../../utils/entraUser';
+import { validation } from '../../../../utils/validation';
+import PowerAppsCommand from '../../../base/PowerAppsCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -132,4 +132,4 @@ class PaAppOwnerSetCommand extends PowerAppsCommand {
   }
 }
 
-export default new PaAppOwnerSetCommand();
+module.exports = new PaAppOwnerSetCommand();

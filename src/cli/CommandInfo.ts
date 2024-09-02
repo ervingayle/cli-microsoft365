@@ -1,5 +1,5 @@
-import Command from "../Command.js";
-import { CommandOptionInfo } from "./CommandOptionInfo.js";
+import Command from "../Command";
+import { CommandOptionInfo } from "./CommandOptionInfo";
 
 export interface CommandInfo {
   aliases: string[] | undefined;

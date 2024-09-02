@@ -1,17 +1,17 @@
-import assert from 'assert';
-import Sinon, * as sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './tab-add.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+const command: Command = require('./tab-add');
 
 describe(commands.TAB_ADD, () => {
   let log: string[];
@@ -184,7 +184,7 @@ describe(commands.TAB_ADD, () => {
   });
 
   it('ignores global options when creating request data', async () => {
-    const postStub: Sinon.SinonStub = sinon.stub(request, 'post').callsFake(async (opts) => {
+    const postStub: any = sinon.stub(request, 'post').callsFake(async (opts) => {
       if ((opts.url as string).indexOf(`https://graph.microsoft.com/v1.0/teams/3b4797e5-bdf3-48e1-a552-839af71562ef`) > -1) {
         return {
           "id": "19:f3dcbb1674574677abcae89cb626f1e6@thread.skype",

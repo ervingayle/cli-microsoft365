@@ -1,7 +1,7 @@
-import { Logger } from '../../../../cli/Logger.js';
-import DateAndPeriodBasedReport, { CommandArgs } from '../../../base/DateAndPeriodBasedReport.js';
-import commands from '../../commands.js';
-import yammerCommands from './yammerCommands.js';
+import { Logger } from '../../../../cli/Logger';
+import DateAndPeriodBasedReport, { CommandArgs } from '../../../base/DateAndPeriodBasedReport';
+import commands from '../../commands';
+import yammerCommands from './yammerCommands';
 
 class VivaEngageReportGroupsActivityDetailCommand extends DateAndPeriodBasedReport {
   public get name(): string {
@@ -27,4 +27,4 @@ class VivaEngageReportGroupsActivityDetailCommand extends DateAndPeriodBasedRepo
   }
 }
 
-export default new VivaEngageReportGroupsActivityDetailCommand();
+module.exports = new VivaEngageReportGroupsActivityDetailCommand();

@@ -1,9 +1,10 @@
-import { cli } from '../../../cli/cli.js';
-import { Logger } from '../../../cli/Logger.js';
-import Command from '../../../Command.js';
-import entraAppGetCommand, { Options as EntraAppGetCommandOptions } from '../../entra/commands/app/app-get.js';
-import AppCommand, { AppCommandArgs } from '../../base/AppCommand.js';
-import commands from '../commands.js';
+import { cli } from '../../../cli/cli';
+import { Logger } from '../../../cli/Logger';
+import Command from '../../../Command';
+import * as entraAppGetCommand from '../../entra/commands/app/app-get';
+import { Options as EntraAppGetCommandOptions } from '../../entra/commands/app/app-get';
+import AppCommand, { AppCommandArgs } from '../../base/AppCommand';
+import commands from '../commands';
 
 class AppGetCommand extends AppCommand {
   public get name(): string {
@@ -36,4 +37,4 @@ class AppGetCommand extends AppCommand {
   }
 }
 
-export default new AppGetCommand();
+module.exports = new AppGetCommand();

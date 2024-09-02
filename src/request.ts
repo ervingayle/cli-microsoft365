@@ -1,10 +1,10 @@
 import Axios, { AxiosError, AxiosInstance, AxiosPromise, AxiosProxyConfig, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Stream } from 'stream';
-import auth, { Auth, CloudType } from './Auth.js';
-import { Logger } from './cli/Logger.js';
-import { app } from './utils/app.js';
-import { formatting } from './utils/formatting.js';
-import { timings } from './cli/timings.js';
+import auth, { Auth, CloudType } from './Auth';
+import { Logger } from './cli/Logger';
+import { app } from './utils/app';
+import { formatting } from './utils/formatting';
+import { timings } from './cli/timings';
 
 export interface CliRequestOptions extends AxiosRequestConfig {
   fullResponse?: boolean;

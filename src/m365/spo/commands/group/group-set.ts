@@ -1,12 +1,13 @@
-import { cli, CommandOutput } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { validation } from '../../../../utils/validation.js';
-import entraUserGetCommand, { Options as EntraUserGetCommandOptions } from '../../../entra/commands/user/user-get.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
+import { cli, CommandOutput } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { validation } from '../../../../utils/validation';
+import * as entraUserGetCommand from '../../../entra/commands/user/user-get';
+import { Options as EntraUserGetCommandOptions } from '../../../entra/commands/user/user-get';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -213,4 +214,4 @@ class SpoGroupSetCommand extends SpoCommand {
   }
 }
 
-export default new SpoGroupSetCommand();
+module.exports = new SpoGroupSetCommand();

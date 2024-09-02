@@ -1,19 +1,18 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './roster-member-remove.js';
-import { ConfirmationConfig } from '../../../../utils/prompt.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { formatting } from '../../../../utils/formatting';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+const command: Command = require('./roster-member-remove');
 
 describe(commands.ROSTER_MEMBER_REMOVE, () => {
   let commandInfo: CommandInfo;
@@ -141,7 +140,7 @@ describe(commands.ROSTER_MEMBER_REMOVE, () => {
   it('prompts before removing the last roster member when force option not passed', async () => {
     let secondPromptConfirm: boolean = false;
     sinonUtil.restore(cli.promptForConfirmation);
-    sinon.stub(cli, 'promptForConfirmation').callsFake(async (config: ConfirmationConfig) => {
+    sinon.stub(cli, 'promptForConfirmation').callsFake(async (config: any) => {
       if (config.message === `Are you sure you want to remove member '${validUserId}'?`) {
         return true;
       }

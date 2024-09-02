@@ -1,13 +1,13 @@
-import auth from '../../../../Auth.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { accessToken } from '../../../../utils/accessToken.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { validation } from '../../../../utils/validation.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import aadCommands from '../../aadCommands.js';
-import commands from '../../commands.js';
+import auth from '../../../../Auth';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { accessToken } from '../../../../utils/accessToken';
+import { formatting } from '../../../../utils/formatting';
+import { validation } from '../../../../utils/validation';
+import GraphCommand from '../../../base/GraphCommand';
+import aadCommands from '../../aadCommands';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -385,4 +385,4 @@ class EntraUserSetCommand extends GraphCommand {
   }
 }
 
-export default new EntraUserSetCommand();
+module.exports = new EntraUserSetCommand();

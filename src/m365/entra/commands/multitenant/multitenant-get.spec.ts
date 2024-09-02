@@ -1,15 +1,15 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import request from '../../../../request.js';
-import commands from '../../commands.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import command from './multitenant-get.js';
-import { CommandError } from '../../../../Command.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import request from '../../../../request';
+import commands from '../../commands';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { Logger } from '../../../../cli/Logger';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+const command: Command = require('./multitenant-get');
+import Command, { CommandError } from '../../../../Command';
 
 describe(commands.MULTITENANT_GET, () => {
   let log: string[];

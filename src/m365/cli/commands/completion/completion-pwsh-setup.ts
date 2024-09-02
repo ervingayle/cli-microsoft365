@@ -1,17 +1,14 @@
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
-import url from 'url';
-import { autocomplete } from '../../../../autocomplete.js';
-import { Logger } from '../../../../cli/Logger.js';
+import * as fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
+import { autocomplete } from '../../../../autocomplete';
+import { Logger } from '../../../../cli/Logger';
 import {
   CommandError
-} from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import AnonymousCommand from '../../../base/AnonymousCommand.js';
-import commands from '../../commands.js';
-
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+} from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import AnonymousCommand from '../../../base/AnonymousCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -108,4 +105,4 @@ class CliCompletionPwshSetupCommand extends AnonymousCommand {
   }
 }
 
-export default new CliCompletionPwshSetupCommand();
+module.exports = new CliCompletionPwshSetupCommand();

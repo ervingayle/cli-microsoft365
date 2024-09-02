@@ -1,9 +1,9 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import VivaEngageCommand from '../../../base/VivaEngageCommand.js';
-import commands from '../../commands.js';
-import yammerCommands from './yammerCommands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import VivaEngageCommand from '../../../base/VivaEngageCommand';
+import commands from '../../commands';
+import yammerCommands from './yammerCommands';
 
 interface CommandArgs {
   options: Options;
@@ -111,9 +111,13 @@ class VivaEngageMessageAddCommand extends VivaEngageCommand {
       responseType: 'json',
       data: {
         body: args.options.body,
+        // eslint-disable-next-line camelcase
         replied_to_id: args.options.repliedToId,
+        // eslint-disable-next-line camelcase
         direct_to_user_ids: args.options.directToUserIds,
+        // eslint-disable-next-line camelcase
         group_id: args.options.groupId,
+        // eslint-disable-next-line camelcase
         network_id: args.options.networkId
       }
     };
@@ -133,4 +137,4 @@ class VivaEngageMessageAddCommand extends VivaEngageCommand {
   }
 }
 
-export default new VivaEngageMessageAddCommand();
+module.exports = new VivaEngageMessageAddCommand();

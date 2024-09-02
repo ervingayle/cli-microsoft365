@@ -1,19 +1,19 @@
-import assert from 'assert';
-import chalk from 'chalk';
-import fs from 'fs';
-import path from 'path';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import spoServicePrincipalGrantAddCommand from '../../../spo/commands/serviceprincipal/serviceprincipal-grant-add.js';
-import commands from '../../commands.js';
-import command from './project-permissions-grant.js';
+import * as assert from 'assert';
+import * as chalk from 'chalk';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import * as spoServicePrincipalGrantAddCommand from '../../../spo/commands/serviceprincipal/serviceprincipal-grant-add';
+import commands from '../../commands';
+const command: Command = require('./project-permissions-grant');
 
 describe(commands.PROJECT_PERMISSIONS_GRANT, () => {
   let log: any[];

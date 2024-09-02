@@ -1,11 +1,11 @@
-import fs from 'fs';
-import { cli } from '../../cli/cli.js';
-import { Logger } from '../../cli/Logger.js';
-import Command, { CommandArgs, CommandError } from '../../Command.js';
-import GlobalOptions from '../../GlobalOptions.js';
-import { validation } from '../../utils/validation.js';
-import { M365RcJson, M365RcJsonApp } from './M365RcJson.js';
-import { formatting } from '../../utils/formatting.js';
+import * as fs from 'fs';
+import { cli } from '../../cli/cli';
+import { Logger } from '../../cli/Logger';
+import Command, { CommandArgs, CommandError } from '../../Command';
+import GlobalOptions from '../../GlobalOptions';
+import { validation } from '../../utils/validation';
+import { M365RcJson, M365RcJsonApp } from './M365RcJson';
+import { formatting } from '../../utils/formatting';
 
 export interface AppCommandArgs {
   options: AppCommandOptions;

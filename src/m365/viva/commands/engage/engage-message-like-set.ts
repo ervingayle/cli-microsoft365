@@ -1,10 +1,10 @@
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import VivaEngageCommand from '../../../base/VivaEngageCommand.js';
-import commands from '../../commands.js';
-import yammerCommands from './yammerCommands.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import VivaEngageCommand from '../../../base/VivaEngageCommand';
+import commands from '../../commands';
+import yammerCommands from './yammerCommands';
 
 interface CommandArgs {
   options: Options;
@@ -109,6 +109,7 @@ class VivaEngageMessageLikeSetCommand extends VivaEngageCommand {
       },
       responseType: 'json',
       data: {
+        // eslint-disable-next-line camelcase
         message_id: options.messageId
       }
     };
@@ -127,4 +128,4 @@ class VivaEngageMessageLikeSetCommand extends VivaEngageCommand {
   }
 }
 
-export default new VivaEngageMessageLikeSetCommand();
+module.exports = new VivaEngageMessageLikeSetCommand();

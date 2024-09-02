@@ -1,9 +1,9 @@
-import fs from 'fs';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import ContextCommand from '../../../base/ContextCommand.js';
-import { M365RcJson } from '../../../base/M365RcJson.js';
-import commands from '../../commands.js';
+import * as fs from 'fs';
+import { Logger } from '../../../../cli/Logger';
+import { CommandError } from '../../../../Command';
+import ContextCommand from '../../../base/ContextCommand';
+import { M365RcJson } from '../../../base/M365RcJson';
+import commands from '../../commands';
 
 class ContextOptionListCommand extends ContextCommand {
   public get name(): string {
@@ -45,4 +45,4 @@ class ContextOptionListCommand extends ContextCommand {
   }
 }
 
-export default new ContextOptionListCommand();
+module.exports = new ContextOptionListCommand();

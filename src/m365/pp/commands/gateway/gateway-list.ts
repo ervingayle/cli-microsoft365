@@ -1,7 +1,7 @@
-import { Logger } from '../../../../cli/Logger.js';
-import request from '../../../../request.js';
-import PowerBICommand from '../../../base/PowerBICommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import request from '../../../../request';
+import PowerBICommand from '../../../base/PowerBICommand';
+import commands from '../../commands';
 
 class PpGatewayListCommand extends PowerBICommand {
   public get name(): string {
@@ -39,4 +39,4 @@ class PpGatewayListCommand extends PowerBICommand {
   }
 }
 
-export default new PpGatewayListCommand();
+module.exports = new PpGatewayListCommand();

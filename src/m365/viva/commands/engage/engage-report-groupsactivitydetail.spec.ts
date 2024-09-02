@@ -1,16 +1,18 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './engage-report-groupsactivitydetail.js';
-import yammerCommands from './yammerCommands.js';
-import { cli } from '../../../../cli/cli.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { Logger } from '../../../../cli/Logger';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+import type * as Chalk from 'chalk';
+const command: Command = require('./engage-report-groupsactivitydetail');
+import yammerCommands from './yammerCommands';
+import { cli } from '../../../../cli/cli';
+import Command from '../../../../Command';
 
 describe(commands.ENGAGE_REPORT_GROUPSACTIVITYDETAIL, () => {
   let log: string[];
@@ -65,7 +67,7 @@ describe(commands.ENGAGE_REPORT_GROUPSACTIVITYDETAIL, () => {
   });
 
   it('correctly logs deprecation warning for yammer command', async () => {
-    const chalk = (await import('chalk')).default;
+    const chalk: typeof Chalk = require('chalk');
     const loggerErrSpy = sinon.spy(logger, 'logToStderr');
     const commandNameStub = sinon.stub(cli, 'currentCommandName').value(yammerCommands.REPORT_GROUPSACTIVITYDETAIL);
     sinon.stub(request, 'get').resolves('Report Refresh Date,Group Display Name,Is Deleted,Owner Principal Name,Last Activity Date,Group Type,Microsoft 365 Connected,Member Count,Posted Count,Read Count,Liked Count,Report Period');

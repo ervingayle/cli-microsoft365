@@ -1,10 +1,10 @@
-import { Logger } from '../../../../cli/Logger.js';
-import config from '../../../../config.js';
-import request from '../../../../request.js';
-import { ClientSvcResponse, ClientSvcResponseContents, spo } from '../../../../utils/spo.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { OrgAssets, OrgAssetsResponse } from './OrgAssets.js';
+import { Logger } from '../../../../cli/Logger';
+import config from '../../../../config';
+import request from '../../../../request';
+import { ClientSvcResponse, ClientSvcResponseContents, spo } from '../../../../utils/spo';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { OrgAssets, OrgAssetsResponse } from './OrgAssets';
 
 class SpoOrgAssetsLibraryListCommand extends SpoCommand {
   public get name(): string {
@@ -65,4 +65,4 @@ class SpoOrgAssetsLibraryListCommand extends SpoCommand {
   }
 }
 
-export default new SpoOrgAssetsLibraryListCommand();
+module.exports = new SpoOrgAssetsLibraryListCommand();

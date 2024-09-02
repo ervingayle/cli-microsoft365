@@ -1,12 +1,12 @@
 import { v4 } from 'uuid';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import { cli } from '../../../../cli/cli.js';
-import aadCommands from '../../aadCommands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import { cli } from '../../../../cli/cli';
+import aadCommands from '../../aadCommands';
 
 interface CommandArgs {
   options: Options;
@@ -215,4 +215,4 @@ class EntraAppRoleAddCommand extends GraphCommand {
   }
 }
 
-export default new EntraAppRoleAddCommand();
+module.exports = new EntraAppRoleAddCommand();

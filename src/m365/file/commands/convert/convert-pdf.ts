@@ -1,17 +1,17 @@
 import { AxiosResponse } from 'axios';
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
-import url from 'url';
+import * as fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
+import * as url from 'url';
 import { v4 } from 'uuid';
-import auth from '../../../../Auth.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { accessToken } from '../../../../utils/accessToken.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
+import auth from '../../../../Auth';
+import { Logger } from '../../../../cli/Logger';
+import { CommandError } from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { accessToken } from '../../../../utils/accessToken';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -475,4 +475,4 @@ class FileConvertPdfCommand extends GraphCommand {
   }
 }
 
-export default new FileConvertPdfCommand();
+module.exports = new FileConvertPdfCommand();

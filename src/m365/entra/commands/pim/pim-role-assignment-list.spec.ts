@@ -1,19 +1,19 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import commands from '../../commands.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import command from './pim-role-assignment-list.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { entraGroup } from '../../../../utils/entraGroup.js';
-import { CommandError } from '../../../../Command.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import commands from '../../commands';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { Logger } from '../../../../cli/Logger';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+const command: Command = require('./pim-role-assignment-list');
+import { entraUser } from '../../../../utils/entraUser';
+import { entraGroup } from '../../../../utils/entraGroup';
+import Command, { CommandError } from '../../../../Command';
 
 describe(commands.PIM_ROLE_ASSIGNMENT_LIST, () => {
   const userId = '61b0c52f-a902-4769-9a09-c6628335b00a';

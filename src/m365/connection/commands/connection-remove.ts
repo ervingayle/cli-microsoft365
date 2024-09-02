@@ -1,9 +1,9 @@
-import { Logger } from '../../../cli/Logger.js';
-import auth from '../../../Auth.js';
-import commands from '../commands.js';
-import Command, { CommandError } from '../../../Command.js';
-import GlobalOptions from '../../../GlobalOptions.js';
-import { cli } from '../../../cli/cli.js';
+import { Logger } from '../../../cli/Logger';
+import auth from '../../../Auth';
+import commands from '../commands';
+import Command, { CommandError } from '../../../Command';
+import GlobalOptions from '../../../GlobalOptions';
+import { cli } from '../../../cli/cli';
 
 interface CommandArgs {
   options: Options;
@@ -92,4 +92,4 @@ class ConnectionRemoveCommand extends Command {
   }
 }
 
-export default new ConnectionRemoveCommand();
+module.exports = new ConnectionRemoveCommand();

@@ -1,20 +1,19 @@
-import chalk from 'chalk';
-import os from 'os';
-import auth, { AuthType } from '../../Auth.js';
-import { cli } from '../../cli/cli.js';
-import { Logger } from '../../cli/Logger.js';
-import config from '../../config.js';
-import GlobalOptions from '../../GlobalOptions.js';
-import { settingsNames } from '../../settingsNames.js';
-import { accessToken } from '../../utils/accessToken.js';
-import { AppCreationOptions, AppInfo, entraApp } from '../../utils/entraApp.js';
-import { CheckStatus, formatting } from '../../utils/formatting.js';
-import { pid } from '../../utils/pid.js';
-import { ConfirmationConfig, SelectionConfig } from '../../utils/prompt.js';
-import { validation } from '../../utils/validation.js';
-import AnonymousCommand from '../base/AnonymousCommand.js';
-import commands from './commands.js';
-import { interactivePreset, powerShellPreset, scriptingPreset } from './setupPresets.js';
+import * as chalk from 'chalk';
+import * as os from 'os';
+import auth, { AuthType } from '../../Auth';
+import { cli } from '../../cli/cli';
+import { Logger } from '../../cli/Logger';
+import config from '../../config';
+import GlobalOptions from '../../GlobalOptions';
+import { settingsNames } from '../../settingsNames';
+import { accessToken } from '../../utils/accessToken';
+import { AppCreationOptions, AppInfo, entraApp } from '../../utils/entraApp';
+import { CheckStatus, formatting } from '../../utils/formatting';
+import { pid } from '../../utils/pid';
+import { validation } from '../../utils/validation';
+import AnonymousCommand from '../base/AnonymousCommand';
+import commands from './commands';
+import { interactivePreset, powerShellPreset, scriptingPreset } from './setupPresets';
 
 export interface Preferences {
   clientId?: string;
@@ -149,7 +148,7 @@ class SetupCommand extends AnonymousCommand {
     const preferences: Preferences = {};
 
     if (!args.options.skipApp) {
-      const entraAppConfig: SelectionConfig<EntraAppConfig> = {
+      const entraAppConfig = {
         message: 'CLI for Microsoft 365 requires a Microsoft Entra app. Do you want to create a new app registration or use an existing one?',
         choices: [
           { name: 'Create a new app registration', value: EntraAppConfig.Create },
@@ -160,7 +159,7 @@ class SetupCommand extends AnonymousCommand {
       preferences.entraApp = await cli.promptForSelection(entraAppConfig);
       switch (preferences.entraApp) {
         case EntraAppConfig.Create:
-          const newEntraAppScopesConfig: SelectionConfig<NewEntraAppScopes> = {
+          const newEntraAppScopesConfig = {
             message: 'What scopes should the new app registration have?',
             choices: [
               { name: 'User.Read (you will need to add the necessary permissions yourself)', value: NewEntraAppScopes.Minimal },
@@ -179,7 +178,7 @@ class SetupCommand extends AnonymousCommand {
       preferences.entraApp = EntraAppConfig.Skip;
     }
 
-    const usageModeConfig: SelectionConfig<CliUsageMode> = {
+    const usageModeConfig = {
       message: 'How do you plan to use the CLI?',
       choices: [
         { name: 'Interactively', value: CliUsageMode.Interactively },
@@ -189,14 +188,14 @@ class SetupCommand extends AnonymousCommand {
     preferences.usageMode = await cli.promptForSelection(usageModeConfig);
 
     if (preferences.usageMode === CliUsageMode.Scripting) {
-      const usedInPowerShellConfig: ConfirmationConfig = {
+      const usedInPowerShellConfig = {
         message: 'Are you going to use the CLI in PowerShell?',
         default: pid.isPowerShell()
       };
       preferences.usedInPowerShell = await cli.promptForConfirmation(usedInPowerShellConfig);
     }
 
-    const experienceConfig: SelectionConfig<CliExperience> = {
+    const experienceConfig = {
       message: 'How experienced are you in using the CLI?',
       choices: [
         { name: 'Beginner', value: CliExperience.Beginner },
@@ -205,7 +204,7 @@ class SetupCommand extends AnonymousCommand {
     };
     preferences.experience = await cli.promptForSelection(experienceConfig);
 
-    const summaryConfig: ConfirmationConfig = {
+    const summaryConfig = {
       message: this.getSummaryMessage(preferences)
     };
     preferences.summary = await cli.promptForConfirmation(summaryConfig);
@@ -238,18 +237,18 @@ class SetupCommand extends AnonymousCommand {
     let clientCertificateBase64Encoded: string | undefined;
     let clientCertificatePassword: string | undefined;
 
-    const clientId = await cli.promptForInput({
+    const clientId = await cli.promptForInput<string>({
       message: 'Client ID:',
       /* c8 ignore next */
-      validate: value => validation.isValidGuid(value) ? true : 'The specified value is not a valid GUID.'
+      validate: (value: string | undefined) => validation.isValidGuid(value) ? true : 'The specified value is not a valid GUID.'
     });
-    const tenantId = await cli.promptForInput({
+    const tenantId = await cli.promptForInput<string>({
       message: 'Tenant ID (leave common if the app is multitenant):',
       default: 'common',
       /* c8 ignore next */
-      validate: value => value === 'common' || validation.isValidGuid(value) ? true : `Tenant ID must be a valid GUID or 'common'.`
+      validate: (value: string | undefined) => value === 'common' || validation.isValidGuid(value) ? true : `Tenant ID must be a valid GUID or 'common'.`
     });
-    const clientSecret = await cli.promptForInput({
+    const clientSecret = await cli.promptForInput<string>({
       message: 'Client secret (leave empty if you use a certificate or a public client):'
     });
     if (!clientSecret) {
@@ -460,4 +459,4 @@ class SetupCommand extends AnonymousCommand {
   }
 }
 
-export default new SetupCommand();
+module.exports = new SetupCommand();

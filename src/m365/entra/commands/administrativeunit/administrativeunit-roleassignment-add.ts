@@ -1,12 +1,12 @@
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { entraAdministrativeUnit } from '../../../../utils/entraAdministrativeUnit.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { roleAssignment } from '../../../../utils/roleAssignment.js';
-import { roleDefinition } from '../../../../utils/roleDefinition.js';
-import { validation } from '../../../../utils/validation.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import { entraAdministrativeUnit } from '../../../../utils/entraAdministrativeUnit';
+import { entraUser } from '../../../../utils/entraUser';
+import { roleAssignment } from '../../../../utils/roleAssignment';
+import { roleDefinition } from '../../../../utils/roleDefinition';
+import { validation } from '../../../../utils/validation';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -139,4 +139,4 @@ class EntraAdministrativeUnitRoleAssignmentAddCommand extends GraphCommand {
   }
 }
 
-export default new EntraAdministrativeUnitRoleAssignmentAddCommand();
+module.exports = new EntraAdministrativeUnitRoleAssignmentAddCommand();

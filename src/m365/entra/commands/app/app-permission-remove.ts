@@ -1,13 +1,13 @@
 import { AppRole, AppRoleAssignment, Application, OAuth2PermissionGrant, PermissionScope, RequiredResourceAccess, ResourceAccess, ServicePrincipal } from "@microsoft/microsoft-graph-types";
-import GlobalOptions from "../../../../GlobalOptions.js";
-import { odata } from "../../../../utils/odata.js";
-import GraphCommand from "../../../base/GraphCommand.js";
-import commands from "../../commands.js";
-import request, { CliRequestOptions } from "../../../../request.js";
-import { Logger } from "../../../../cli/Logger.js";
-import { validation } from "../../../../utils/validation.js";
-import { cli } from "../../../../cli/cli.js";
-import { formatting } from "../../../../utils/formatting.js";
+import GlobalOptions from "../../../../GlobalOptions";
+import { odata } from "../../../../utils/odata";
+import GraphCommand from "../../../base/GraphCommand";
+import commands from "../../commands";
+import request, { CliRequestOptions } from "../../../../request";
+import { Logger } from "../../../../cli/Logger";
+import { validation } from "../../../../utils/validation";
+import { cli } from "../../../../cli/cli";
+import { formatting } from "../../../../utils/formatting";
 
 interface CommandArgs {
   options: Options;
@@ -397,4 +397,4 @@ class EntraAppPermissionRemoveCommand extends GraphCommand {
   }
 }
 
-export default new EntraAppPermissionRemoveCommand();
+module.exports = new EntraAppPermissionRemoveCommand();

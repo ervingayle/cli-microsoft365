@@ -1,20 +1,20 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError, CommandErrorWithOutput } from '../../../../Command.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import spoSiteAddCommand from '../site/site-add.js';
-import spoSiteGetCommand from '../site/site-get.js';
-import spoSiteRemoveCommand from '../site/site-remove.js';
-import command from './tenant-appcatalog-add.js';
-import spoTenantAppCatalogUrlGetCommand from './tenant-appcatalogurl-get.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError, CommandErrorWithOutput } from '../../../../Command';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+import * as spoSiteAddCommand from '../site/site-add';
+import * as spoSiteGetCommand from '../site/site-get';
+import * as spoSiteRemoveCommand from '../site/site-remove';
+const command: Command = require('./tenant-appcatalog-add');
+import * as spoTenantAppCatalogUrlGetCommand from './tenant-appcatalogurl-get';
 
 describe(commands.TENANT_APPCATALOG_ADD, () => {
   let log: any[];

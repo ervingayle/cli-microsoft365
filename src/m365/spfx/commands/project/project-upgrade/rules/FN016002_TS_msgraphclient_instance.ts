@@ -1,4 +1,4 @@
-import ts from 'typescript';
+import * as ts from 'typescript';
 import { Finding, Occurrence } from '../../report-model/index.js';
 import { Project } from '../../project-model/index.js';
 import { TsRule } from './TsRule.js';

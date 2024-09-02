@@ -1,15 +1,15 @@
 import { PlannerTask, PlannerTaskDetails, User } from '@microsoft/microsoft-graph-types';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { entraGroup } from '../../../../utils/entraGroup.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { planner } from '../../../../utils/planner.js';
-import { validation } from '../../../../utils/validation.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import { AppliedCategories } from '../../AppliedCategories.js';
-import commands from '../../commands.js';
-import { taskPriority } from '../../taskPriority.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { entraGroup } from '../../../../utils/entraGroup';
+import { formatting } from '../../../../utils/formatting';
+import { planner } from '../../../../utils/planner';
+import { validation } from '../../../../utils/validation';
+import GraphCommand from '../../../base/GraphCommand';
+import { AppliedCategories } from '../../AppliedCategories';
+import commands from '../../commands';
+import { taskPriority } from '../../taskPriority';
 
 interface CommandArgs {
   options: Options;
@@ -427,4 +427,4 @@ class PlannerTaskSetCommand extends GraphCommand {
   }
 }
 
-export default new PlannerTaskSetCommand();
+module.exports = new PlannerTaskSetCommand();

@@ -1,13 +1,13 @@
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import config from '../../../../config.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { ClientSvcResponse, ClientSvcResponseContents, IdentityResponse, spo } from '../../../../utils/spo.js';
-import { validation } from '../../../../utils/validation.js';
-import commands from '../../commands.js';
-import { SpoPropertyBagBaseCommand } from './propertybag-base.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import config from '../../../../config';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { ClientSvcResponse, ClientSvcResponseContents, IdentityResponse, spo } from '../../../../utils/spo';
+import { validation } from '../../../../utils/validation';
+import commands from '../../commands';
+import { SpoPropertyBagBaseCommand } from './propertybag-base';
 
 interface CommandArgs {
   options: Options;
@@ -128,4 +128,4 @@ class SpoPropertyBagRemoveCommand extends SpoPropertyBagBaseCommand {
   }
 }
 
-export default new SpoPropertyBagRemoveCommand();
+module.exports = new SpoPropertyBagRemoveCommand();

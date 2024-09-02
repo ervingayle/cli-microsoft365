@@ -1,19 +1,19 @@
-import assert from 'assert';
-import fs from 'fs';
-import path from 'path';
-import sinon from 'sinon';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './project-externalize.js';
-import { ExternalizeEntry, FileEdit } from './project-externalize/index.js';
-import { External, ExternalConfiguration, Project } from './project-model/index.js';
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as sinon from 'sinon';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import request, { CliRequestOptions } from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+const command: Command = require('./project-externalize');
+import { ExternalizeEntry, FileEdit } from './project-externalize/index';
+import { External, ExternalConfiguration, Project } from './project-model/index';
 
 describe(commands.PROJECT_EXTERNALIZE, () => {
   let log: any[];
@@ -417,7 +417,7 @@ describe(commands.PROJECT_EXTERNALIZE, () => {
 
     await command.action(logger, { options: { output: 'json', debug: true } } as any);
     const findings: { externalConfiguration: { externals: ExternalConfiguration }, edits: FileEdit[] } = log[logEntryToCheck + 3]; //because debug is enabled
-    assert.strictEqual((findings.externalConfiguration.externals['@pnp/pnpjs'] as unknown as External).path, 'https://unpkg.com/@pnp/pnpjs@1.3.5/dist/pnpjs.es5.umd.min.js');
+    assert.strictEqual((findings.externalConfiguration.externals['@pnp/pnpjs'] as unknown as External).path, 'https://unpkg.com/@pnp/pnpjs@1.3.5/dist/pnpjs.es5.umd.min');
   });
 
   it('returns edit suggestions', async () => {
@@ -573,13 +573,13 @@ describe(commands.PROJECT_EXTERNALIZE, () => {
     const report = (command as any).serializeTextReport([
       {
         key: 'fake',
-        path: 'https://fake.com/module.js',
+        path: 'https://fake.com/module',
         globalName: 'fakename',
         globalDependencies: ['fakeparent']
       } as ExternalizeEntry,
       {
         key: 'fakenoglobal',
-        path: 'https://fake.com/module.js',
+        path: 'https://fake.com/module',
         globalDependencies: ['fakeparentnoglobal']
       } as ExternalizeEntry
     ]) as string;

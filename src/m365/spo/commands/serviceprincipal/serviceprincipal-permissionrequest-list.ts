@@ -1,12 +1,12 @@
 import { OAuth2PermissionGrant, ServicePrincipal } from '@microsoft/microsoft-graph-types';
-import { Logger } from '../../../../cli/Logger.js';
-import config from '../../../../config.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { ODataResponse } from '../../../../utils/odata.js';
-import { ClientSvcResponse, ClientSvcResponseContents, spo } from '../../../../utils/spo.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { SPOWebAppServicePrincipalPermissionRequest } from './SPOWebAppServicePrincipalPermissionRequest.js';
+import { Logger } from '../../../../cli/Logger';
+import config from '../../../../config';
+import request, { CliRequestOptions } from '../../../../request';
+import { ODataResponse } from '../../../../utils/odata';
+import { ClientSvcResponse, ClientSvcResponseContents, spo } from '../../../../utils/spo';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { SPOWebAppServicePrincipalPermissionRequest } from './SPOWebAppServicePrincipalPermissionRequest';
 
 class SpoServicePrincipalPermissionRequestListCommand extends SpoCommand {
   public get name(): string {
@@ -50,16 +50,16 @@ class SpoServicePrincipalPermissionRequestListCommand extends SpoCommand {
         const result: SPOWebAppServicePrincipalPermissionRequest[] = json[json.length - 1]._Child_Items_;
         if (result.length > 0) {
           const spoClientExtensibilityWebApplicationPrincipalId = await this.getSPOClientExtensibilityWebApplicationPrincipalId();
-          
+
           if (spoClientExtensibilityWebApplicationPrincipalId !== null) {
             const oAuth2PermissionGrants: string[] | null = await this.getOAuth2PermissionGrants(spoClientExtensibilityWebApplicationPrincipalId);
-            
+
             if (oAuth2PermissionGrants) {
               spoWebAppServicePrincipalPermissionRequestResult = result.filter(x => oAuth2PermissionGrants.indexOf(x.Scope) === -1);
             }
           }
         }
-        
+
         if (spoWebAppServicePrincipalPermissionRequestResult.length === 0) {
           spoWebAppServicePrincipalPermissionRequestResult = result;
         }
@@ -114,4 +114,4 @@ class SpoServicePrincipalPermissionRequestListCommand extends SpoCommand {
   }
 }
 
-export default new SpoServicePrincipalPermissionRequestListCommand();
+module.exports = new SpoServicePrincipalPermissionRequestListCommand();

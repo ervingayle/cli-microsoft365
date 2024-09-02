@@ -1,4 +1,4 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import { Project } from '../../project-model/index.js';
 import { Finding } from '../../report-model/Finding.js';
 import { FN002019_DEVDEP_microsoft_rush_stack_compiler } from './FN002019_DEVDEP_microsoft_rush_stack_compiler.js';

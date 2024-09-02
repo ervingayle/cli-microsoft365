@@ -1,11 +1,11 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import { ClientRequest } from 'http';
-import https from 'https';
-import sinon from 'sinon';
-import auth, { CloudType } from './Auth.js';
-import { Logger } from './cli/Logger.js';
-import _request, { CliRequestOptions } from './request.js';
-import { sinonUtil } from './utils/sinonUtil.js';
+import * as https from 'https';
+import * as sinon from 'sinon';
+import auth, { CloudType } from './Auth';
+import { Logger } from './cli/Logger';
+import _request, { CliRequestOptions } from './request';
+import { sinonUtil } from './utils/sinonUtil';
 
 describe('Request', () => {
   const logger: Logger = {

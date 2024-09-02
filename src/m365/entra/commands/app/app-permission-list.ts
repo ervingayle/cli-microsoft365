@@ -1,12 +1,12 @@
 import { AppRole, Application, PermissionScope, RequiredResourceAccess, ResourceAccess, ServicePrincipal } from "@microsoft/microsoft-graph-types";
-import GlobalOptions from "../../../../GlobalOptions.js";
-import GraphCommand from "../../../base/GraphCommand.js";
-import commands from "../../commands.js";
-import request, { CliRequestOptions } from "../../../../request.js";
-import { Logger } from "../../../../cli/Logger.js";
-import { validation } from "../../../../utils/validation.js";
-import { formatting } from "../../../../utils/formatting.js";
-import { cli } from "../../../../cli/cli.js";
+import GlobalOptions from "../../../../GlobalOptions";
+import GraphCommand from "../../../base/GraphCommand";
+import commands from "../../commands";
+import request, { CliRequestOptions } from "../../../../request";
+import { Logger } from "../../../../cli/Logger";
+import { validation } from "../../../../utils/validation";
+import { formatting } from "../../../../utils/formatting";
+import { cli } from "../../../../cli/cli";
 
 interface CommandArgs {
   options: Options;
@@ -260,4 +260,4 @@ class EntraAppPermissionListCommand extends GraphCommand {
   }
 }
 
-export default new EntraAppPermissionListCommand();
+module.exports = new EntraAppPermissionListCommand();

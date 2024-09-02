@@ -1,7 +1,7 @@
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
-import config from '../config.js';
+import * as fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
+import config from '../config';
 
 const cacheFolderPath = path.join(os.tmpdir(), config.configstoreName.replace('config', 'cache'));
 const mkdirOptions = { mode: 0o0700, recursive: true };

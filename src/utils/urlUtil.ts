@@ -1,4 +1,4 @@
-import url from 'url';
+import * as url from 'url';
 
 export const urlUtil = {
   /**

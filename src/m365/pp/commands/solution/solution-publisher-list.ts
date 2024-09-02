@@ -1,10 +1,10 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { powerPlatform } from '../../../../utils/powerPlatform.js';
-import PowerPlatformCommand from '../../../base/PowerPlatformCommand.js';
-import commands from '../../commands.js';
-import { Publisher } from './Solution.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { powerPlatform } from '../../../../utils/powerPlatform';
+import PowerPlatformCommand from '../../../base/PowerPlatformCommand';
+import commands from '../../commands';
+import { Publisher } from './Solution';
 
 interface CommandArgs {
   options: Options;
@@ -84,4 +84,4 @@ class PpSolutionPublisherListCommand extends PowerPlatformCommand {
   }
 }
 
-export default new PpSolutionPublisherListCommand();
+module.exports = new PpSolutionPublisherListCommand();

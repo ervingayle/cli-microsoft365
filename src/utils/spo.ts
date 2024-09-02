@@ -1,27 +1,27 @@
-import os from 'os';
-import url from 'url';
-import { urlUtil } from "./urlUtil.js";
-import { validation } from "./validation.js";
-import auth from '../Auth.js';
-import { Logger } from "../cli/Logger.js";
-import config from "../config.js";
-import { BasePermissions } from '../m365/spo/base-permissions.js';
-import request, { CliRequestOptions } from "../request.js";
-import { formatting } from './formatting.js';
-import { CustomAction } from '../m365/spo/commands/customaction/customaction.js';
-import { MenuState } from '../m365/spo/commands/navigation/NavigationNode.js';
-import { odata } from './odata.js';
-import { RoleDefinition } from '../m365/spo/commands/roledefinition/RoleDefinition.js';
-import { RoleType } from '../m365/spo/commands/roledefinition/RoleType.js';
-import { DeletedSiteProperties } from '../m365/spo/commands/site/DeletedSiteProperties.js';
-import { SiteProperties } from '../m365/spo/commands/site/SiteProperties.js';
-import { entraGroup } from './entraGroup.js';
-import { SharingCapabilities } from '../m365/spo/commands/site/SharingCapabilities.js';
-import { WebProperties } from '../m365/spo/commands/web/WebProperties.js';
+import * as os from 'os';
+import * as url from 'url';
+import { urlUtil } from "./urlUtil";
+import { validation } from "./validation";
+import auth from '../Auth';
+import { Logger } from "../cli/Logger";
+import config from "../config";
+import { BasePermissions } from '../m365/spo/base-permissions';
+import request, { CliRequestOptions } from "../request";
+import { formatting } from './formatting';
+import { CustomAction } from '../m365/spo/commands/customaction/customaction';
+import { MenuState } from '../m365/spo/commands/navigation/NavigationNode';
+import { odata } from './odata';
+import { RoleDefinition } from '../m365/spo/commands/roledefinition/RoleDefinition';
+import { RoleType } from '../m365/spo/commands/roledefinition/RoleType';
+import { DeletedSiteProperties } from '../m365/spo/commands/site/DeletedSiteProperties';
+import { SiteProperties } from '../m365/spo/commands/site/SiteProperties';
+import { entraGroup } from './entraGroup';
+import { SharingCapabilities } from '../m365/spo/commands/site/SharingCapabilities';
+import { WebProperties } from '../m365/spo/commands/web/WebProperties';
 import { Group, Site } from '@microsoft/microsoft-graph-types';
-import { ListItemInstance } from '../m365/spo/commands/listitem/ListItemInstance.js';
-import { ListItemFieldValueResult } from '../m365/spo/commands/listitem/ListItemFieldValueResult.js';
-import { FileProperties } from '../m365/spo/commands/file/FileProperties.js'; import { setTimeout } from 'timers/promises';
+import { ListItemInstance } from '../m365/spo/commands/listitem/ListItemInstance';
+import { ListItemFieldValueResult } from '../m365/spo/commands/listitem/ListItemFieldValueResult';
+import { FileProperties } from '../m365/spo/commands/file/FileProperties'; import { setTimeout } from 'timers/promises';
 
 export interface ContextInfo {
   FormDigestTimeoutSeconds: number;
@@ -359,7 +359,7 @@ export const spo = {
 
 
       }
-    };
+    }
 
     return checkOrAddFolder();
   },

@@ -1,7 +1,7 @@
-import Command, { CommandArgs, CommandError } from "../../Command.js";
-import auth from "../../Auth.js";
-import { Logger } from "../../cli/Logger.js";
-import { accessToken } from "../../utils/accessToken.js";
+import Command, { CommandArgs, CommandError } from "../../Command";
+import auth from "../../Auth";
+import { Logger } from "../../cli/Logger";
+import { accessToken } from "../../utils/accessToken";
 
 export default abstract class VivaEngageCommand extends Command {
   protected get resource(): string {

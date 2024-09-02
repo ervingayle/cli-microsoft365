@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import { ExternalizeEntry } from "../index.js";
 import request, { CliRequestOptions } from '../../../../../../request.js';
 import { Project } from '../../project-model/index.js';

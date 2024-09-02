@@ -1,20 +1,20 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandError } from '../../../../Command.js';
-import { telemetry } from '../../../../telemetry.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request from '../../../../request.js';
-import { odata } from '../../../../utils/odata.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import commands from '../../commands.js';
-import command from './folder-sharinglink-list.js';
-import { spo } from '../../../../utils/spo.js';
-import { drive } from '../../../../utils/drive.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import Command, { CommandError } from '../../../../Command';
+import { telemetry } from '../../../../telemetry';
+import { Logger } from '../../../../cli/Logger';
+import request from '../../../../request';
+import { odata } from '../../../../utils/odata';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import commands from '../../commands';
+const command: Command = require('./folder-sharinglink-list');
+import { spo } from '../../../../utils/spo';
+import { drive } from '../../../../utils/drive';
 import { Drive } from '@microsoft/microsoft-graph-types';
 
 describe(commands.FOLDER_SHARINGLINK_LIST, () => {

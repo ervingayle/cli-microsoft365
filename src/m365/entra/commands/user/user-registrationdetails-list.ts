@@ -1,13 +1,13 @@
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import aadCommands from '../../aadCommands.js';
-import { odata } from '../../../../utils/odata.js';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import aadCommands from '../../aadCommands';
+import { odata } from '../../../../utils/odata';
 import { UserRegistrationDetails } from '@microsoft/microsoft-graph-types';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { validation } from '../../../../utils/validation.js';
-import { formatting } from '../../../../utils/formatting.js';
+import { entraUser } from '../../../../utils/entraUser';
+import { validation } from '../../../../utils/validation';
+import { formatting } from '../../../../utils/formatting';
 
 interface CommandArgs {
   options: Options;
@@ -299,4 +299,4 @@ class EntraUserRegistrationDetailsListCommand extends GraphCommand {
   }
 }
 
-export default new EntraUserRegistrationDetailsListCommand();
+module.exports = new EntraUserRegistrationDetailsListCommand();

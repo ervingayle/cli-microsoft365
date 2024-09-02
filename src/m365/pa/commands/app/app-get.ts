@@ -1,13 +1,13 @@
-import { cli, CommandOutput } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { validation } from '../../../../utils/validation.js';
-import PowerAppsCommand from '../../../base/PowerAppsCommand.js';
-import commands from '../../commands.js';
-import paAppListCommand from '../app/app-list.js';
+import { cli, CommandOutput } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { validation } from '../../../../utils/validation';
+import PowerAppsCommand from '../../../base/PowerAppsCommand';
+import commands from '../../commands';
+import * as paAppListCommand from '../app/app-list';
 
 interface CommandArgs {
   options: Options;
@@ -172,4 +172,4 @@ class PaAppGetCommand extends PowerAppsCommand {
   }
 }
 
-export default new PaAppGetCommand();
+module.exports = new PaAppGetCommand();

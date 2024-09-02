@@ -1,9 +1,9 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { validation } from '../../../../utils/validation.js';
-import DelegatedGraphCommand from '../../../base/DelegatedGraphCommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { validation } from '../../../../utils/validation';
+import DelegatedGraphCommand from '../../../base/DelegatedGraphCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -224,4 +224,4 @@ class TodoTaskAddCommand extends DelegatedGraphCommand {
   }
 }
 
-export default new TodoTaskAddCommand();
+module.exports = new TodoTaskAddCommand();

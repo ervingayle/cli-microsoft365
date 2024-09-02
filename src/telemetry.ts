@@ -1,16 +1,13 @@
-import child_process from 'child_process';
-import path from 'path';
-import url from 'url';
-import { cli } from './cli/cli.js';
-import { settingsNames } from './settingsNames.js';
-import { pid } from './utils/pid.js';
-import { session } from './utils/session.js';
-
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+import * as child_process from 'child_process';
+import * as path from 'path';
+import { cli } from './cli/cli';
+import { settingsNames } from './settingsNames';
+import { pid } from './utils/pid';
+import { session } from './utils/session';
 
 function trackTelemetry(object: any): void {
   try {
-    const child = child_process.spawn('node', [path.join(__dirname, 'telemetryRunner.js')], {
+    const child = child_process.spawn('node', [path.join(__dirname, 'telemetryRunner')], {
       stdio: ['pipe', 'ignore', 'ignore'],
       detached: true
     });

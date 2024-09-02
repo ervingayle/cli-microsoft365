@@ -1,4 +1,4 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import { Project } from '../../project-model/index.js';
 import { Finding } from '../../report-model/Finding.js';
 import { FN021001_PKG_spfx_deps_versions_match_project_version } from './FN021001_PKG_spfx_deps_versions_match_project_version.js';

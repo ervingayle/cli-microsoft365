@@ -1,13 +1,13 @@
-import { Logger } from '../../../../cli/Logger.js';
-import config from '../../../../config.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { ClientSvcResponse, ClientSvcResponseContents, FormDigestInfo, spo } from '../../../../utils/spo.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { SiteProperties } from './SiteProperties.js';
-import { SPOSitePropertiesEnumerable } from './SPOSitePropertiesEnumerable.js';
+import { Logger } from '../../../../cli/Logger';
+import config from '../../../../config';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { ClientSvcResponse, ClientSvcResponseContents, FormDigestInfo, spo } from '../../../../utils/spo';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { SiteProperties } from './SiteProperties';
+import { SPOSitePropertiesEnumerable } from './SPOSitePropertiesEnumerable';
 
 interface CommandArgs {
   options: Options;
@@ -169,4 +169,4 @@ class SpoSiteListCommand extends SpoCommand {
   }
 }
 
-export default new SpoSiteListCommand();
+module.exports = new SpoSiteListCommand();

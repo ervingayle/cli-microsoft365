@@ -1,4 +1,4 @@
-import { RoleDefinition } from "../roledefinition/RoleDefinition.js";
+import { RoleDefinition } from "../roledefinition/RoleDefinition";
 
 export interface FolderProperties {
   Exists: boolean;

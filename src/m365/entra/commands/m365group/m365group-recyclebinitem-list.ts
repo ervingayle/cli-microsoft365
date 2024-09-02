@@ -1,11 +1,11 @@
 import { DirectoryObject } from '@microsoft/microsoft-graph-types';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { odata } from '../../../../utils/odata.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import aadCommands from '../../aadCommands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import { formatting } from '../../../../utils/formatting';
+import { odata } from '../../../../utils/odata';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import aadCommands from '../../aadCommands';
 
 interface CommandArgs {
   options: Options;
@@ -79,4 +79,4 @@ class EntraM365GroupRecycleBinItemListCommand extends GraphCommand {
   }
 }
 
-export default new EntraM365GroupRecycleBinItemListCommand();
+module.exports = new EntraM365GroupRecycleBinItemListCommand();

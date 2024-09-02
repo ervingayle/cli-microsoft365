@@ -1,7 +1,7 @@
-import auth, { CloudType } from '../../Auth.js';
-import { Logger } from '../../cli/Logger.js';
-import Command, { CommandArgs, CommandError } from '../../Command.js';
-import { accessToken } from '../../utils/accessToken.js';
+import auth, { CloudType } from '../../Auth';
+import { Logger } from '../../cli/Logger';
+import Command, { CommandArgs, CommandError } from '../../Command';
+import { accessToken } from '../../utils/accessToken';
 
 export default abstract class PowerAutomateCommand extends Command {
   protected get resource(): string {

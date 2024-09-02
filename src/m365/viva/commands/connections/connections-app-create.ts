@@ -1,14 +1,15 @@
-import AdmZip from 'adm-zip';
-import fs from 'fs';
-import path from 'path';
+import * as AdmZip from 'adm-zip';
+import * as fs from 'fs';
+import * as path from 'path';
 import { v4 } from 'uuid';
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandOutput, cli } from '../../../../cli/cli.js';
-import AnonymousCommand from '../../../base/AnonymousCommand.js';
-import spoWebGetCommand, { Options as SpoWebGetCommandOptions } from '../../../spo/commands/web/web-get.js';
-import commands from '../../commands.js';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import { CommandOutput, cli } from '../../../../cli/cli';
+import AnonymousCommand from '../../../base/AnonymousCommand';
+import * as spoWebGetCommand from '../../../spo/commands/web/web-get';
+import { Options as SpoWebGetCommandOptions } from '../../../spo/commands/web/web-get';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -234,4 +235,4 @@ class VivaConnectionsAppCreateCommand extends AnonymousCommand {
   }
 }
 
-export default new VivaConnectionsAppCreateCommand();
+module.exports = new VivaConnectionsAppCreateCommand();

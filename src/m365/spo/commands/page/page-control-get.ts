@@ -1,13 +1,13 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { Control } from './canvasContent.js';
-import { ClientSidePageProperties } from './ClientSidePageProperties.js';
-import { getControlTypeDisplayName } from './pageMethods.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { Control } from './canvasContent';
+import { ClientSidePageProperties } from './ClientSidePageProperties';
+import { getControlTypeDisplayName } from './pageMethods';
 
 interface CommandArgs {
   options: Options;
@@ -109,4 +109,4 @@ class SpoPageControlGetCommand extends SpoCommand {
   }
 }
 
-export default new SpoPageControlGetCommand();
+module.exports = new SpoPageControlGetCommand();

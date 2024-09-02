@@ -1,5 +1,5 @@
-import { formatting } from "./formatting.js";
-import { FormDigestInfo } from "./spo.js";
+import { formatting } from "./formatting";
+import { FormDigestInfo } from "./spo";
 
 export const validation = {
   isValidGuidArray(guidsString: string): boolean | string {

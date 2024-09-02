@@ -1,5 +1,5 @@
-import assert from 'assert';
-import fs from 'fs';
+import * as assert from 'assert';
+import * as fs from 'fs';
 import { sinonUtil } from '../../../../../../utils/sinonUtil.js';
 import { Project } from '../../project-model';
 import { Finding } from '../../report-model/Finding.js';

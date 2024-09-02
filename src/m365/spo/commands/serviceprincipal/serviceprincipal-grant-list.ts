@@ -1,10 +1,10 @@
-import { Logger } from '../../../../cli/Logger.js';
-import config from '../../../../config.js';
-import request from '../../../../request.js';
-import { ClientSvcResponse, ClientSvcResponseContents, spo } from '../../../../utils/spo.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { SPOWebAppServicePrincipalPermissionGrant } from './SPOWebAppServicePrincipalPermissionGrant.js';
+import { Logger } from '../../../../cli/Logger';
+import config from '../../../../config';
+import request from '../../../../request';
+import { ClientSvcResponse, ClientSvcResponseContents, spo } from '../../../../utils/spo';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { SPOWebAppServicePrincipalPermissionGrant } from './SPOWebAppServicePrincipalPermissionGrant';
 
 class SpoServicePrincipalGrantListCommand extends SpoCommand {
   public get name(): string {
@@ -60,4 +60,4 @@ class SpoServicePrincipalGrantListCommand extends SpoCommand {
   }
 }
 
-export default new SpoServicePrincipalGrantListCommand();
+module.exports = new SpoServicePrincipalGrantListCommand();

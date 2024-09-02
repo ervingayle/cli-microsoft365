@@ -1,17 +1,17 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth, { AuthType, CertificateType, CloudType } from '../../../Auth.js';
-import { Logger } from '../../../cli/Logger.js';
-import { telemetry } from '../../../telemetry.js';
-import { pid } from '../../../utils/pid.js';
-import { session } from '../../../utils/session.js';
-import commands from '../commands.js';
-import command from './connection-use.js';
-import { settingsNames } from '../../../settingsNames.js';
-import { sinonUtil } from '../../../utils/sinonUtil.js';
-import { CommandError } from '../../../Command.js';
-import { cli } from '../../../cli/cli.js';
-import { ConnectionDetails } from '../../commands/ConnectionDetails.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth, { AuthType, CertificateType, CloudType } from '../../../Auth';
+import { Logger } from '../../../cli/Logger';
+import { telemetry } from '../../../telemetry';
+import { pid } from '../../../utils/pid';
+import { session } from '../../../utils/session';
+import commands from '../commands';
+const command: Command = require('./connection-use');
+import { settingsNames } from '../../../settingsNames';
+import { sinonUtil } from '../../../utils/sinonUtil';
+import Command, { CommandError } from '../../../Command';
+import { cli } from '../../../cli/cli';
+import { ConnectionDetails } from '../../commands/ConnectionDetails';
 
 describe(commands.USE, () => {
   let log: string[];

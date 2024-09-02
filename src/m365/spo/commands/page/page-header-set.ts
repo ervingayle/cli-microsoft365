@@ -1,12 +1,12 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { ClientSidePageProperties } from './ClientSidePageProperties.js';
-import { CustomPageHeader, CustomPageHeaderProperties, CustomPageHeaderServerProcessedContent, PageHeader } from './PageHeader.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { ClientSidePageProperties } from './ClientSidePageProperties';
+import { CustomPageHeader, CustomPageHeaderProperties, CustomPageHeaderServerProcessedContent, PageHeader } from './PageHeader';
 
 interface CommandArgs {
   options: Options;
@@ -462,4 +462,4 @@ class SpoPageHeaderSetCommand extends SpoCommand {
   }
 }
 
-export default new SpoPageHeaderSetCommand();
+module.exports = new SpoPageHeaderSetCommand();

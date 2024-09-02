@@ -1,21 +1,21 @@
 import { DeviceCodeResponse } from "@azure/msal-common";
 import * as msal from '@azure/msal-node';
-import assert from 'assert';
-import clipboard from 'clipboardy';
-import fs from 'fs';
+import * as assert from 'assert';
+import * as clipboard from 'clipboardy';
+import * as fs from 'fs';
 import 'node-forge';
-import sinon from 'sinon';
-import { Auth, AuthType, CertificateType, CloudType, Connection, InteractiveAuthorizationCodeResponse, InteractiveAuthorizationErrorResponse } from './Auth.js';
-import authServer from './AuthServer.js';
-import { CommandError } from './Command.js';
-import { FileTokenStorage } from './auth/FileTokenStorage.js';
-import { TokenStorage } from './auth/TokenStorage.js';
-import { cli } from './cli/cli.js';
-import { Logger } from './cli/Logger.js';
-import request from './request.js';
-import { accessToken } from "./utils/accessToken.js";
-import { browserUtil } from "./utils/browserUtil.js";
-import { sinonUtil } from './utils/sinonUtil.js';
+import * as sinon from 'sinon';
+import { Auth, AuthType, CertificateType, CloudType, Connection, InteractiveAuthorizationCodeResponse, InteractiveAuthorizationErrorResponse } from './Auth';
+import authServer from './AuthServer';
+import { CommandError } from './Command';
+import { FileTokenStorage } from './auth/FileTokenStorage';
+import { TokenStorage } from './auth/TokenStorage';
+import { cli } from './cli/cli';
+import { Logger } from './cli/Logger';
+import request from './request';
+import { accessToken } from "./utils/accessToken";
+import { browserUtil } from "./utils/browserUtil";
+import { sinonUtil } from './utils/sinonUtil';
 
 class MockTokenStorage implements TokenStorage {
   public get(): Promise<string> {

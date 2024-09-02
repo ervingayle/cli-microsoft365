@@ -1,4 +1,4 @@
-import path from 'path';
+import * as path from 'path';
 import { Occurrence } from '../../report-model/index.js';
 import { Rule } from '../../Rule.js';
 

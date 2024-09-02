@@ -1,4 +1,4 @@
-import { DeletedSiteProperties } from './DeletedSiteProperties.js';
+import { DeletedSiteProperties } from './DeletedSiteProperties';
 
 export interface DeletedSitePropertiesEnumerable {
   _Child_Items_: DeletedSiteProperties[];

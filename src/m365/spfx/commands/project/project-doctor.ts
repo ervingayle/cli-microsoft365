@@ -1,19 +1,19 @@
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
-import { Logger } from '../../../../cli/Logger.js';
-import Command, { CommandError } from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { packageManager } from '../../../../utils/packageManager.js';
-import { Dictionary, Hash } from '../../../../utils/types.js';
-import commands from '../../commands.js';
-import { BaseProjectCommand } from './base-project-command.js';
-import { rules as genericRules } from './project-doctor/generic-rules.js';
-import { Project } from './project-model/index.js';
-import { FN017001_MISC_npm_dedupe } from './project-upgrade/rules/FN017001_MISC_npm_dedupe.js';
-import { Finding, FindingToReport, FindingTour, FindingTourStep } from './report-model/index.js';
-import { ReportData, ReportDataModification } from './report-model/ReportData.js';
-import { Rule } from './Rule.js';
+import * as fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import { packageManager } from '../../../../utils/packageManager';
+import { Dictionary, Hash } from '../../../../utils/types';
+import commands from '../../commands';
+import { BaseProjectCommand } from './base-project-command';
+import { rules as genericRules } from './project-doctor/generic-rules';
+import { Project } from './project-model/index';
+import { FN017001_MISC_npm_dedupe } from './project-upgrade/rules/FN017001_MISC_npm_dedupe';
+import { Finding, FindingToReport, FindingTour, FindingTourStep } from './report-model/index';
+import { ReportData, ReportDataModification } from './report-model/ReportData';
+import { Rule } from './Rule';
 
 interface CommandArgs {
   options: Options;
@@ -442,4 +442,4 @@ ${f.resolution}
   }
 }
 
-export default new SpfxProjectDoctorCommand();
+module.exports = new SpfxProjectDoctorCommand();

@@ -1,15 +1,15 @@
-import fs from 'fs';
-import os from 'os';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
+import * as fs from 'fs';
+import * as os from 'os';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { formatting } from '../../../../utils/formatting';
+import { urlUtil } from '../../../../utils/urlUtil';
 import { v4 } from 'uuid';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { validation } from '../../../../utils/validation.js';
-import { cli } from '../../../../cli/cli.js';
+import request, { CliRequestOptions } from '../../../../request';
+import { validation } from '../../../../utils/validation';
+import { cli } from '../../../../cli/cli';
 
 interface CommandArgs {
   options: Options;
@@ -264,7 +264,7 @@ class SpoListItemBatchRemoveCommand extends SpoCommand {
       });
 
     return errors;
-  };
+  }
 
   private getChunkedArray(inputArray: string[], chunkSize: number): string[][] {
     const result: string[][] = [];
@@ -300,4 +300,4 @@ class SpoListItemBatchRemoveCommand extends SpoCommand {
   }
 }
 
-export default new SpoListItemBatchRemoveCommand();
+module.exports = new SpoListItemBatchRemoveCommand();

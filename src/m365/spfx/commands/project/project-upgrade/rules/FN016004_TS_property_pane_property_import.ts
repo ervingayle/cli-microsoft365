@@ -1,5 +1,5 @@
-import os from 'os';
-import ts from 'typescript';
+import * as os from 'os';
+import * as ts from 'typescript';
 import { Project } from '../../project-model/index.js';
 import { Finding, Occurrence } from '../../report-model/index.js';
 import { TsRule } from './TsRule.js';

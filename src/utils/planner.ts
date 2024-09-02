@@ -1,7 +1,7 @@
-import { cli } from "../cli/cli.js";
-import request, { CliRequestOptions } from "../request.js";
-import { formatting } from "./formatting.js";
-import { odata } from "./odata.js";
+import { cli } from "../cli/cli";
+import request, { CliRequestOptions } from "../request";
+import { formatting } from "./formatting";
+import { odata } from "./odata";
 import { PlannerBucket, PlannerPlan } from "@microsoft/microsoft-graph-types";
 
 const graphResource = 'https://graph.microsoft.com';

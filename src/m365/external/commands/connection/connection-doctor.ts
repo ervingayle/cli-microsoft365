@@ -1,13 +1,13 @@
 import { ExternalConnectors, SearchResponse } from '@microsoft/microsoft-graph-types';
-import os from 'os';
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { ODataResponse } from '../../../../utils/odata.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import { CheckStatus, formatting } from '../../../../utils/formatting.js';
+import * as os from 'os';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import { ODataResponse } from '../../../../utils/odata';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import { CheckStatus, formatting } from '../../../../utils/formatting';
 
 interface CommandArgs {
   options: Options;
@@ -519,4 +519,4 @@ class ExternalConnectionDoctorCommand extends GraphCommand {
   }
 }
 
-export default new ExternalConnectionDoctorCommand();
+module.exports = new ExternalConnectionDoctorCommand();

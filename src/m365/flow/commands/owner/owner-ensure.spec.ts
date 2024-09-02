@@ -1,20 +1,20 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { CommandError } from '../../../../Command.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { entraGroup } from '../../../../utils/entraGroup.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './owner-ensure.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import Command, { CommandError } from '../../../../Command';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { entraGroup } from '../../../../utils/entraGroup';
+import { entraUser } from '../../../../utils/entraUser';
+import { formatting } from '../../../../utils/formatting';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+const command: Command = require('./owner-ensure');
 
 describe(commands.OWNER_ENSURE, () => {
   const validEnvironmentName = 'Default-6a2903af-9c03-4c02-a50b-e7419599925b';

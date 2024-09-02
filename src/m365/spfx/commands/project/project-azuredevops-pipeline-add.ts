@@ -1,15 +1,15 @@
-import fs from 'fs';
-import path from 'path';
-import yaml from 'yaml';
-import { CommandError } from '../../../../Command.js';
-import { Logger } from '../../../../cli/Logger.js';
-import commands from '../../commands.js';
-import { BaseProjectCommand } from './base-project-command.js';
-import { validation } from '../../../../utils/validation.js';
-import { pipeline } from './DeployWorkflow.js';
-import { fsUtil } from '../../../../utils/fsUtil.js';
-import { AzureDevOpsPipeline, AzureDevOpsPipelineStep } from './project-azuredevops-pipeline-model.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as yaml from 'yaml';
+import { CommandError } from '../../../../Command';
+import { Logger } from '../../../../cli/Logger';
+import commands from '../../commands';
+import { BaseProjectCommand } from './base-project-command';
+import { validation } from '../../../../utils/validation';
+import { pipeline } from './DeployWorkflow';
+import { fsUtil } from '../../../../utils/fsUtil';
+import { AzureDevOpsPipeline, AzureDevOpsPipelineStep } from './project-azuredevops-pipeline-model';
+import GlobalOptions from '../../../../GlobalOptions';
 import { parse } from 'semver';
 
 
@@ -239,4 +239,4 @@ class SpfxProjectAzureDevOpsPipelineAddCommand extends BaseProjectCommand {
   }
 }
 
-export default new SpfxProjectAzureDevOpsPipelineAddCommand();
+module.exports = new SpfxProjectAzureDevOpsPipelineAddCommand();

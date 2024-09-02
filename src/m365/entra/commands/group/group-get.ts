@@ -1,11 +1,11 @@
 import { Group } from '@microsoft/microsoft-graph-types';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { entraGroup } from '../../../../utils/entraGroup.js';
-import { validation } from '../../../../utils/validation.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import aadCommands from '../../aadCommands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import { entraGroup } from '../../../../utils/entraGroup';
+import { validation } from '../../../../utils/validation';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import aadCommands from '../../aadCommands';
 
 interface CommandArgs {
   options: Options;
@@ -97,4 +97,4 @@ class EntraGroupGetCommand extends GraphCommand {
   }
 }
 
-export default new EntraGroupGetCommand();
+module.exports = new EntraGroupGetCommand();

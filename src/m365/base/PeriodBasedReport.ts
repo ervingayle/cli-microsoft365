@@ -1,8 +1,8 @@
-import { Logger } from '../../cli/Logger.js';
-import GlobalOptions from '../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../request.js';
-import { formatting } from '../../utils/formatting.js';
-import GraphCommand from "./GraphCommand.js";
+import { Logger } from '../../cli/Logger';
+import GlobalOptions from '../../GlobalOptions';
+import request, { CliRequestOptions } from '../../request';
+import { formatting } from '../../utils/formatting';
+import GraphCommand from "./GraphCommand";
 
 export interface CommandArgs {
   options: UsagePeriodOptions;

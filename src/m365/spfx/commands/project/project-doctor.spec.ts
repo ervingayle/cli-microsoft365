@@ -1,19 +1,19 @@
-import assert from 'assert';
-import fs from 'fs';
-import path from 'path';
-import sinon from 'sinon';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import { telemetry } from '../../../../telemetry.js';
-import { fsUtil } from '../../../../utils/fsUtil.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './project-doctor.js';
-import { FindingToReport } from './report-model/index.js';
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as sinon from 'sinon';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import { telemetry } from '../../../../telemetry';
+import { fsUtil } from '../../../../utils/fsUtil';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+const command: Command = require('./project-doctor');
+import { FindingToReport } from './report-model/index';
 
 describe(commands.PROJECT_DOCTOR, () => {
   let log: any[];
@@ -122,7 +122,7 @@ describe(commands.PROJECT_DOCTOR, () => {
       (command as any).supportedVersions.splice(1, 1);
       const message = (err as any).message;
       return message.indexOf('Cannot find module') > -1 &&
-        message.indexOf(`${path.sep}project-doctor${path.sep}doctor-0.js'`) > -1;
+        message.indexOf(`${path.sep}project-doctor${path.sep}doctor-0'`) > -1;
     });
   });
 

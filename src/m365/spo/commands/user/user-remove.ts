@@ -1,14 +1,14 @@
 import { Group } from '@microsoft/microsoft-graph-types';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { spo } from '../../../../utils/spo.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { entraGroup } from '../../../../utils/entraGroup.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import { spo } from '../../../../utils/spo';
+import request, { CliRequestOptions } from '../../../../request';
+import { entraGroup } from '../../../../utils/entraGroup';
+import { formatting } from '../../../../utils/formatting';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
 
 interface SpoUser {
   Id: number;
@@ -26,7 +26,7 @@ interface SpoUser {
     urn: string;
   };
   UserPrincipalName: string;
-};
+}
 interface CommandArgs {
   options: Options;
 }
@@ -228,4 +228,4 @@ class SpoUserRemoveCommand extends SpoCommand {
   }
 }
 
-export default new SpoUserRemoveCommand();
+module.exports = new SpoUserRemoveCommand();

@@ -1,12 +1,12 @@
-import auth from '../../../../Auth.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { accessToken } from '../../../../utils/accessToken.js';
-import { validation } from '../../../../utils/validation.js';
-import GraphCommand from "../../../base/GraphCommand.js";
-import commands from '../../commands.js';
-import request, { CliRequestOptions } from '../../../../request.js';
+import auth from '../../../../Auth';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import { entraUser } from '../../../../utils/entraUser';
+import { accessToken } from '../../../../utils/accessToken';
+import { validation } from '../../../../utils/validation';
+import GraphCommand from "../../../base/GraphCommand";
+import commands from '../../commands';
+import request, { CliRequestOptions } from '../../../../request';
 import { OnlineMeeting } from '@microsoft/microsoft-graph-types';
 
 interface CommandArgs {
@@ -199,4 +199,4 @@ class TeamsMeetingAddCommand extends GraphCommand {
   }
 }
 
-export default new TeamsMeetingAddCommand();
+module.exports = new TeamsMeetingAddCommand();

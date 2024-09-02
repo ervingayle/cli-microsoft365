@@ -1,13 +1,13 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { spo } from '../../../../utils/spo.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { CustomAction } from '../../commands/customaction/customaction.js';
-import { cli } from '../../../../cli/cli.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { spo } from '../../../../utils/spo';
+import { formatting } from '../../../../utils/formatting';
+import { CustomAction } from '../../commands/customaction/customaction';
+import { cli } from '../../../../cli/cli';
 
 interface CommandArgs {
   options: Options;
@@ -188,4 +188,4 @@ class SpoApplicationCustomizerSetCommand extends SpoCommand {
   }
 }
 
-export default new SpoApplicationCustomizerSetCommand();
+module.exports = new SpoApplicationCustomizerSetCommand();

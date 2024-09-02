@@ -1,9 +1,9 @@
 import type * as ACData from 'adaptivecards-templating';
-import { Logger } from '../../../cli/Logger.js';
-import GlobalOptions from '../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../request.js';
-import AnonymousCommand from '../../base/AnonymousCommand.js';
-import commands from '../commands.js';
+import { Logger } from '../../../cli/Logger';
+import GlobalOptions from '../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../request';
+import AnonymousCommand from '../../base/AnonymousCommand';
+import commands from '../commands';
 
 interface CommandArgs {
   options: Options;
@@ -275,4 +275,4 @@ class AdaptiveCardSendCommand extends AnonymousCommand {
   }
 }
 
-export default new AdaptiveCardSendCommand();
+module.exports = new AdaptiveCardSendCommand();

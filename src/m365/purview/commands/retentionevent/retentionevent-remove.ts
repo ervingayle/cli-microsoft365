@@ -1,10 +1,10 @@
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { validation } from '../../../../utils/validation.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
+import GlobalOptions from '../../../../GlobalOptions';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import { validation } from '../../../../utils/validation';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -94,4 +94,4 @@ class PurviewRetentionEventRemoveCommand extends GraphCommand {
   }
 }
 
-export default new PurviewRetentionEventRemoveCommand();
+module.exports = new PurviewRetentionEventRemoveCommand();

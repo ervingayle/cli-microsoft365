@@ -1,14 +1,14 @@
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { entraAdministrativeUnit } from '../../../../utils/entraAdministrativeUnit.js';
-import { entraDevice } from '../../../../utils/entraDevice.js';
-import { entraGroup } from '../../../../utils/entraGroup.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { validation } from '../../../../utils/validation.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { cli } from '../../../../cli/cli.js';
+import GlobalOptions from '../../../../GlobalOptions';
+import { entraAdministrativeUnit } from '../../../../utils/entraAdministrativeUnit';
+import { entraDevice } from '../../../../utils/entraDevice';
+import { entraGroup } from '../../../../utils/entraGroup';
+import { entraUser } from '../../../../utils/entraUser';
+import { validation } from '../../../../utils/validation';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import request, { CliRequestOptions } from '../../../../request';
+import { Logger } from '../../../../cli/Logger';
+import { cli } from '../../../../cli/cli';
 
 interface CommandArgs {
   options: Options;
@@ -205,4 +205,4 @@ class EntraAdministrativeUnitMemberRemoveCommand extends GraphCommand {
   }
 }
 
-export default new EntraAdministrativeUnitMemberRemoveCommand();
+module.exports = new EntraAdministrativeUnitMemberRemoveCommand();

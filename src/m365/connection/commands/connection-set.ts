@@ -1,8 +1,8 @@
-import { Logger } from '../../../cli/Logger.js';
-import auth from '../../../Auth.js';
-import commands from '../commands.js';
-import Command, { CommandError } from '../../../Command.js';
-import GlobalOptions from '../../../GlobalOptions.js';
+import { Logger } from '../../../cli/Logger';
+import auth from '../../../Auth';
+import commands from '../commands';
+import Command, { CommandError } from '../../../Command';
+import GlobalOptions from '../../../GlobalOptions';
 
 interface CommandArgs {
   options: Options;
@@ -80,4 +80,4 @@ class ConnectionSetCommand extends Command {
   }
 }
 
-export default new ConnectionSetCommand();
+module.exports = new ConnectionSetCommand();

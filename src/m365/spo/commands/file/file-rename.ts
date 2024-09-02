@@ -1,15 +1,16 @@
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import removeCommand, { Options as SpoFileRemoveOptions } from './file-remove.js';
-import { FileProperties } from './FileProperties.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { urlUtil } from '../../../../utils/urlUtil';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import * as removeCommand from './file-remove';
+import { Options as SpoFileRemoveOptions } from './file-remove';
+import { FileProperties } from './FileProperties';
 
 interface CommandArgs {
   options: Options;
@@ -161,4 +162,4 @@ class SpoFileRenameCommand extends SpoCommand {
   }
 }
 
-export default new SpoFileRenameCommand();
+module.exports = new SpoFileRenameCommand();

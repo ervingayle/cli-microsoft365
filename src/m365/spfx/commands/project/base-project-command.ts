@@ -1,10 +1,10 @@
-import fs from 'fs';
-import path from 'path';
-import { formatting } from '../../../../utils/formatting.js';
-import { fsUtil } from '../../../../utils/fsUtil.js';
-import AnonymousCommand from "../../../base/AnonymousCommand.js";
-import { Manifest, Project, ScssFile, TsFile } from "./project-model/index.js";
-import { CommandError } from '../../../../Command.js';
+import * as fs from 'fs';
+import * as path from 'path';
+import { formatting } from '../../../../utils/formatting';
+import { fsUtil } from '../../../../utils/fsUtil';
+import AnonymousCommand from "../../../base/AnonymousCommand";
+import { Manifest, Project, ScssFile, TsFile } from "./project-model/index";
+import { CommandError } from '../../../../Command';
 
 
 export abstract class BaseProjectCommand extends AnonymousCommand {
@@ -47,14 +47,14 @@ export abstract class BaseProjectCommand extends AnonymousCommand {
     this.readAndParseJsonFile(path.join(projectRootPath, 'config', 'write-manifests.json'), project, 'writeManifestsJson');
     this.readAndParseJsonFile(path.join(projectRootPath, '.yo-rc.json'), project, 'yoRcJson');
 
-    const gulpfileJsPath: string = path.join(projectRootPath, 'gulpfile.js');
+    const gulpfileJsPath: string = path.join(projectRootPath, 'gulpfile');
     if (fs.existsSync(gulpfileJsPath)) {
       project.gulpfileJs = {
         source: fs.readFileSync(gulpfileJsPath, 'utf-8')
       };
     }
 
-    const esLintRcJsPath: string = path.join(projectRootPath, '.eslintrc.js');
+    const esLintRcJsPath: string = path.join(projectRootPath, '.eslintrc');
     if (fs.existsSync(esLintRcJsPath)) {
       project.esLintRcJs = new TsFile(esLintRcJsPath);
     }

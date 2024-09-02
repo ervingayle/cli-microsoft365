@@ -1,8 +1,8 @@
-import { CommandArgs } from '../../../../Command.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { odata } from '../../../../utils/odata.js';
-import PowerAutomateCommand from '../../../base/PowerAutomateCommand.js';
-import commands from '../../commands.js';
+import { CommandArgs } from '../../../../Command';
+import { Logger } from '../../../../cli/Logger';
+import { odata } from '../../../../utils/odata';
+import PowerAutomateCommand from '../../../base/PowerAutomateCommand';
+import commands from '../../commands';
 
 class FlowEnvironmentListCommand extends PowerAutomateCommand {
   public get name(): string {
@@ -41,4 +41,4 @@ class FlowEnvironmentListCommand extends PowerAutomateCommand {
   }
 }
 
-export default new FlowEnvironmentListCommand();
+module.exports = new FlowEnvironmentListCommand();

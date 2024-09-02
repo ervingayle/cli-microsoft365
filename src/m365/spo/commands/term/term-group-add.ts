@@ -1,15 +1,15 @@
 import { v4 } from 'uuid';
-import { Logger } from '../../../../cli/Logger.js';
-import config from '../../../../config.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { ClientSvcResponse, ClientSvcResponseContents, ContextInfo, spo } from '../../../../utils/spo.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { TermGroup } from './TermGroup.js';
-import { TermStore } from './TermStore.js';
+import { Logger } from '../../../../cli/Logger';
+import config from '../../../../config';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { ClientSvcResponse, ClientSvcResponseContents, ContextInfo, spo } from '../../../../utils/spo';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { TermGroup } from './TermGroup';
+import { TermStore } from './TermStore';
 
 interface CommandArgs {
   options: Options;
@@ -171,4 +171,4 @@ class SpoTermGroupAddCommand extends SpoCommand {
   }
 }
 
-export default new SpoTermGroupAddCommand();
+module.exports = new SpoTermGroupAddCommand();

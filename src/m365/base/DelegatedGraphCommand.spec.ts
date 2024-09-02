@@ -1,10 +1,10 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../Auth.js';
-import { telemetry } from '../../telemetry.js';
-import DelegatedGraphCommand from './DelegatedGraphCommand.js';
-import { accessToken } from '../../utils/accessToken.js';
-import { CommandError } from '../../Command.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../Auth';
+import { telemetry } from '../../telemetry';
+import DelegatedGraphCommand from './DelegatedGraphCommand';
+import { accessToken } from '../../utils/accessToken';
+import { CommandError } from '../../Command';
 
 class MockCommand extends DelegatedGraphCommand {
   public get name(): string {

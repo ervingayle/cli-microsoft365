@@ -1,20 +1,20 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import { telemetry } from '../../../../telemetry.js';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
-import commands from '../../commands.js';
-import fs from 'fs';
-import request from '../../../../request.js';
-import command from './listitem-attachment-set.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import { telemetry } from '../../../../telemetry';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import { formatting } from '../../../../utils/formatting';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import { urlUtil } from '../../../../utils/urlUtil';
+import commands from '../../commands';
+import * as fs from 'fs';
+import request from '../../../../request';
+const command: Command = require('./listitem-attachment-set');
 
 describe(commands.LISTITEM_ATTACHMENT_SET, () => {
   const webUrl = 'https://contoso.sharepoint.com/sites/project-x';

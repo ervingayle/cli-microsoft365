@@ -1,9 +1,9 @@
-import assert from 'assert';
-import fs from 'fs';
-import sinon from 'sinon';
-import { pid } from './utils/pid.js';
-import { session } from './utils/session.js';
-import { sinonUtil } from './utils/sinonUtil.js';
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as sinon from 'sinon';
+import { pid } from './utils/pid';
+import { session } from './utils/session';
+import { sinonUtil } from './utils/sinonUtil';
 
 const env = Object.assign({}, process.env);
 

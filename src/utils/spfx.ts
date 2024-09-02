@@ -1,4 +1,4 @@
-import { Project } from '../m365/spfx/commands/project/project-model/index.js';
+import { Project } from '../m365/spfx/commands/project/project-model/index';
 
 export const spfx = {
   isReactProject(project: Project): boolean {

@@ -1,8 +1,8 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import PlannerCommand from '../../../base/PlannerCommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import PlannerCommand from '../../../base/PlannerCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -133,4 +133,4 @@ class PlannerTenantSettingsSetCommand extends PlannerCommand {
   }
 }
 
-export default new PlannerTenantSettingsSetCommand();
+module.exports = new PlannerTenantSettingsSetCommand();

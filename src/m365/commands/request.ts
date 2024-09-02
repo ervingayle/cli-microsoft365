@@ -1,12 +1,12 @@
-import { AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from 'axios';
-import fs from 'fs';
-import path from 'path';
-import auth from '../../Auth.js';
-import Command from '../../Command.js';
-import GlobalOptions from '../../GlobalOptions.js';
-import { Logger } from '../../cli/Logger.js';
-import request from '../../request.js';
-import commands from './commands.js';
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import * as fs from 'fs';
+import * as path from 'path';
+import auth from '../../Auth';
+import Command from '../../Command';
+import GlobalOptions from '../../GlobalOptions';
+import { Logger } from '../../cli/Logger';
+import request from '../../request';
+import commands from './commands';
 
 interface CommandArgs {
   options: Options;
@@ -117,7 +117,7 @@ class RequestCommand extends Command {
     try {
       const url = this.resolveUrlTokens(args.options.url);
       const method = (args.options.method || 'get').toUpperCase();
-      const headers: RawAxiosRequestHeaders = {};
+      const headers: any = {};
 
       const unknownOptions: any = this.getUnknownOptions(args.options);
       const unknownOptionsNames: string[] = Object.getOwnPropertyNames(unknownOptions);
@@ -201,4 +201,4 @@ class RequestCommand extends Command {
   }
 }
 
-export default new RequestCommand();
+module.exports = new RequestCommand();

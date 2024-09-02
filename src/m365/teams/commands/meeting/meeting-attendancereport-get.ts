@@ -1,13 +1,13 @@
-import auth from '../../../../Auth.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { accessToken } from '../../../../utils/accessToken.js';
-import { validation } from '../../../../utils/validation.js';
-import GraphCommand from "../../../base/GraphCommand.js";
-import commands from '../../commands.js';
-import { entraUser } from '../../../../utils/entraUser.js';
+import auth from '../../../../Auth';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import { accessToken } from '../../../../utils/accessToken';
+import { validation } from '../../../../utils/validation';
+import GraphCommand from "../../../base/GraphCommand";
+import commands from '../../commands';
+import { entraUser } from '../../../../utils/entraUser';
 import { MeetingAttendanceReport } from '@microsoft/microsoft-graph-types';
-import request, { CliRequestOptions } from '../../../../request.js';
+import request, { CliRequestOptions } from '../../../../request';
 
 interface CommandArgs {
   options: Options;
@@ -157,4 +157,4 @@ class TeamsMeetingAttendancereportGetCommand extends GraphCommand {
   }
 }
 
-export default new TeamsMeetingAttendancereportGetCommand();
+module.exports = new TeamsMeetingAttendancereportGetCommand();

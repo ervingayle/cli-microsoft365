@@ -1,16 +1,16 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { CommandError } from '../../../../Command.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { telemetry } from '../../../../telemetry.js';
-import { odata } from '../../../../utils/odata.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './user-recyclebinitem-list.js';
-import aadCommands from '../../aadCommands.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import Command, { CommandError } from '../../../../Command';
+import { Logger } from '../../../../cli/Logger';
+import { telemetry } from '../../../../telemetry';
+import { odata } from '../../../../utils/odata';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+const command: Command = require('./user-recyclebinitem-list');
+import aadCommands from '../../aadCommands';
 
 describe(commands.USER_RECYCLEBINITEM_LIST, () => {
   const deletedUsersResponse = [{ "businessPhones": [], "displayName": "John Doe", "givenName": "John Doe", "jobTitle": "Developer", "mail": "john@contoso.com", "mobilePhone": "0476345130", "officeLocation": "Washington", "preferredLanguage": "nl-BE", "surname": "John", "userPrincipalName": "7e06b56615f340138bf879874d52e68ajohn@contoso.com", "id": "7e06b566-15f3-4013-8bf8-79874d52e68a" }];

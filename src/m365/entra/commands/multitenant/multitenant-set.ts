@@ -1,9 +1,9 @@
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import { MultitenantOrganization } from './MultitenantOrganization.js';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import { MultitenantOrganization } from './MultitenantOrganization';
 
 interface CommandArgs {
   options: Options;
@@ -94,4 +94,4 @@ class EntraMultitenantSetCommand extends GraphCommand {
   }
 }
 
-export default new EntraMultitenantSetCommand();
+module.exports = new EntraMultitenantSetCommand();

@@ -1,15 +1,15 @@
 import * as url from 'url';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { spo } from '../../../../utils/spo.js';
-import { SiteRetentionLabel } from './SiteRetentionLabel.js';
-import { odata } from '../../../../utils/odata.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { urlUtil } from '../../../../utils/urlUtil';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { spo } from '../../../../utils/spo';
+import { SiteRetentionLabel } from './SiteRetentionLabel';
+import { odata } from '../../../../utils/odata';
 
 interface CommandArgs {
   options: Options;
@@ -234,4 +234,4 @@ class SpoListItemRetentionLabelEnsureCommand extends SpoCommand {
   }
 }
 
-export default new SpoListItemRetentionLabelEnsureCommand();
+module.exports = new SpoListItemRetentionLabelEnsureCommand();

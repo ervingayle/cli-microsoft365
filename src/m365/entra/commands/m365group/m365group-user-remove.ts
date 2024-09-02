@@ -1,14 +1,14 @@
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import { entraGroup } from '../../../../utils/entraGroup.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { validation } from '../../../../utils/validation.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import teamsCommands from '../../../teams/commands.js';
-import aadCommands from '../../aadCommands.js';
-import commands from '../../commands.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import { entraGroup } from '../../../../utils/entraGroup';
+import { formatting } from '../../../../utils/formatting';
+import { validation } from '../../../../utils/validation';
+import GraphCommand from '../../../base/GraphCommand';
+import teamsCommands from '../../../teams/commands';
+import aadCommands from '../../aadCommands';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -174,4 +174,4 @@ class EntraM365GroupUserRemoveCommand extends GraphCommand {
   }
 }
 
-export default new EntraM365GroupUserRemoveCommand();
+module.exports = new EntraM365GroupUserRemoveCommand();

@@ -1,18 +1,17 @@
-import assert from 'assert';
-import { createRequire } from 'module';
-import os from 'os';
-import sinon from 'sinon';
-import auth, { AuthType } from '../../../Auth.js';
-import { cli } from '../../../cli/cli.js';
-import { Logger } from '../../../cli/Logger.js';
-import { telemetry } from '../../../telemetry.js';
-import { pid } from '../../../utils/pid.js';
-import { session } from '../../../utils/session.js';
-import { sinonUtil } from '../../../utils/sinonUtil.js';
-import commands from '../commands.js';
-import command from './cli-doctor.js';
+import * as assert from 'assert';
+import * as os from 'os';
+import * as sinon from 'sinon';
+import auth, { AuthType } from '../../../Auth';
+import { cli } from '../../../cli/cli';
+import { Logger } from '../../../cli/Logger';
+import { telemetry } from '../../../telemetry';
+import { pid } from '../../../utils/pid';
+import { session } from '../../../utils/session';
+import { sinonUtil } from '../../../utils/sinonUtil';
+import commands from '../commands';
+import Command from '../../../Command';
+const command: Command = require('./cli-doctor');
 
-const require = createRequire(import.meta.url);
 const packageJSON = require('../../../../package.json');
 
 describe(commands.DOCTOR, () => {

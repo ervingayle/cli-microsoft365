@@ -1,8 +1,8 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import PowerPlatformCommand from '../../../base/PowerPlatformCommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import PowerPlatformCommand from '../../../base/PowerPlatformCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -85,4 +85,4 @@ class PpEnvironmentListCommand extends PowerPlatformCommand {
   }
 }
 
-export default new PpEnvironmentListCommand();
+module.exports = new PpEnvironmentListCommand();

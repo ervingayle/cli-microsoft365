@@ -1,7 +1,7 @@
-import { Logger } from '../../cli/Logger.js';
-import { app } from '../../utils/app.js';
-import AnonymousCommand from '../base/AnonymousCommand.js';
-import commands from './commands.js';
+import { Logger } from '../../cli/Logger';
+import { app } from '../../utils/app';
+import AnonymousCommand from '../base/AnonymousCommand';
+import commands from './commands';
 
 class VersionCommand extends AnonymousCommand {
   public get name(): string {
@@ -17,4 +17,4 @@ class VersionCommand extends AnonymousCommand {
   }
 }
 
-export default new VersionCommand();
+module.exports = new VersionCommand();

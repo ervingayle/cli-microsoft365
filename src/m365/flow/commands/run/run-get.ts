@@ -1,10 +1,10 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { validation } from '../../../../utils/validation.js';
-import PowerAutomateCommand from '../../../base/PowerAutomateCommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { validation } from '../../../../utils/validation';
+import PowerAutomateCommand from '../../../base/PowerAutomateCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -218,4 +218,4 @@ class FlowRunGetCommand extends PowerAutomateCommand {
   }
 }
 
-export default new FlowRunGetCommand();
+module.exports = new FlowRunGetCommand();

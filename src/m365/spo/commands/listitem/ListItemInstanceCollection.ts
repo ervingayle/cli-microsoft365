@@ -1,4 +1,4 @@
-import { ListItemInstance } from './ListItemInstance.js';
+import { ListItemInstance } from './ListItemInstance';
 
 export interface ListItemInstanceCollection {
   value: ListItemInstance[];

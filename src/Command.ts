@@ -1,19 +1,18 @@
-import os from 'os';
-import { ZodTypeAny, z } from 'zod';
-import auth from './Auth.js';
-import GlobalOptions from './GlobalOptions.js';
-import { CommandInfo } from './cli/CommandInfo.js';
-import { CommandOptionInfo } from './cli/CommandOptionInfo.js';
-import { Logger } from './cli/Logger.js';
-import { cli } from './cli/cli.js';
-import request from './request.js';
-import { settingsNames } from './settingsNames.js';
-import { telemetry } from './telemetry.js';
-import { accessToken } from './utils/accessToken.js';
-import { md } from './utils/md.js';
-import { GraphResponseError } from './utils/odata.js';
-import { prompt } from './utils/prompt.js';
-import { zod } from './utils/zod.js';
+import * as os from 'os';
+import type * as Chalk from 'chalk';
+import auth from './Auth';
+import GlobalOptions from './GlobalOptions';
+import { CommandInfo } from './cli/CommandInfo';
+import { CommandOptionInfo } from './cli/CommandOptionInfo';
+import { Logger } from './cli/Logger';
+import { cli } from './cli/cli';
+import request from './request';
+import { settingsNames } from './settingsNames';
+import { telemetry } from './telemetry';
+import { accessToken } from './utils/accessToken';
+import { md } from './utils/md';
+import { GraphResponseError } from './utils/odata';
+import { prompt } from './utils/prompt';
 
 interface CommandOption {
   option: string;
@@ -44,14 +43,6 @@ interface ODataError {
     }
   }
 }
-
-export const globalOptionsZod = z.object({
-  query: z.string().optional(),
-  output: zod.alias('o', z.enum(['csv', 'json', 'md', 'text', 'none']).optional()),
-  debug: z.boolean().default(false),
-  verbose: z.boolean().default(false)
-});
-export type GlobalOptionsZod = z.infer<typeof globalOptionsZod>;
 
 export interface CommandArgs {
   options: GlobalOptions;
@@ -84,22 +75,6 @@ export default abstract class Command {
 
   public abstract get name(): string;
   public abstract get description(): string;
-  public get schema(): ZodTypeAny | undefined {
-    return undefined;
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  public getRefinedSchema(schema: ZodTypeAny): z.ZodEffects<any> | undefined {
-    return undefined;
-  }
-
-  public getSchemaToParse(): z.ZodTypeAny | undefined {
-    return this.getRefinedSchema(this.schema as z.ZodTypeAny) ?? this.schema;
-  }
-
-  // metadata for command's options
-  // used for building telemetry
-  public optionsInfo: CommandOptionInfo[] = [];
 
   constructor() {
     // These functions must be defined with # so that they're truly private
@@ -194,7 +169,10 @@ export default abstract class Command {
         await cli.error('🌶️  Provide values for the following parameters:');
       }
 
-      const answer = await cli.promptForValue(optionInfo);
+      const answer = optionInfo.autocomplete !== undefined
+        ? await cli.promptForSelection<string>({ message: `${optionInfo.name}: `, choices: optionInfo.autocomplete.map((choice: any) => { return { name: choice, value: choice }; }) })
+        : await cli.promptForInput({ message: `${optionInfo.name}: ` });
+
       args.options[optionInfo.name] = answer;
     }
 
@@ -245,7 +223,7 @@ export default abstract class Command {
   private async promptForOptionSetNameAndValue(args: CommandArgs, optionSet: OptionSet): Promise<void> {
     await cli.error(`🌶️  Please specify one of the following options:`);
 
-    const selectedOptionName = await prompt.forSelection<string>({ message: `Option to use:`, choices: optionSet.options.map((choice: any) => { return { name: choice, value: choice }; }) });
+    const selectedOptionName = await cli.promptForSelection<string>({ message: `Option to use:`, choices: optionSet.options.map((choice: any) => { return { name: choice, value: choice }; }) });
     const optionValue = await prompt.forInput({ message: `${selectedOptionName}:` });
 
     args.options[selectedOptionName] = optionValue;
@@ -255,7 +233,7 @@ export default abstract class Command {
   private async promptForSpecificOption(args: CommandArgs, commonOptions: string[]): Promise<void> {
     await cli.error(`🌶️  Multiple options for an option set specified. Please specify the correct option that you wish to use.`);
 
-    const selectedOptionName = await prompt.forSelection({ message: `Option to use:`, choices: commonOptions.map((choice: any) => { return { name: choice, value: choice }; }) });
+    const selectedOptionName = await cli.promptForSelection({ message: `Option to use:`, choices: commonOptions.map((choice: any) => { return { name: choice, value: choice }; }) });
 
     commonOptions.filter(y => y !== selectedOptionName).map(optionName => args.options[optionName] = undefined);
     await cli.error('');
@@ -541,13 +519,13 @@ export default abstract class Command {
   protected async showDeprecationWarning(logger: Logger, deprecated: string, recommended: string): Promise<void> {
     if (cli.currentCommandName &&
       cli.currentCommandName.indexOf(deprecated) === 0) {
-      const chalk = (await import('chalk')).default;
+      const chalk: typeof Chalk = require('chalk');
       await logger.logToStderr(chalk.yellow(`Command '${deprecated}' is deprecated. Please use '${recommended}' instead.`));
     }
   }
 
   protected async warn(logger: Logger, warning: string): Promise<void> {
-    const chalk = (await import('chalk')).default;
+    const chalk: typeof Chalk = require('chalk');
     await logger.logToStderr(chalk.yellow(warning));
   }
 
@@ -577,36 +555,8 @@ export default abstract class Command {
   }
 
   private getTelemetryProperties(args: any): any {
-    if (this.schema) {
-      const telemetryProperties: any = {};
-      this.optionsInfo.forEach(o => {
-        if (o.required) {
-          return;
-        }
-
-        if (typeof args.options[o.name] === 'undefined') {
-          return;
-        }
-
-        switch (o.type) {
-          case 'string':
-            telemetryProperties[o.name] = o.autocomplete ? args.options[o.name] : typeof args.options[o.name] !== 'undefined';
-            break;
-          case 'boolean':
-            telemetryProperties[o.name] = args.options[o.name];
-            break;
-          case 'number':
-            telemetryProperties[o.name] = typeof args.options[o.name] !== 'undefined';
-            break;
-        };
-      });
-
-      return telemetryProperties;
-    }
-    else {
-      this.telemetry.forEach(t => t(args));
-      return this.telemetryProperties;
-    }
+    this.telemetry.forEach(t => t(args));
+    return this.telemetryProperties;
   }
 
   public async getTextOutput(logStatement: any[]): Promise<string> {
@@ -634,7 +584,7 @@ export default abstract class Command {
     }
     // display object as a table where each property is a column
     else {
-      const Table = (await import('easy-table')).default;
+      const Table = require('easy-table');
       const t = new Table();
       logStatement.forEach((r: any) => {
         if (typeof r !== 'object') {

@@ -1,9 +1,9 @@
-import { Logger } from '../../../cli/Logger.js';
-import GlobalOptions from '../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../request.js';
-import { formatting } from '../../../utils/formatting.js';
-import PowerAutomateCommand from '../../base/PowerAutomateCommand.js';
-import commands from '../commands.js';
+import { Logger } from '../../../cli/Logger';
+import GlobalOptions from '../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../request';
+import { formatting } from '../../../utils/formatting';
+import PowerAutomateCommand from '../../base/PowerAutomateCommand';
+import commands from '../commands';
 
 interface CommandArgs {
   options: Options;
@@ -75,4 +75,4 @@ class FlowDisableCommand extends PowerAutomateCommand {
   }
 }
 
-export default new FlowDisableCommand();
+module.exports = new FlowDisableCommand();

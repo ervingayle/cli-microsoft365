@@ -1,6 +1,6 @@
-import assert from 'assert';
-import fs from 'fs';
-import sinon from 'sinon';
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as sinon from 'sinon';
 import request from '../../../../../../request.js';
 import { sinonUtil } from '../../../../../../utils/sinonUtil.js';
 import { Project } from '../../project-model/index.js';

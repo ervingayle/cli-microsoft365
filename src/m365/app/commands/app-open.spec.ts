@@ -1,17 +1,17 @@
-import assert from 'assert';
-import fs from 'fs';
-import sinon from 'sinon';
-import auth from '../../../Auth.js';
-import { CommandError } from '../../../Command.js';
-import { cli } from '../../../cli/cli.js';
-import { CommandInfo } from '../../../cli/CommandInfo.js';
-import { Logger } from '../../../cli/Logger.js';
-import { telemetry } from '../../../telemetry.js';
-import { browserUtil } from '../../../utils/browserUtil.js';
-import { pid } from '../../../utils/pid.js';
-import { session } from '../../../utils/session.js';
-import commands from '../commands.js';
-import command from './app-open.js';
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as sinon from 'sinon';
+import auth from '../../../Auth';
+import Command, { CommandError } from '../../../Command';
+import { cli } from '../../../cli/cli';
+import { CommandInfo } from '../../../cli/CommandInfo';
+import { Logger } from '../../../cli/Logger';
+import { telemetry } from '../../../telemetry';
+import { browserUtil } from '../../../utils/browserUtil';
+import { pid } from '../../../utils/pid';
+import { session } from '../../../utils/session';
+import commands from '../commands';
+const command: Command = require('./app-open');
 
 describe(commands.OPEN, () => {
   let log: string[];

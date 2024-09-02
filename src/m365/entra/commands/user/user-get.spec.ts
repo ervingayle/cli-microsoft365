@@ -1,22 +1,22 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { accessToken } from '../../../../utils/accessToken.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './user-get.js';
-import { settingsNames } from '../../../../settingsNames.js';
-import aadCommands from '../../aadCommands.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { formatting } from '../../../../utils/formatting.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { accessToken } from '../../../../utils/accessToken';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+const command: Command = require('./user-get');
+import { settingsNames } from '../../../../settingsNames';
+import aadCommands from '../../aadCommands';
+import { entraUser } from '../../../../utils/entraUser';
+import { formatting } from '../../../../utils/formatting';
 
 describe(commands.USER_GET, () => {
   const userId = "68be84bf-a585-4776-80b3-30aa5207aa21";
@@ -139,7 +139,7 @@ describe(commands.USER_GET, () => {
 
   it('retrieves user using user name', async () => {
     sinon.stub(request, 'get').callsFake(async (opts) => {
-      if (opts.url === `https://graph.microsoft.com/v1.0/users/${formatting.encodeQueryParameter(userName) }`) {
+      if (opts.url === `https://graph.microsoft.com/v1.0/users/${formatting.encodeQueryParameter(userName)}`) {
         return resultValue;
       }
 
@@ -185,7 +185,7 @@ describe(commands.USER_GET, () => {
       "mail": "john.doe@contoso.onmicrosoft.com"
     };
     sinon.stub(request, 'get').callsFake(async (opts) => {
-      if (opts.url === `https://graph.microsoft.com/v1.0/users/${formatting.encodeQueryParameter(userName) }?$expand=manager($select=displayName,userPrincipalName,id,mail)`) {
+      if (opts.url === `https://graph.microsoft.com/v1.0/users/${formatting.encodeQueryParameter(userName)}?$expand=manager($select=displayName,userPrincipalName,id,mail)`) {
         return resultValueWithManger;
       }
 
@@ -198,7 +198,7 @@ describe(commands.USER_GET, () => {
 
   it('retrieves user using @meusername token', async () => {
     sinon.stub(request, 'get').callsFake(async (opts) => {
-      if (opts.url === `https://graph.microsoft.com/v1.0/users/${formatting.encodeQueryParameter(userName) }`) {
+      if (opts.url === `https://graph.microsoft.com/v1.0/users/${formatting.encodeQueryParameter(userName)}`) {
         return resultValue;
       }
 
@@ -227,7 +227,7 @@ describe(commands.USER_GET, () => {
 
   it('retrieves only the specified properties', async () => {
     sinon.stub(request, 'get').callsFake(async (opts) => {
-      if (opts.url === `https://graph.microsoft.com/v1.0/users/${formatting.encodeQueryParameter(userName) }?$select=id,mail`) {
+      if (opts.url === `https://graph.microsoft.com/v1.0/users/${formatting.encodeQueryParameter(userName)}?$select=id,mail`) {
         return { "id": "userId", "mail": null };
       }
 
@@ -276,7 +276,7 @@ describe(commands.USER_GET, () => {
     await assert.rejects(command.action(logger, { options: { userName: userName } } as any),
       new CommandError(`Resource '${userName}' does not exist or one of its queried reference-property objects are not present.`));
   });
-  
+
   it('fails validation if id or email or userName options are not passed', async () => {
     sinon.stub(cli, 'getSettingWithDefaultValue').callsFake((settingName, defaultValue) => {
       if (settingName === settingsNames.prompt) {

@@ -1,11 +1,8 @@
-import fs from 'fs';
-import path from 'path';
-import url from 'url';
-import request, { CliRequestOptions } from '../request.js';
-import { md } from '../utils/md.js';
-import { prompt } from '../utils/prompt.js';
-
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+import * as fs from 'fs';
+import * as inquirer from 'inquirer';
+import * as path from 'path';
+import request, { CliRequestOptions } from '../request';
+import { md } from '../utils/md';
 
 interface MendableConversationIdResponse {
   conversation_id: number;
@@ -25,11 +22,11 @@ interface MendableChatResponse {
   }[];
 }
 
-const mendableBaseUrl = 'https://api.mendable.ai/v1';
 const mendableApiKey = 'd3313d54-6f8e-40e0-90d3-4095019d4be7';
 
 let showHelp = false;
 let debug = false;
+let promptForRating = true;
 let conversationId: number = 0;
 let initialPrompt: string = '';
 let history: {
@@ -44,6 +41,7 @@ request.logger = {
   logToStderr: async (msg: string) => console.error(msg)
 };
 request.debug = debug;
+
 
 function getPromptFromArgs(args: string[]): string {
   showHelp = args.indexOf('--help') > -1 || args.indexOf('-h') > -1;
@@ -81,6 +79,17 @@ function getPromptFromArgs(args: string[]): string {
     debug = false;
   }
 
+  const noRatingPos = args.indexOf('--no-rating');
+
+  if (noRatingPos > -1) {
+    promptForRating = false;
+    args.splice(noRatingPos, 1);
+  }
+  else {
+    // reset to default. needed for tests
+    promptForRating = true;
+  }
+
   return args.join(' ');
 }
 
@@ -102,7 +111,12 @@ async function startConversation(args: string[]): Promise<void> {
 }
 
 async function promptForPrompt(): Promise<string> {
-  return await prompt.forInput({ message: '🌶️  How can I help you?' });
+  const answer = await inquirer.prompt<{ prompt: string }>([{
+    type: 'input',
+    name: 'prompt',
+    message: '🌶️  How can I help you?'
+  }]);
+  return answer.prompt;
 }
 
 async function runConversationTurn(conversationId: number, question: string): Promise<void> {
@@ -124,43 +138,106 @@ async function runConversationTurn(conversationId: number, question: string): Pr
   sources.forEach(src => console.log(`⬥ ${src.link}`));
   console.log('');
 
-  const choices = [
-    {
-      name: '📝 I want to know more',
-      value: 'ask'
-    },
-    {
-      name: '👋 I know enough. Thanks!',
-      value: 'end'
-    },
-    {
-      name: '🔄 I want to ask about something else',
-      value: 'new'
+  if (promptForRating) {
+    try {
+      await rateResponse(response.message_id);
     }
-  ];
+    catch (err) {
+      if (debug) {
+        console.error(`An error has occurred while rating the response: ${err}`);
+      }
+    }
 
-  const result = await prompt.forSelection({ message: 'What would you like to do next?', choices });
+    console.log('');
+  }
 
-  switch (result) {
+  const result = await inquirer.prompt<{ chat: string }>([{
+    type: 'list',
+    name: 'chat',
+    message: 'What would you like to do next?',
+    choices: [
+      {
+        name: '📝 I want to know more',
+        value: 'ask'
+      },
+      {
+        name: '👋 I know enough. Thanks!',
+        value: 'end'
+      },
+      {
+        name: '🔄 I want to ask about something else',
+        value: 'new'
+      }
+    ]
+  }]);
+
+  switch (result.chat) {
     case 'ask':
       const prompt = await promptForPrompt();
-      await runConversationTurn(conversationId, prompt);
-      break;
+      return await runConversationTurn(conversationId, prompt);
     case 'end':
       await endConversation(conversationId);
       console.log('');
       console.log('🌶️   Bye!');
-      break;
+      return;
     case 'new':
       initialPrompt = '';
-      await startConversation([]);
-      break;
+      return startConversation([]);
   }
+}
+
+async function rateResponse(messageId: number): Promise<void> {
+  const result = await inquirer.prompt<{ rating: number }>([{
+    type: 'list',
+    name: 'rating',
+    message: 'Was this helpful?',
+    choices: [
+      {
+        name: '👍 Yes',
+        value: 1
+      },
+      {
+        name: '👎 No',
+        value: -1
+      },
+      {
+        name: '🤔 Not sure/skip',
+        value: 0
+      }
+    ]
+  }]);
+
+  if (result.rating === 0) {
+    return;
+  }
+
+  console.log('Thanks for letting us know! 😊');
+
+  const requestOptions: CliRequestOptions = {
+    url: 'https://api.mendable.ai/v0/rateMessage',
+    headers: {
+      'content-type': 'application/json',
+      'x-anonymous': true
+    },
+    responseType: 'json',
+    data: {
+      // eslint-disable-next-line camelcase
+      api_key: mendableApiKey,
+      // eslint-disable-next-line camelcase
+      conversation_id: conversationId,
+      // eslint-disable-next-line camelcase
+      message_id: messageId,
+      // eslint-disable-next-line camelcase
+      rating_value: result.rating
+    }
+  };
+
+  await request.post(requestOptions);
 }
 
 async function endConversation(conversationId: number): Promise<void> {
   const requestOptions: CliRequestOptions = {
-    url: `${mendableBaseUrl}/endConversation`,
+    url: 'https://api.mendable.ai/v0/endConversation',
     headers: {
       'content-type': 'application/json',
       'x-anonymous': true
@@ -179,7 +256,7 @@ async function endConversation(conversationId: number): Promise<void> {
 
 async function runMendableChat(conversationId: number, question: string): Promise<MendableChatResponse> {
   const requestOptions: CliRequestOptions = {
-    url: `${mendableBaseUrl}/mendableChat`,
+    url: 'https://api.mendable.ai/v0/mendableChat',
     headers: {
       'content-type': 'application/json',
       'x-anonymous': true
@@ -201,7 +278,7 @@ async function runMendableChat(conversationId: number, question: string): Promis
 
 async function getConversationId(): Promise<number> {
   const requestOptions: CliRequestOptions = {
-    url: `${mendableBaseUrl}/newConversation`,
+    url: 'https://api.mendable.ai/v0/newConversation',
     headers: {
       'content-type': 'application/json',
       'x-anonymous': true

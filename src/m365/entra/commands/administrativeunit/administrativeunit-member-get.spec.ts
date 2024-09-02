@@ -1,20 +1,20 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import commands from '../../commands.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { cli } from '../../../../cli/cli.js';
-import command from './administrativeunit-member-get.js';
-import request from '../../../../request.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import { CommandError } from '../../../../Command.js';
-import { entraAdministrativeUnit } from '../../../../utils/entraAdministrativeUnit.js';
-import { settingsNames } from '../../../../settingsNames.js';
-import aadCommands from '../../aadCommands.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import commands from '../../commands';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { cli } from '../../../../cli/cli';
+const command: Command = require('./administrativeunit-member-get');
+import request from '../../../../request';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import Command, { CommandError } from '../../../../Command';
+import { entraAdministrativeUnit } from '../../../../utils/entraAdministrativeUnit';
+import { settingsNames } from '../../../../settingsNames';
+import aadCommands from '../../aadCommands';
 
 describe(commands.ADMINISTRATIVEUNIT_MEMBER_GET, () => {
   const administrativeUnitId = 'fc33aa61-cf0e-46b6-9506-f633347202ab';

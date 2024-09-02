@@ -1,8 +1,8 @@
-import assert from 'assert';
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
-import sinon from 'sinon';
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
+import * as sinon from 'sinon';
 import { sinonUtil } from '../../../../../../utils/sinonUtil.js';
 import { Project } from '../../project-model/index.js';
 import { Finding } from '../../report-model/index.js';

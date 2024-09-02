@@ -1,11 +1,11 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import commands from '../../commands.js';
-import { Outlook } from '../../Outlook.js';
-import { cli } from '../../../../cli/cli.js';
-import DelegatedGraphCommand from '../../../base/DelegatedGraphCommand.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import commands from '../../commands';
+import { Outlook } from '../../Outlook';
+import { cli } from '../../../../cli/cli';
+import DelegatedGraphCommand from '../../../base/DelegatedGraphCommand';
 
 interface CommandArgs {
   options: Options;
@@ -139,4 +139,4 @@ class OutlookMessageMoveCommand extends DelegatedGraphCommand {
   }
 }
 
-export default new OutlookMessageMoveCommand();
+module.exports = new OutlookMessageMoveCommand();

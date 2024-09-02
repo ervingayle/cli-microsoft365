@@ -1,10 +1,10 @@
-import { Logger } from '../../../../cli/Logger.js';
-import config from '../../../../config.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { ClientSvcResponse, ClientSvcResponseContents, FormDigestInfo, spo } from '../../../../utils/spo.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { ContainerTypeProperties } from '../../ContainerTypeProperties.js';
+import { Logger } from '../../../../cli/Logger';
+import config from '../../../../config';
+import request, { CliRequestOptions } from '../../../../request';
+import { ClientSvcResponse, ClientSvcResponseContents, FormDigestInfo, spo } from '../../../../utils/spo';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { ContainerTypeProperties } from '../../ContainerTypeProperties';
 
 class SpeContainertypeListCommand extends SpoCommand {
 
@@ -60,4 +60,4 @@ class SpeContainertypeListCommand extends SpoCommand {
   }
 }
 
-export default new SpeContainertypeListCommand();
+module.exports = new SpeContainertypeListCommand();

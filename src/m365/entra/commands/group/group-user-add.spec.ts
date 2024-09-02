@@ -1,19 +1,19 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import commands from '../../commands.js';
-import { telemetry } from '../../../../telemetry.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import command from './group-user-add.js';
-import request from '../../../../request.js';
-import { entraGroup } from '../../../../utils/entraGroup.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { CommandError } from '../../../../Command.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import commands from '../../commands';
+import { telemetry } from '../../../../telemetry';
+import { Logger } from '../../../../cli/Logger';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+const command: Command = require('./group-user-add');
+import request from '../../../../request';
+import { entraGroup } from '../../../../utils/entraGroup';
+import { entraUser } from '../../../../utils/entraUser';
+import Command, { CommandError } from '../../../../Command';
 
 describe(commands.GROUP_USER_ADD, () => {
   const groupId = '630dfae3-6904-4154-acc2-812e11205351';

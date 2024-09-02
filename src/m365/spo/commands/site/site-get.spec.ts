@@ -1,25 +1,23 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import { z } from 'zod';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './site-get.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import { telemetry } from '../../../../telemetry';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import request from '../../../../request';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+const command: Command = require('./site-get');
 
 describe(commands.SITE_GET, () => {
   let log: any[];
   let logger: Logger;
   let loggerLogSpy: sinon.SinonSpy;
   let commandInfo: CommandInfo;
-  let commandOptionsSchema: z.ZodTypeAny;
 
   before(() => {
     sinon.stub(auth, 'restoreAuth').resolves();
@@ -28,7 +26,6 @@ describe(commands.SITE_GET, () => {
     sinon.stub(session, 'getId').returns('');
     auth.connection.active = true;
     commandInfo = cli.getCommandInfo(command);
-    commandOptionsSchema = commandInfo.command.getSchemaToParse()!;
   });
 
   beforeEach(() => {
@@ -196,13 +193,24 @@ describe(commands.SITE_GET, () => {
     await assert.rejects(command.action(logger, { options: { debug: true, url: 'https://contoso.sharepoint.com/sites/project-x' } } as any), new CommandError('404 - "404 FILE NOT FOUND"'));
   });
 
+  it('supports specifying URL', () => {
+    const options = command.options;
+    let containsTypeOption = false;
+    options.forEach(o => {
+      if (o.option.indexOf('<url>') > -1) {
+        containsTypeOption = true;
+      }
+    });
+    assert(containsTypeOption);
+  });
+
   it('fails validation if the url option is not a valid SharePoint site URL', async () => {
-    const actual = commandOptionsSchema.safeParse({ url: 'foo' });
+    const actual = await command.validate({ options: { url: 'foo' } }, commandInfo);
     assert.notStrictEqual(actual, true);
   });
 
   it('passes validation if the url option is a valid SharePoint site URL', async () => {
-    const actual = commandOptionsSchema.safeParse({ url: 'https://contoso.sharepoint.com' });
-    assert.strictEqual(actual.success, true);
+    const actual = await command.validate({ options: { url: 'https://contoso.sharepoint.com' } }, commandInfo);
+    assert.strictEqual(actual, true);
   });
 });

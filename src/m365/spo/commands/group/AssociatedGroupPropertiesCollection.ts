@@ -1,4 +1,4 @@
-import { GroupProperties } from "./GroupProperties.js";
+import { GroupProperties } from "./GroupProperties";
 
 export interface AssociatedGroupPropertiesCollection {
   AssociatedMemberGroup: GroupProperties;

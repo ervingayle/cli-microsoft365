@@ -1,12 +1,12 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import request from "../request.js";
-import { entraGroup } from './entraGroup.js';
-import { formatting } from './formatting.js';
-import { sinonUtil } from "./sinonUtil.js";
-import { Logger } from '../cli/Logger.js';
-import { cli } from '../cli/cli.js';
-import { settingsNames } from '../settingsNames.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import request from "../request";
+import { entraGroup } from './entraGroup';
+import { formatting } from './formatting';
+import { sinonUtil } from "./sinonUtil";
+import { Logger } from '../cli/Logger';
+import { cli } from '../cli/cli';
+import { settingsNames } from '../settingsNames';
 
 const validGroupName = 'Group name';
 const validGroupId = '00000000-0000-0000-0000-000000000000';

@@ -1,10 +1,10 @@
-import { Logger } from '../../../cli/Logger.js';
-import auth, { Connection } from '../../../Auth.js';
-import commands from '../commands.js';
-import Command, { CommandError } from '../../../Command.js';
-import GlobalOptions from '../../../GlobalOptions.js';
-import { formatting } from '../../../utils/formatting.js';
-import { cli } from '../../../cli/cli.js';
+import { Logger } from '../../../cli/Logger';
+import auth, { Connection } from '../../../Auth';
+import commands from '../commands';
+import Command, { CommandError } from '../../../Command';
+import GlobalOptions from '../../../GlobalOptions';
+import { formatting } from '../../../utils/formatting';
+import { cli } from '../../../cli/cli';
 
 interface CommandArgs {
   options: Options;
@@ -91,4 +91,4 @@ class ConnectionUseCommand extends Command {
   }
 }
 
-export default new ConnectionUseCommand();
+module.exports = new ConnectionUseCommand();

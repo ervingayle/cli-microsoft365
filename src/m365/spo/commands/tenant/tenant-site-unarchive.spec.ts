@@ -1,19 +1,19 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './tenant-site-unarchive.js';
-import request from '../../../../request.js';
-import config from '../../../../config.js';
-import { spo } from '../../../../utils/spo.js';
-import { CommandError } from '../../../../Command.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+const command: Command = require('./tenant-site-unarchive');
+import request from '../../../../request';
+import config from '../../../../config';
+import { spo } from '../../../../utils/spo';
+import Command, { CommandError } from '../../../../Command';
 
 describe(commands.TENANT_SITE_UNARCHIVE, () => {
   const url = 'https://contoso.sharepoint.com/sites/project-x';

@@ -1,7 +1,7 @@
-import Command, { CommandArgs } from '../../Command.js';
-import auth from '../../Auth.js';
-import { accessToken } from '../../utils/accessToken.js';
-import { Logger } from '../../cli/Logger.js';
+import Command, { CommandArgs } from '../../Command';
+import auth from '../../Auth';
+import { accessToken } from '../../utils/accessToken';
+import { Logger } from '../../cli/Logger';
 
 export default abstract class PowerBICommand extends Command {
   protected get resource(): string {

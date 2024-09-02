@@ -1,19 +1,20 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import commands from '../../commands.js';
-import command from './tenant-recyclebinitem-restore.js';
-import { odata } from '../../../../utils/odata.js';
-import { formatting } from '../../../../utils/formatting.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import commands from '../../commands';
+import type * as Chalk from 'chalk';
+const command: Command = require('./tenant-recyclebinitem-restore');
+import { odata } from '../../../../utils/odata';
+import { formatting } from '../../../../utils/formatting';
 
 describe(commands.TENANT_RECYCLEBINITEM_RESTORE, () => {
   let log: any[];
@@ -71,7 +72,7 @@ describe(commands.TENANT_RECYCLEBINITEM_RESTORE, () => {
   });
 
   it(`correctly shows deprecation warning for option 'wait'`, async () => {
-    const chalk = (await import('chalk')).default;
+    const chalk: typeof Chalk = require('chalk');
     const loggerErrSpy = sinon.spy(logger, 'logToStderr');
 
     sinon.stub(request, 'post').resolves();

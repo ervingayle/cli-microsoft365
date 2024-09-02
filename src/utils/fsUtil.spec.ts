@@ -1,5 +1,5 @@
-import assert from 'assert';
-import { fsUtil } from './fsUtil.js';
+import * as assert from 'assert';
+import { fsUtil } from './fsUtil';
 
 describe('utils/fsUtil', () => {
   it('should get safe filename when file\'name.txt', () => {

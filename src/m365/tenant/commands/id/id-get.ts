@@ -1,10 +1,10 @@
-import auth from '../../../../Auth.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import { accessToken } from '../../../../utils/accessToken.js';
-import commands from '../../commands.js';
+import auth from '../../../../Auth';
+import { Logger } from '../../../../cli/Logger';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import { accessToken } from '../../../../utils/accessToken';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -80,4 +80,4 @@ class TenantIdGetCommand extends Command {
   }
 }
 
-export default new TenantIdGetCommand();
+module.exports = new TenantIdGetCommand();

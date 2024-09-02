@@ -1,11 +1,11 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import { BasePermissions, PermissionKind } from '../../base-permissions.js';
-import commands from '../../commands.js';
-import { CustomAction } from './customaction.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import { BasePermissions, PermissionKind } from '../../base-permissions';
+import commands from '../../commands';
+import { CustomAction } from './customaction';
 
 interface CommandArgs {
   options: Options;
@@ -363,4 +363,4 @@ class SpoCustomActionAddCommand extends SpoCommand {
   }
 }
 
-export default new SpoCustomActionAddCommand();
+module.exports = new SpoCustomActionAddCommand();

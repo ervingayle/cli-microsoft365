@@ -1,12 +1,12 @@
-import fs from 'fs';
-import path from 'path';
-import url from 'url';
-import { Logger } from '../../../cli/Logger.js';
-import GlobalOptions from '../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../request.js';
-import { validation } from '../../../utils/validation.js';
-import GraphCommand from '../../base/GraphCommand.js';
-import commands from '../commands.js';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as url from 'url';
+import { Logger } from '../../../cli/Logger';
+import GlobalOptions from '../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../request';
+import { validation } from '../../../utils/validation';
+import GraphCommand from '../../base/GraphCommand';
+import commands from '../commands';
 
 interface CommandArgs {
   options: Options;
@@ -282,4 +282,4 @@ class FileAddCommand extends GraphCommand {
   }
 }
 
-export default new FileAddCommand();
+module.exports = new FileAddCommand();

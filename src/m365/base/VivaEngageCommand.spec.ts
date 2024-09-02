@@ -1,14 +1,14 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import { telemetry } from '../../telemetry.js';
-import auth from '../../Auth.js';
-import { Logger } from '../../cli/Logger.js';
-import { CommandError } from '../../Command.js';
-import { pid } from '../../utils/pid.js';
-import { session } from '../../utils/session.js';
-import { sinonUtil } from '../../utils/sinonUtil.js';
-import VivaEngageCommand from './VivaEngageCommand.js';
-import { accessToken } from '../../utils/accessToken.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import { telemetry } from '../../telemetry';
+import auth from '../../Auth';
+import { Logger } from '../../cli/Logger';
+import { CommandError } from '../../Command';
+import { pid } from '../../utils/pid';
+import { session } from '../../utils/session';
+import { sinonUtil } from '../../utils/sinonUtil';
+import VivaEngageCommand from './VivaEngageCommand';
+import { accessToken } from '../../utils/accessToken';
 
 class MockCommand extends VivaEngageCommand {
   public get name(): string {

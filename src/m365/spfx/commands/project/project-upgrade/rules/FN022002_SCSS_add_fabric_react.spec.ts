@@ -1,6 +1,6 @@
-import assert from 'assert';
-import fs from 'fs';
-import sinon from 'sinon';
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as sinon from 'sinon';
 import { spfx } from '../../../../../../utils/spfx.js';
 import { Project, ScssFile } from '../../project-model/index.js';
 import { Finding } from '../../report-model/index.js';

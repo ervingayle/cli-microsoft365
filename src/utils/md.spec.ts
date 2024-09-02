@@ -1,11 +1,8 @@
-import assert from 'assert';
-import fs from 'fs';
+import * as assert from 'assert';
+import * as fs from 'fs';
 import { EOL } from 'os';
-import path from 'path';
-import url from 'url';
-import { md } from './md.js';
-
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+import * as path from 'path';
+import { md } from './md';
 
 describe('utils/md', () => {
   let cliCompletionClinkUpdateHelp: string;

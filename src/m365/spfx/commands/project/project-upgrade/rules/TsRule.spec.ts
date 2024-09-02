@@ -1,4 +1,4 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import { TsRule } from './TsRule.js';
 
 class MockTsRule extends TsRule {

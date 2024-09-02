@@ -1,10 +1,10 @@
-import assert from 'assert';
-import fs from 'fs';
-import sinon from 'sinon';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import { BaseProjectCommand } from "./base-project-command.js";
-import { Project } from "./project-model/index.js";
-import { CommandError } from '../../../../Command.js';
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as sinon from 'sinon';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import { BaseProjectCommand } from "./base-project-command";
+import { Project } from "./project-model/index";
+import { CommandError } from '../../../../Command';
 import * as nodepath from 'path';
 
 class MockCommand extends BaseProjectCommand {

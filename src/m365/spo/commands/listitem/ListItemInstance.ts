@@ -1,4 +1,4 @@
-import { RoleAssignment } from "../roledefinition/RoleDefinition.js";
+import { RoleAssignment } from "../roledefinition/RoleDefinition";
 
 export interface ListItemInstance {
   Attachments: boolean;

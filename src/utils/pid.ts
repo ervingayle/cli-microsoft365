@@ -1,7 +1,7 @@
-import child_process from 'child_process';
-import fs from 'fs';
-import os from 'os';
-import { cache } from './cache.js';
+import * as child_process from 'child_process';
+import * as fs from 'fs';
+import * as os from 'os';
+import { cache } from './cache';
 
 function getProcessNameOnMacOs(pid: number): string | undefined {
   const res = child_process.spawnSync('ps', ['-o', 'comm=', pid.toString()], { encoding: 'utf8' });

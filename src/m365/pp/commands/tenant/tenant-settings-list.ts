@@ -1,7 +1,7 @@
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import PowerPlatformCommand from '../../../base/PowerPlatformCommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import PowerPlatformCommand from '../../../base/PowerPlatformCommand';
+import commands from '../../commands';
 
 class PpTenantSettingsListCommand extends PowerPlatformCommand {
   public get name(): string {
@@ -35,4 +35,4 @@ class PpTenantSettingsListCommand extends PowerPlatformCommand {
   }
 }
 
-export default new PpTenantSettingsListCommand();
+module.exports = new PpTenantSettingsListCommand();

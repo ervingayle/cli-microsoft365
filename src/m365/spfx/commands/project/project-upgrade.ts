@@ -1,21 +1,21 @@
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
+import * as fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
 // uncomment to support upgrading to preview releases
 // import { prerelease } from 'semver';
-import { Logger } from '../../../../cli/Logger.js';
-import Command, { CommandError } from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { fsUtil } from '../../../../utils/fsUtil.js';
-import { packageManager } from '../../../../utils/packageManager.js';
-import { Dictionary, Hash } from '../../../../utils/types.js';
-import commands from '../../commands.js';
-import { BaseProjectCommand } from './base-project-command.js';
-import { Project } from './project-model/index.js';
-import { FN017001_MISC_npm_dedupe } from './project-upgrade/rules/FN017001_MISC_npm_dedupe.js';
-import { Finding, FindingToReport, FindingTour, FindingTourStep } from './report-model/index.js';
-import { ReportData, ReportDataModification } from './report-model/ReportData.js';
-import { Rule } from './Rule.js';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import { fsUtil } from '../../../../utils/fsUtil';
+import { packageManager } from '../../../../utils/packageManager';
+import { Dictionary, Hash } from '../../../../utils/types';
+import commands from '../../commands';
+import { BaseProjectCommand } from './base-project-command';
+import { Project } from './project-model/index';
+import { FN017001_MISC_npm_dedupe } from './project-upgrade/rules/FN017001_MISC_npm_dedupe';
+import { Finding, FindingToReport, FindingTour, FindingTourStep } from './report-model/index';
+import { ReportData, ReportDataModification } from './report-model/ReportData';
+import { Rule } from './Rule';
 
 interface CommandArgs {
   options: Options;
@@ -622,4 +622,4 @@ ${f.resolution}
   }
 }
 
-export default new SpfxProjectUpgradeCommand();
+module.exports = new SpfxProjectUpgradeCommand();

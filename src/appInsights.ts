@@ -4,13 +4,11 @@ process.env.APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 'none';
 // prevents tests from hanging
 process.env.APPLICATION_INSIGHTS_NO_STATSBEAT = 'true';
 import * as appInsights from 'applicationinsights';
-import crypto from 'crypto';
-import fs from 'fs';
-import path from 'path';
-import url from 'url';
-import { app } from './utils/app.js';
+import * as crypto from 'crypto';
+import * as fs from 'fs';
+import * as path from 'path';
+import { app } from './utils/app';
 
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const config = appInsights.setup('6b908c80-d09f-4cf6-8274-e54349a0149a');
 config.setInternalLogging(false, false);
 // append -dev to the version number when ran locally

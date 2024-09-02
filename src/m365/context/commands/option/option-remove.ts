@@ -1,11 +1,11 @@
-import fs from 'fs';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import ContextCommand from '../../../base/ContextCommand.js';
-import { M365RcJson } from '../../../base/M365RcJson.js';
-import commands from '../../commands.js';
+import * as fs from 'fs';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import { CommandError } from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import ContextCommand from '../../../base/ContextCommand';
+import { M365RcJson } from '../../../base/M365RcJson';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -105,4 +105,4 @@ class ContextOptionRemoveCommand extends ContextCommand {
   }
 }
 
-export default new ContextOptionRemoveCommand();
+module.exports = new ContextOptionRemoveCommand();

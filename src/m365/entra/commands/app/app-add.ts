@@ -1,15 +1,15 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import { v4 } from 'uuid';
-import auth from '../../../../Auth.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { accessToken } from '../../../../utils/accessToken.js';
-import { AppCreationOptions, AppInfo, entraApp } from '../../../../utils/entraApp.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import { M365RcJson } from '../../../base/M365RcJson.js';
-import aadCommands from '../../aadCommands.js';
-import commands from '../../commands.js';
+import auth from '../../../../Auth';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import { accessToken } from '../../../../utils/accessToken';
+import { AppCreationOptions, AppInfo, entraApp } from '../../../../utils/entraApp';
+import GraphCommand from '../../../base/GraphCommand';
+import { M365RcJson } from '../../../base/M365RcJson';
+import aadCommands from '../../aadCommands';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -658,4 +658,4 @@ class EntraAppAddCommand extends GraphCommand {
   }
 }
 
-export default new EntraAppAddCommand();
+module.exports = new EntraAppAddCommand();

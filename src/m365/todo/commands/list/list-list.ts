@@ -1,8 +1,8 @@
-import { Logger } from '../../../../cli/Logger.js';
-import { odata } from '../../../../utils/odata.js';
-import DelegatedGraphCommand from '../../../base/DelegatedGraphCommand.js';
-import commands from '../../commands.js';
-import { ToDoList } from '../../ToDoList.js';
+import { Logger } from '../../../../cli/Logger';
+import { odata } from '../../../../utils/odata';
+import DelegatedGraphCommand from '../../../base/DelegatedGraphCommand';
+import commands from '../../commands';
+import { ToDoList } from '../../ToDoList';
 
 class TodoListListCommand extends DelegatedGraphCommand {
   public get name(): string {
@@ -28,4 +28,4 @@ class TodoListListCommand extends DelegatedGraphCommand {
   }
 }
 
-export default new TodoListListCommand();
+module.exports = new TodoListListCommand();

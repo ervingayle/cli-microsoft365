@@ -1,15 +1,15 @@
 import { v4 } from 'uuid';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { StandardWebPart, StandardWebPartUtils } from '../../StandardWebPartTypes.js';
-import { Control } from './canvasContent.js';
-import { ClientSidePageProperties } from './ClientSidePageProperties.js';
-import { ClientSidePageComponent, ClientSideWebpart } from './clientsidepages.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { StandardWebPart, StandardWebPartUtils } from '../../StandardWebPartTypes';
+import { Control } from './canvasContent';
+import { ClientSidePageProperties } from './ClientSidePageProperties';
+import { ClientSidePageComponent, ClientSideWebpart } from './clientsidepages';
 
 interface CommandArgs {
   options: Options;
@@ -468,4 +468,4 @@ class SpoPageClientSideWebPartAddCommand extends SpoCommand {
   }
 }
 
-export default new SpoPageClientSideWebPartAddCommand();
+module.exports = new SpoPageClientSideWebPartAddCommand();

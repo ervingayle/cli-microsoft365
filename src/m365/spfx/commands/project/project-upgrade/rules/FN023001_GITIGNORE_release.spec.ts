@@ -1,4 +1,4 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import { Project } from '../../project-model/index.js';
 import { Finding } from '../../report-model/index.js';
 import { FN023001_GITIGNORE_release } from './FN023001_GITIGNORE_release.js';

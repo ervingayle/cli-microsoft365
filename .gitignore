@@ -61,7 +61,6 @@ coverage
 docs/site
 # generated commands info
 commands.json
-allCommands*.json
 
 # VS env folder
 .vs/

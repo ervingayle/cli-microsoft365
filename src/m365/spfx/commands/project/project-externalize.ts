@@ -1,14 +1,14 @@
-import os from 'os';
-import path from 'path';
-import { Logger } from '../../../../cli/Logger.js';
-import Command, { CommandError } from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import commands from '../../commands.js';
-import { BaseProjectCommand } from './base-project-command.js';
-import rules from './project-externalize/DefaultRules.js';
-import { ExternalizeEntry, FileEdit } from './project-externalize/index.js';
-import { BasicDependencyRule } from './project-externalize/rules/index.js';
-import { External, ExternalConfiguration, Project } from './project-model/index.js';
+import * as os from 'os';
+import * as path from 'path';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import commands from '../../commands';
+import { BaseProjectCommand } from './base-project-command';
+import rules from './project-externalize/DefaultRules';
+import { ExternalizeEntry, FileEdit } from './project-externalize/index';
+import { BasicDependencyRule } from './project-externalize/rules/index';
+import { External, ExternalConfiguration, Project } from './project-model/index';
 
 interface CommandArgs {
   options: GlobalOptions;
@@ -216,4 +216,4 @@ class SpfxProjectExternalizeCommand extends BaseProjectCommand {
   }
 }
 
-export default new SpfxProjectExternalizeCommand();
+module.exports = new SpfxProjectExternalizeCommand();

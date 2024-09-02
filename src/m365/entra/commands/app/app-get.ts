@@ -1,15 +1,15 @@
 import { Application } from '@microsoft/microsoft-graph-types';
-import fs from 'fs';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { validation } from '../../../../utils/validation.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import { M365RcJson } from '../../../base/M365RcJson.js';
-import commands from '../../commands.js';
-import { cli } from '../../../../cli/cli.js';
-import aadCommands from '../../aadCommands.js';
+import * as fs from 'fs';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { validation } from '../../../../utils/validation';
+import GraphCommand from '../../../base/GraphCommand';
+import { M365RcJson } from '../../../base/M365RcJson';
+import commands from '../../commands';
+import { cli } from '../../../../cli/cli';
+import aadCommands from '../../aadCommands';
 
 interface CommandArgs {
   options: Options;
@@ -195,4 +195,4 @@ class EntraAppGetCommand extends GraphCommand {
   }
 }
 
-export default new EntraAppGetCommand();
+module.exports = new EntraAppGetCommand();

@@ -1,15 +1,16 @@
 import { AxiosRequestConfig } from 'axios';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { powerPlatform } from '../../../../utils/powerPlatform.js';
-import { validation } from '../../../../utils/validation.js';
-import PowerPlatformCommand from '../../../base/PowerPlatformCommand.js';
-import commands from '../../commands.js';
-import ppSolutionGetCommand, { Options as PpSolutionGetCommandOptions } from './solution-get.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { powerPlatform } from '../../../../utils/powerPlatform';
+import { validation } from '../../../../utils/validation';
+import PowerPlatformCommand from '../../../base/PowerPlatformCommand';
+import commands from '../../commands';
+import * as ppSolutionGetCommand from './solution-get';
+import { Options as PpSolutionGetCommandOptions } from './solution-get';
 
 interface CommandArgs {
   options: Options;
@@ -187,4 +188,4 @@ class PpSolutionPublishCommand extends PowerPlatformCommand {
   }
 }
 
-export default new PpSolutionPublishCommand();
+module.exports = new PpSolutionPublishCommand();

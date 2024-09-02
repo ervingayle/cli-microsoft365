@@ -1,11 +1,11 @@
-import Auth from '../../../../Auth.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { accessToken } from '../../../../utils/accessToken.js';
-import { validation } from '../../../../utils/validation.js';
-import O365MgmtCommand from '../../../base/O365MgmtCommand.js';
-import commands from '../../commands.js';
+import Auth from '../../../../Auth';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { accessToken } from '../../../../utils/accessToken';
+import { validation } from '../../../../utils/validation';
+import O365MgmtCommand from '../../../base/O365MgmtCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -241,4 +241,4 @@ class PurviewAuditLogListCommand extends O365MgmtCommand {
   }
 }
 
-export default new PurviewAuditLogListCommand();
+module.exports = new PurviewAuditLogListCommand();

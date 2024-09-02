@@ -1,14 +1,15 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import { cli } from '../../../cli/cli.js';
-import { CommandInfo } from '../../../cli/CommandInfo.js';
-import { Logger } from '../../../cli/Logger.js';
-import { telemetry } from '../../../telemetry.js';
-import { pid } from '../../../utils/pid.js';
-import { session } from '../../../utils/session.js';
-import commands from '../commands.js';
-import command from './cli-consent.js';
-import { sinonUtil } from '../../../utils/sinonUtil.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import { cli } from '../../../cli/cli';
+import { CommandInfo } from '../../../cli/CommandInfo';
+import { Logger } from '../../../cli/Logger';
+import { telemetry } from '../../../telemetry';
+import { pid } from '../../../utils/pid';
+import { session } from '../../../utils/session';
+import commands from '../commands';
+const command: Command = require('./cli-consent');
+import { sinonUtil } from '../../../utils/sinonUtil';
+import Command from '../../../Command';
 
 describe(commands.CONSENT, () => {
   let log: any[];

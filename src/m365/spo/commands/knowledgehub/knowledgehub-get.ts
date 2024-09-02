@@ -1,9 +1,9 @@
-import { Logger } from '../../../../cli/Logger.js';
-import config from '../../../../config.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { ClientSvcResponse, ClientSvcResponseContents, spo } from '../../../../utils/spo.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import config from '../../../../config';
+import request, { CliRequestOptions } from '../../../../request';
+import { ClientSvcResponse, ClientSvcResponseContents, spo } from '../../../../utils/spo';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
 
 class SpoKnowledgehubGetCommand extends SpoCommand {
   public get name(): string {
@@ -47,4 +47,4 @@ class SpoKnowledgehubGetCommand extends SpoCommand {
   }
 }
 
-export default new SpoKnowledgehubGetCommand();
+module.exports = new SpoKnowledgehubGetCommand();

@@ -1,12 +1,12 @@
-import assert from 'assert';
-import child_process from 'child_process';
-import sinon from 'sinon';
-import { cli } from "./cli/cli.js";
-import { settingsNames } from './settingsNames.js';
-import { telemetry } from './telemetry.js';
-import { pid } from './utils/pid.js';
-import { sinonUtil } from './utils/sinonUtil.js';
-import { session } from './utils/session.js';
+import * as assert from 'assert';
+import * as child_process from 'child_process';
+import * as sinon from 'sinon';
+import { cli } from "./cli/cli";
+import { settingsNames } from './settingsNames';
+import { telemetry } from './telemetry';
+import { pid } from './utils/pid';
+import { sinonUtil } from './utils/sinonUtil';
+import { session } from './utils/session';
 
 describe('Telemetry', () => {
   let spawnStub: sinon.SinonStub;

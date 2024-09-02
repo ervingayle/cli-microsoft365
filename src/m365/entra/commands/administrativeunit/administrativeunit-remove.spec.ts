@@ -1,19 +1,19 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import commands from '../../commands.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import command from './administrativeunit-remove.js';
-import { entraAdministrativeUnit } from '../../../../utils/entraAdministrativeUnit.js';
-import aadCommands from '../../aadCommands.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import commands from '../../commands';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+const command: Command = require('./administrativeunit-remove');
+import { entraAdministrativeUnit } from '../../../../utils/entraAdministrativeUnit';
+import aadCommands from '../../aadCommands';
 
 describe(commands.ADMINISTRATIVEUNIT_REMOVE, () => {
   const administrativeUnitId = 'fc33aa61-cf0e-46b6-9506-f633347202ab';

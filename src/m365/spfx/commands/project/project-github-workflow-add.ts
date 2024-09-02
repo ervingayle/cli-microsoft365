@@ -1,15 +1,15 @@
-import fs from 'fs';
-import path from 'path';
-import yaml from 'yaml';
-import { CommandError } from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { fsUtil } from '../../../../utils/fsUtil.js';
-import { validation } from '../../../../utils/validation.js';
-import commands from '../../commands.js';
-import { workflow } from './DeployWorkflow.js';
-import { BaseProjectCommand } from './base-project-command.js';
-import { GitHubWorkflow, GitHubWorkflowStep } from './project-github-workflow-model.js';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as yaml from 'yaml';
+import { CommandError } from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import { fsUtil } from '../../../../utils/fsUtil';
+import { validation } from '../../../../utils/validation';
+import commands from '../../commands';
+import { workflow } from './DeployWorkflow';
+import { BaseProjectCommand } from './base-project-command';
+import { GitHubWorkflow, GitHubWorkflowStep } from './project-github-workflow-model';
 import { parse } from 'semver';
 
 interface CommandArgs {
@@ -234,4 +234,4 @@ class SpfxProjectGithubWorkflowAddCommand extends BaseProjectCommand {
   }
 }
 
-export default new SpfxProjectGithubWorkflowAddCommand();
+module.exports = new SpfxProjectGithubWorkflowAddCommand();

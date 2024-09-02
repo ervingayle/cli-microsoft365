@@ -1,5 +1,5 @@
-import assert from 'assert';
-import O365MgmtCommand from './O365MgmtCommand.js';
+import * as assert from 'assert';
+import O365MgmtCommand from './O365MgmtCommand';
 
 class MockCommand extends O365MgmtCommand {
   public get name(): string {

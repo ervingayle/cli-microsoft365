@@ -1,4 +1,4 @@
-import { FileProperties } from './FileProperties.js';
+import { FileProperties } from './FileProperties';
 
 export interface FilePropertiesCollection {
   value: FileProperties[];

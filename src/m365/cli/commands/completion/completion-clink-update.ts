@@ -1,7 +1,7 @@
-import { autocomplete } from '../../../../autocomplete.js';
-import { Logger } from '../../../../cli/Logger.js';
-import AnonymousCommand from '../../../base/AnonymousCommand.js';
-import commands from '../../commands.js';
+import { autocomplete } from '../../../../autocomplete';
+import { Logger } from '../../../../cli/Logger';
+import AnonymousCommand from '../../../base/AnonymousCommand';
+import commands from '../../commands';
 
 class CliCompletionClinkUpdateCommand extends AnonymousCommand {
   public get name(): string {
@@ -17,4 +17,4 @@ class CliCompletionClinkUpdateCommand extends AnonymousCommand {
   }
 }
 
-export default new CliCompletionClinkUpdateCommand();
+module.exports = new CliCompletionClinkUpdateCommand();

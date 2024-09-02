@@ -1,12 +1,13 @@
-import fs from 'fs';
-import path from 'path';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command, { CommandError } from '../../../../Command.js';
-import spoServicePrincipalGrantAddCommand, { Options as SpoServicePrincipalGrantAddCommandOptions } from '../../../spo/commands/serviceprincipal/serviceprincipal-grant-add.js';
-import commands from '../../commands.js';
-import { BaseProjectCommand } from './base-project-command.js';
-import { WebApiPermissionRequests } from './WebApiPermissionRequests.js';
+import * as fs from 'fs';
+import * as path from 'path';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import * as spoServicePrincipalGrantAddCommand from '../../../spo/commands/serviceprincipal/serviceprincipal-grant-add';
+import { Options as SpoServicePrincipalGrantAddCommandOptions } from '../../../spo/commands/serviceprincipal/serviceprincipal-grant-add';
+import commands from '../../commands';
+import { BaseProjectCommand } from './base-project-command';
+import { WebApiPermissionRequests } from './WebApiPermissionRequests';
 
 class SpfxProjectPermissionSGrantCommand extends BaseProjectCommand {
   public static ERROR_NO_PROJECT_ROOT_FOLDER: number = 1;
@@ -78,4 +79,4 @@ class SpfxProjectPermissionSGrantCommand extends BaseProjectCommand {
   }
 }
 
-export default new SpfxProjectPermissionSGrantCommand();
+module.exports = new SpfxProjectPermissionSGrantCommand();

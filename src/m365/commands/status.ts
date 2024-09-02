@@ -1,7 +1,7 @@
-import auth from '../../Auth.js';
-import { Logger } from '../../cli/Logger.js';
-import Command, { CommandArgs, CommandError } from '../../Command.js';
-import commands from './commands.js';
+import auth from '../../Auth';
+import { Logger } from '../../cli/Logger';
+import Command, { CommandArgs, CommandError } from '../../Command';
+import commands from './commands';
 
 class StatusCommand extends Command {
   public get name(): string {
@@ -64,4 +64,4 @@ class StatusCommand extends Command {
   }
 }
 
-export default new StatusCommand();
+module.exports = new StatusCommand();

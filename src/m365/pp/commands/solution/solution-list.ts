@@ -1,11 +1,11 @@
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { odata } from '../../../../utils/odata.js';
-import { powerPlatform } from '../../../../utils/powerPlatform.js';
-import PowerPlatformCommand from '../../../base/PowerPlatformCommand.js';
-import commands from '../../commands.js';
-import { Publisher, Solution } from './Solution.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import { odata } from '../../../../utils/odata';
+import { powerPlatform } from '../../../../utils/powerPlatform';
+import PowerPlatformCommand from '../../../base/PowerPlatformCommand';
+import commands from '../../commands';
+import { Publisher, Solution } from './Solution';
 
 interface CommandArgs {
   options: Options;
@@ -85,4 +85,4 @@ class PpSolutionListCommand extends PowerPlatformCommand {
   }
 }
 
-export default new PpSolutionListCommand();
+module.exports = new PpSolutionListCommand();

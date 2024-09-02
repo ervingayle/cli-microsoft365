@@ -1,13 +1,14 @@
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { powerPlatform } from '../../../../utils/powerPlatform.js';
-import { validation } from '../../../../utils/validation.js';
-import PowerPlatformCommand from '../../../base/PowerPlatformCommand.js';
-import commands from '../../commands.js';
-import ppAiBuilderModelGetCommand, { Options as PpAiBuilderModelGetCommandOptions } from './aibuildermodel-get.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { powerPlatform } from '../../../../utils/powerPlatform';
+import { validation } from '../../../../utils/validation';
+import PowerPlatformCommand from '../../../base/PowerPlatformCommand';
+import commands from '../../commands';
+import * as ppAiBuilderModelGetCommand from './aibuildermodel-get';
+import { Options as PpAiBuilderModelGetCommandOptions } from './aibuildermodel-get';
 
 interface CommandArgs {
   options: Options;
@@ -145,4 +146,4 @@ class PpAiBuilderModelRemoveCommand extends PowerPlatformCommand {
   }
 }
 
-export default new PpAiBuilderModelRemoveCommand();
+module.exports = new PpAiBuilderModelRemoveCommand();

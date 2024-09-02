@@ -1,20 +1,20 @@
 import { AzureCloudInstance, DeviceCodeResponse } from '@azure/msal-common';
 import type * as Msal from '@azure/msal-node';
-import assert from 'assert';
-import type clipboard from 'clipboardy';
-import type NodeForge from 'node-forge';
-import type { AuthServer } from './AuthServer.js';
-import { CommandError } from './Command.js';
-import { FileTokenStorage } from './auth/FileTokenStorage.js';
-import { TokenStorage } from './auth/TokenStorage.js';
-import { msalCachePlugin } from './auth/msalCachePlugin.js';
-import { Logger } from './cli/Logger.js';
-import { cli } from './cli/cli.js';
-import { ConnectionDetails } from './m365/commands/ConnectionDetails.js';
-import request from './request.js';
-import { settingsNames } from './settingsNames.js';
-import * as accessTokenUtil from './utils/accessToken.js';
-import { browserUtil } from './utils/browserUtil.js';
+import * as assert from 'assert';
+import * as clipboard from 'clipboardy';
+import * as NodeForge from 'node-forge';
+import type { AuthServer } from './AuthServer';
+import { CommandError } from './Command';
+import { FileTokenStorage } from './auth/FileTokenStorage';
+import { TokenStorage } from './auth/TokenStorage';
+import { msalCachePlugin } from './auth/msalCachePlugin';
+import { Logger } from './cli/Logger';
+import { cli } from './cli/cli';
+import { ConnectionDetails } from './m365/commands/ConnectionDetails';
+import request from './request';
+import { settingsNames } from './settingsNames';
+import * as accessTokenUtil from './utils/accessToken';
+import { browserUtil } from './utils/browserUtil';
 
 interface Hash<TValue> {
   [key: string]: TValue;
@@ -387,7 +387,7 @@ export class Auth {
       // but also stub it for testing
       /* c8 ignore next 3 */
       if (!this._authServer) {
-        this._authServer = (await import('./AuthServer.js')).default;
+        this._authServer = (await import('./AuthServer')).default;
       }
 
       (this._authServer as AuthServer).initializeServer(this.connection, resource, resolve, reject, logger, debug);
@@ -465,10 +465,10 @@ export class Auth {
       // but also stub it for testing
       /* c8 ignore next 3 */
       if (!this._clipboardy) {
-        this._clipboardy = (await import('clipboardy')).default;
+        this._clipboardy = require('clipboardy');
       }
 
-      this._clipboardy.writeSync(response.userCode);
+      (this._clipboardy as typeof clipboard).writeSync(response.userCode);
     }
   }
 
@@ -485,7 +485,7 @@ export class Auth {
   }
 
   private async ensureAccessTokenWithCertificate(resource: string, logger: Logger, debug: boolean, fetchNew: boolean): Promise<AccessToken | null> {
-    const nodeForge = (await import('node-forge')).default;
+    const nodeForge: typeof NodeForge = require('node-forge');
     const { pem, pki, asn1, pkcs12 } = nodeForge;
 
     if (debug) {
@@ -704,7 +704,7 @@ export class Auth {
   }
 
   private async calculateThumbprint(certificate: NodeForge.pki.Certificate): Promise<string> {
-    const nodeForge = (await import('node-forge')).default;
+    const nodeForge: typeof NodeForge = require('node-forge');
     const { md, asn1, pki } = nodeForge;
 
     const messageDigest = md.sha1.create();

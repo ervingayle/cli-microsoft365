@@ -1,13 +1,13 @@
-import fs from 'fs';
-import path from 'path';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { spo } from '../../../../utils/spo.js';
-import { validation } from '../../../../utils/validation.js';
-import commands from '../../commands.js';
-import { SpoAppBaseCommand } from './SpoAppBaseCommand.js';
+import * as fs from 'fs';
+import * as path from 'path';
+import GlobalOptions from '../../../../GlobalOptions';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import { spo } from '../../../../utils/spo';
+import { validation } from '../../../../utils/validation';
+import commands from '../../commands';
+import { SpoAppBaseCommand } from './SpoAppBaseCommand';
 
 interface CommandArgs {
   options: Options;
@@ -139,4 +139,4 @@ class SpoAppAddCommand extends SpoAppBaseCommand {
   }
 }
 
-export default new SpoAppAddCommand();
+module.exports = new SpoAppAddCommand();

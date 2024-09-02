@@ -1,5 +1,5 @@
-import auth from "../Auth.js";
-import { CommandError } from "../Command.js";
+import { CommandError } from "../Command";
+import auth from '../Auth';
 
 export const accessToken = {
   isAppOnlyAccessToken(accessToken: string): boolean | undefined {
@@ -102,7 +102,7 @@ export const accessToken = {
    * @throws {CommandError} Will throw an error if the access token is an application-only access token.
    */
   assertDelegatedAccessToken(): void {
-    const accessToken = auth?.connection?.accessTokens?.[auth.defaultResource]?.accessToken;
+    const accessToken = auth.connection?.accessTokens[auth.defaultResource]?.accessToken;
     if (!accessToken) {
       throw new CommandError('No access token found.');
     }

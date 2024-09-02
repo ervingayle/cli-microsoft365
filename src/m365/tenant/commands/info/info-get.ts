@@ -1,12 +1,12 @@
-import auth from '../../../../Auth.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import request from '../../../../request.js';
-import { accessToken } from '../../../../utils/accessToken.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { validation } from '../../../../utils/validation.js';
-import commands from '../../commands.js';
+import auth from '../../../../Auth';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import GraphCommand from '../../../base/GraphCommand';
+import request from '../../../../request';
+import { accessToken } from '../../../../utils/accessToken';
+import { formatting } from '../../../../utils/formatting';
+import { validation } from '../../../../utils/validation';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -106,4 +106,4 @@ class TenantInfoGetCommand extends GraphCommand {
   }
 }
 
-export default new TenantInfoGetCommand();
+module.exports = new TenantInfoGetCommand();

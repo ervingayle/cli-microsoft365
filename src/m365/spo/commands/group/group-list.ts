@@ -1,13 +1,13 @@
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { odata } from '../../../../utils/odata.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { AssociatedGroupPropertiesCollection } from './AssociatedGroupPropertiesCollection.js';
-import { GroupProperties } from './GroupProperties.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { odata } from '../../../../utils/odata';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { AssociatedGroupPropertiesCollection } from './AssociatedGroupPropertiesCollection';
+import { GroupProperties } from './GroupProperties';
 
 interface CommandArgs {
   options: Options;
@@ -111,4 +111,4 @@ class SpoGroupListCommand extends SpoCommand {
   }
 }
 
-export default new SpoGroupListCommand();
+module.exports = new SpoGroupListCommand();

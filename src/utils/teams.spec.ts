@@ -1,11 +1,11 @@
-import sinon from 'sinon';
-import request from '../request.js';
-import { sinonUtil } from './sinonUtil.js';
-import { formatting } from './formatting.js';
-import { teams } from './teams.js';
-import assert from 'assert';
-import { cli } from '../cli/cli.js';
-import { settingsNames } from '../settingsNames.js';
+import * as sinon from 'sinon';
+import request from '../request';
+import { sinonUtil } from './sinonUtil';
+import { formatting } from './formatting';
+import { teams } from './teams';
+import * as assert from 'assert';
+import { cli } from '../cli/cli';
+import { settingsNames } from '../settingsNames';
 
 const teamName = 'HR Team';
 const teamId = '0b0b204f-7ca0-4c7f-baf2-53caa381828b';

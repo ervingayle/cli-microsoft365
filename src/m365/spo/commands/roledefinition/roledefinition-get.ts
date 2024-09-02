@@ -1,12 +1,12 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import { BasePermissions } from '../../base-permissions.js';
-import commands from '../../commands.js';
-import { RoleDefinition } from './RoleDefinition.js';
-import { RoleType } from './RoleType.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import { BasePermissions } from '../../base-permissions';
+import commands from '../../commands';
+import { RoleDefinition } from './RoleDefinition';
+import { RoleType } from './RoleType';
 
 interface CommandArgs {
   options: Options;
@@ -86,4 +86,4 @@ class SpoRoleDefinitionGetCommand extends SpoCommand {
   }
 }
 
-export default new SpoRoleDefinitionGetCommand();
+module.exports = new SpoRoleDefinitionGetCommand();

@@ -1,13 +1,13 @@
-import assert from 'assert';
-import fs from 'fs';
-import sinon from 'sinon';
-import { cli } from '../../cli/cli.js';
-import { CommandInfo } from '../../cli/CommandInfo.js';
-import { Logger } from '../../cli/Logger.js';
-import Command, { CommandError } from '../../Command.js';
-import { sinonUtil } from '../../utils/sinonUtil.js';
-import AppCommand from './AppCommand.js';
-import { telemetry } from '../../telemetry.js';
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as sinon from 'sinon';
+import { cli } from '../../cli/cli';
+import { CommandInfo } from '../../cli/CommandInfo';
+import { Logger } from '../../cli/Logger';
+import Command, { CommandError } from '../../Command';
+import { sinonUtil } from '../../utils/sinonUtil';
+import AppCommand from './AppCommand';
+import { telemetry } from '../../telemetry';
 
 class MockCommand extends AppCommand {
   public get name(): string {

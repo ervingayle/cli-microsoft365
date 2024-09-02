@@ -1,12 +1,12 @@
 import { Group } from '@microsoft/microsoft-graph-types';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import aadCommands from '../../aadCommands.js';
-import { validation } from '../../../../utils/validation.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { entraUser } from '../../../../utils/entraUser.js';
+import GlobalOptions from '../../../../GlobalOptions';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import aadCommands from '../../aadCommands';
+import { validation } from '../../../../utils/validation';
+import request, { CliRequestOptions } from '../../../../request';
+import { Logger } from '../../../../cli/Logger';
+import { entraUser } from '../../../../utils/entraUser';
 
 interface CommandArgs {
   options: Options;
@@ -195,7 +195,7 @@ class EntraGroupAddCommand extends GraphCommand {
     catch (err: any) {
       this.handleRejectedODataJsonPromise(err);
     }
-  };
+  }
 
   private createRequestBody(options: Options): any {
     const requestBody: any = {
@@ -282,4 +282,4 @@ class EntraGroupAddCommand extends GraphCommand {
   }
 }
 
-export default new EntraGroupAddCommand();
+module.exports = new EntraGroupAddCommand();

@@ -1,11 +1,11 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import request from "../request.js";
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import request from "../request";
 import { PlannerBucket, PlannerPlan } from '@microsoft/microsoft-graph-types';
-import { planner } from './planner.js';
-import { sinonUtil } from "./sinonUtil.js";
-import { cli } from '../cli/cli.js';
-import { formatting } from './formatting.js';
+import { planner } from './planner';
+import { sinonUtil } from "./sinonUtil";
+import { cli } from '../cli/cli';
+import { formatting } from './formatting';
 
 const planId = 'oUHpnKBFekqfGE_PS6GGUZcAFY7b';
 const planTitle = 'Plan title';

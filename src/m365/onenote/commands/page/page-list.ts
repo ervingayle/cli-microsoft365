@@ -1,12 +1,12 @@
 import { OnenotePage } from '@microsoft/microsoft-graph-types';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { entraGroup } from '../../../../utils/entraGroup.js';
-import { odata } from '../../../../utils/odata.js';
-import { spo } from '../../../../utils/spo.js';
-import { validation } from '../../../../utils/validation.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import { entraGroup } from '../../../../utils/entraGroup';
+import { odata } from '../../../../utils/odata';
+import { spo } from '../../../../utils/spo';
+import { validation } from '../../../../utils/validation';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -138,4 +138,4 @@ class OneNotePageListCommand extends GraphCommand {
   }
 }
 
-export default new OneNotePageListCommand();
+module.exports = new OneNotePageListCommand();

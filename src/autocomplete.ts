@@ -1,18 +1,16 @@
 #!/usr/bin/env node
 
-import fs from 'fs';
-import omelette from 'omelette';
-import os from 'os';
-import path from 'path';
-import url from 'url';
-import { cli } from './cli/cli.js';
-import { CommandInfo } from './cli/CommandInfo.js';
-import { CommandOptionInfo } from './cli/CommandOptionInfo.js';
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const omelette: (template: string) => any = require('omelette');
+import * as fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
+import { cli } from './cli/cli';
+import { CommandInfo } from './cli/CommandInfo';
+import { CommandOptionInfo } from './cli/CommandOptionInfo';
 
 class Autocomplete {
   private static autocompleteFilePath: string = path.join(__dirname, `..${path.sep}commands.json`);
-  private omelette!: omelette.Instance;
+  private omelette!: any;
   private commands: any = {};
 
   constructor() {
@@ -33,7 +31,7 @@ class Autocomplete {
     this.omelette.init();
   }
 
-  public handleAutocomplete(fragment: string, data: omelette.CallbackValue): void {
+  public handleAutocomplete(fragment: string, data: any): void {
     let replies: any | string[] = {};
     let allWords: string[] = [];
 

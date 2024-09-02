@@ -1,8 +1,8 @@
-import { cli } from '../../../cli/cli.js';
-import { Logger } from '../../../cli/Logger.js';
-import GlobalOptions from '../../../GlobalOptions.js';
-import AnonymousCommand from '../../base/AnonymousCommand.js';
-import commands from '../commands.js';
+import { cli } from '../../../cli/cli';
+import { Logger } from '../../../cli/Logger';
+import GlobalOptions from '../../../GlobalOptions';
+import AnonymousCommand from '../../base/AnonymousCommand';
+import commands from '../commands';
 
 interface CommandArgs {
   options: Options;
@@ -77,4 +77,4 @@ class CliConsentCommand extends AnonymousCommand {
   }
 }
 
-export default new CliConsentCommand();
+module.exports = new CliConsentCommand();

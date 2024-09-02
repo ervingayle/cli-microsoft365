@@ -1,17 +1,17 @@
-﻿import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../Auth.js';
-import command from './search.js';
-import { telemetry } from '../../telemetry.js';
-import { pid } from '../../utils/pid.js';
-import { session } from '../../utils/session.js';
-import { cli } from '../../cli/cli.js';
-import { sinonUtil } from '../../utils/sinonUtil.js';
-import request from '../../request.js';
-import { Logger } from '../../cli/Logger.js';
-import { CommandInfo } from '../../cli/CommandInfo.js';
-import { CommandError } from '../../Command.js';
-import commands from './commands.js';
+﻿import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../Auth';
+const command: Command = require('./search');
+import { telemetry } from '../../telemetry';
+import { pid } from '../../utils/pid';
+import { session } from '../../utils/session';
+import { cli } from '../../cli/cli';
+import { sinonUtil } from '../../utils/sinonUtil';
+import request from '../../request';
+import { Logger } from '../../cli/Logger';
+import { CommandInfo } from '../../cli/CommandInfo';
+import Command, { CommandError } from '../../Command';
+import commands from './commands';
 
 describe(commands.SEARCH, () => {
   const fullSearchResponse = {

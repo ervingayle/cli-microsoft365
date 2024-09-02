@@ -1,8 +1,8 @@
-import assert from 'assert';
-import auth from '../../../Auth.js';
-import { Logger } from '../../../cli/Logger.js';
-import Command, { CommandArgs, CommandError } from '../../../Command.js';
-import commands from '../commands.js';
+import * as assert from 'assert';
+import auth from '../../../Auth';
+import { Logger } from '../../../cli/Logger';
+import Command, { CommandArgs, CommandError } from '../../../Command';
+import commands from '../commands';
 
 class ConnectionListCommand extends Command {
   public get name(): string {
@@ -57,4 +57,4 @@ class ConnectionListCommand extends Command {
   }
 }
 
-export default new ConnectionListCommand();
+module.exports = new ConnectionListCommand();

@@ -1,11 +1,11 @@
-import { AuthType } from "../../../../Auth.js";
-import { cli } from "../../../../cli/cli.js";
-import { Logger } from "../../../../cli/Logger.js";
-import GlobalOptions from "../../../../GlobalOptions.js";
-import { settingsNames } from "../../../../settingsNames.js";
-import { validation } from "../../../../utils/validation.js";
-import AnonymousCommand from "../../../base/AnonymousCommand.js";
-import commands from "../../commands.js";
+import { AuthType } from "../../../../Auth";
+import { cli } from "../../../../cli/cli";
+import { Logger } from "../../../../cli/Logger";
+import GlobalOptions from "../../../../GlobalOptions";
+import { settingsNames } from "../../../../settingsNames";
+import { validation } from "../../../../utils/validation";
+import AnonymousCommand from "../../../base/AnonymousCommand";
+import commands from "../../commands";
 
 interface CommandArgs {
   options: Options;
@@ -92,11 +92,6 @@ class CliConfigSetCommand extends AnonymousCommand {
           return `${args.options.value} is not a valid value for the option ${args.options.key}. Allowed values: ${Object.values(AuthType).join(', ')}`;
         }
 
-        if (args.options.key === settingsNames.helpTarget &&
-          !cli.helpTargets.includes(args.options.value)) {
-          return `${args.options.value} is not a valid value for the option ${args.options.key}. Allowed values: ${cli.helpTargets.join(', ')}`;
-        }
-
         if (args.options.key === settingsNames.clientId &&
           !validation.isValidGuid(args.options.value)) {
           return `${args.options.value} is not a valid value for the option ${args.options.key}. The value has to be a valid GUID.`;
@@ -137,4 +132,4 @@ class CliConfigSetCommand extends AnonymousCommand {
   }
 }
 
-export default new CliConfigSetCommand();
+module.exports = new CliConfigSetCommand();

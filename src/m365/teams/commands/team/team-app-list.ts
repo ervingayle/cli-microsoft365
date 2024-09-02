@@ -1,12 +1,13 @@
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { odata } from '../../../../utils/odata.js';
-import { validation } from '../../../../utils/validation.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import teamGetCommand, { Options as TeamsTeamGetOptions } from './team-get.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import { odata } from '../../../../utils/odata';
+import { validation } from '../../../../utils/validation';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import * as teamGetCommand from './team-get';
+import { Options as TeamsTeamGetOptions } from './team-get';
 
 interface CommandArgs {
   options: Options;
@@ -120,4 +121,4 @@ class TeamsTeamAppListCommand extends GraphCommand {
   }
 }
 
-export default new TeamsTeamAppListCommand();
+module.exports = new TeamsTeamAppListCommand();

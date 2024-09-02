@@ -1,34 +1,31 @@
-import assert from 'assert';
-import fs from 'fs';
-import path from 'path';
-import url from 'url';
-import * as adaptiveCardCommands from './m365/adaptivecard/commands.js';
-import * as appCommands from './m365/app/commands.js';
-import * as bookingCommands from './m365/booking/commands.js';
-import * as cliCommands from './m365/cli/commands.js';
-import * as globalCommands from './m365/commands/commands.js';
-import * as entraCommands from './m365/entra/commands.js';
-import * as fileCommands from './m365/file/commands.js';
-import * as flowCommands from './m365/flow/commands.js';
-import * as graphCommands from './m365/graph/commands.js';
-import * as oneDriveCommands from './m365/onedrive/commands.js';
-import * as oneNoteCommands from './m365/onenote/commands.js';
-import * as outlookCommands from './m365/outlook/commands.js';
-import * as paCommands from './m365/pa/commands.js';
-import * as ppCommands from './m365/pp/commands.js';
-import * as plannerCommands from './m365/planner/commands.js';
-import * as purviewCommands from './m365/purview/commands.js';
-import * as externalCommands from './m365/external/commands.js';
-import * as skypeCommands from './m365/skype/commands.js';
-import * as spfxCommands from './m365/spfx/commands.js';
-import * as spoCommands from './m365/spo/commands.js';
-import * as teamsCommands from './m365/teams/commands.js';
-import * as tenantCommands from './m365/tenant/commands.js';
-import * as todoCommands from './m365/todo/commands.js';
-import * as vivaCommands from './m365/viva/commands.js';
-import * as utilCommands from './m365/util/commands.js';
-
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as adaptiveCardCommands from './m365/adaptivecard/commands';
+import * as appCommands from './m365/app/commands';
+import * as bookingCommands from './m365/booking/commands';
+import * as cliCommands from './m365/cli/commands';
+import * as globalCommands from './m365/commands/commands';
+import * as entraCommands from './m365/entra/commands';
+import * as fileCommands from './m365/file/commands';
+import * as flowCommands from './m365/flow/commands';
+import * as graphCommands from './m365/graph/commands';
+import * as oneDriveCommands from './m365/onedrive/commands';
+import * as oneNoteCommands from './m365/onenote/commands';
+import * as outlookCommands from './m365/outlook/commands';
+import * as paCommands from './m365/pa/commands';
+import * as ppCommands from './m365/pp/commands';
+import * as plannerCommands from './m365/planner/commands';
+import * as purviewCommands from './m365/purview/commands';
+import * as externalCommands from './m365/external/commands';
+import * as skypeCommands from './m365/skype/commands';
+import * as spfxCommands from './m365/spfx/commands';
+import * as spoCommands from './m365/spo/commands';
+import * as teamsCommands from './m365/teams/commands';
+import * as tenantCommands from './m365/tenant/commands';
+import * as todoCommands from './m365/todo/commands';
+import * as vivaCommands from './m365/viva/commands';
+import * as utilCommands from './m365/util/commands';
 
 describe('Lazy loading commands', () => {
   it('has all commands stored in correct paths that allow lazy loading', () => {
@@ -121,7 +118,7 @@ describe('Lazy loading commands', () => {
           commandFilePath = path.join('m365', words[0], 'commands', `${words.join('-')}.js`);
         }
         else {
-          commandFilePath = path.join('m365', words[0], 'commands', words[1], words.slice(1).join('-') + '.js');
+          commandFilePath = path.join('m365', words[0], 'commands', words[1], words.slice(1).join('-') + '');
         }
       }
 

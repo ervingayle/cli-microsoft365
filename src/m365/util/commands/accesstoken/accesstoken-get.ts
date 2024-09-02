@@ -1,8 +1,8 @@
-import auth, { Auth } from '../../../../Auth.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import commands from '../../commands.js';
+import auth, { Auth } from '../../../../Auth';
+import { Logger } from '../../../../cli/Logger';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -73,4 +73,4 @@ class UtilAccessTokenGetCommand extends Command {
   }
 }
 
-export default new UtilAccessTokenGetCommand();
+module.exports = new UtilAccessTokenGetCommand();

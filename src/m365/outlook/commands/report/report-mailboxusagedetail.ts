@@ -1,5 +1,5 @@
-import PeriodBasedReport from '../../../base/PeriodBasedReport.js';
-import commands from '../../commands.js';
+import PeriodBasedReport from '../../../base/PeriodBasedReport';
+import commands from '../../commands';
 
 class OutlookReportMailboxUsageDetailCommand extends PeriodBasedReport {
   public get name(): string {
@@ -15,4 +15,4 @@ class OutlookReportMailboxUsageDetailCommand extends PeriodBasedReport {
   }
 }
 
-export default new OutlookReportMailboxUsageDetailCommand();
+module.exports = new OutlookReportMailboxUsageDetailCommand();

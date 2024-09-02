@@ -1,5 +1,5 @@
-import { QueryResult } from "./QueryResult.js";
-import { SearchResultProperty } from "./SearchResultProperty.js";
+import { QueryResult } from "./QueryResult";
+import { SearchResultProperty } from "./SearchResultProperty";
 
 export interface SearchResult {
   ElapsedTime: number;

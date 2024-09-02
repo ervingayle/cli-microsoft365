@@ -1,4 +1,4 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import { Project } from '../../project-model/index.js';
 import { Finding } from '../../report-model/Finding.js';
 import { FN021009_PKG_no_duplicate_oui_deps } from './FN021009_PKG_no_duplicate_oui_deps.js';

@@ -1,8 +1,8 @@
 import { Channel, Team } from '@microsoft/microsoft-graph-types';
-import { CliRequestOptions } from '../request.js';
-import { formatting } from './formatting.js';
-import { odata } from './odata.js';
-import { cli } from '../cli/cli.js';
+import { CliRequestOptions } from '../request';
+import { formatting } from './formatting';
+import { odata } from './odata';
+import { cli } from '../cli/cli';
 
 const graphResource = 'https://graph.microsoft.com';
 

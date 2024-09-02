@@ -1,4 +1,4 @@
-import { app } from './utils/app.js';
+import { app } from './utils/app';
 
 export default {
   allScopes: [

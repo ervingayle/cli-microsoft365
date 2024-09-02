@@ -1,40 +1,33 @@
-import fs from 'fs';
-import { z } from 'zod';
-import auth, { AuthType, CloudType } from '../../Auth.js';
-import Command, {
-  CommandError, globalOptionsZod
-} from '../../Command.js';
-import { Logger } from '../../cli/Logger.js';
-import { cli } from '../../cli/cli.js';
-import { settingsNames } from '../../settingsNames.js';
-import { zod } from '../../utils/zod.js';
-import commands from './commands.js';
-
-const options = globalOptionsZod
-  .extend({
-    authType: zod.alias('t', z.nativeEnum(AuthType).optional()),
-    cloud: z.nativeEnum(CloudType).optional().default(CloudType.Public),
-    userName: zod.alias('u', z.string().optional()),
-    password: zod.alias('p', z.string().optional()),
-    certificateFile: zod.alias('c', z.string().optional()
-      .refine(filePath => !filePath || fs.existsSync(filePath), filePath => ({
-        message: `Certificate file ${filePath} does not exist`
-      }))),
-    certificateBase64Encoded: z.string().optional(),
-    thumbprint: z.string().optional(),
-    appId: z.string().optional(),
-    tenant: z.string().optional(),
-    secret: zod.alias('s', z.string().optional()),
-    connectionName: z.string().optional()
-  })
-  .strict();
-declare type Options = z.infer<typeof options>;
+import * as fs from 'fs';
+import auth, { AuthType, CloudType } from '../../Auth';
+import Command, { CommandError } from '../../Command';
+import { Logger } from '../../cli/Logger';
+import { cli } from '../../cli/cli';
+import { settingsNames } from '../../settingsNames';
+import commands from './commands';
+import GlobalOptions from '../../GlobalOptions';
+import { misc } from '../../utils/misc';
 
 interface CommandArgs {
   options: Options;
 }
 
+interface Options extends GlobalOptions {
+  authType?: string;
+  cloud?: string;
+  userName?: string;
+  password?: string;
+  certificateFile?: string;
+  certificateBase64Encoded?: string;
+  thumbprint?: string;
+  appId?: string;
+  tenant?: string;
+  secret?: string;
+}
+
 class LoginCommand extends Command {
+  private static allowedAuthTypes: string[] = ['certificate', 'deviceCode', 'password', 'identity', 'browser', 'secret'];
+
   public get name(): string {
     return commands.LOGIN;
   }
@@ -43,41 +36,108 @@ class LoginCommand extends Command {
     return 'Log in to Microsoft 365';
   }
 
-  public get schema(): z.ZodTypeAny | undefined {
-    return options;
+  constructor() {
+    super();
+
+    this.#initTelemetry();
+    this.#initOptions();
+    this.#initValidators();
   }
 
-  public getRefinedSchema(schema: typeof options): z.ZodEffects<any> | undefined {
-    return schema
-      .refine(options => typeof options.appId !== 'undefined' || cli.getConfig().get(settingsNames.clientId), {
-        message: `appId is required. TIP: use the "m365 setup" command to configure the default appId`
-      })
-      .refine(options => options.authType !== 'password' || options.userName, {
-        message: 'Username is required when using password authentication',
-        path: ['userName']
-      })
-      .refine(options => options.authType !== 'password' || options.password, {
-        message: 'Password is required when using password authentication',
-        path: ['password']
-      })
-      .refine(options => options.authType !== 'certificate' || !(options.certificateFile && options.certificateBase64Encoded), {
-        message: 'Specify either certificateFile or certificateBase64Encoded, but not both.',
-        path: ['certificateBase64Encoded']
-      })
-      .refine(options => options.authType !== 'certificate' ||
-        options.certificateFile ||
-        options.certificateBase64Encoded ||
-        cli.getConfig().get(settingsNames.clientCertificateFile) ||
-        cli.getConfig().get(settingsNames.clientCertificateBase64Encoded), {
-        message: 'Specify either certificateFile or certificateBase64Encoded',
-        path: ['certificateFile']
-      })
-      .refine(options => options.authType !== 'secret' ||
-        options.secret ||
-        cli.getConfig().get(settingsNames.clientSecret), {
-        message: 'Secret is required when using secret authentication',
-        path: ['secret']
+  #initTelemetry(): void {
+    this.telemetry.push((args: CommandArgs) => {
+      Object.assign(this.telemetryProperties, {
+        authType: args.options.authType || 'deviceCode',
+        cloud: args.options.cloud ?? CloudType.Public
       });
+    });
+  }
+
+  #initOptions(): void {
+    this.options.unshift(
+      {
+        option: '-t, --authType [authType]',
+        autocomplete: LoginCommand.allowedAuthTypes
+      },
+      {
+        option: '-u, --userName [userName]'
+      },
+      {
+        option: '-p, --password [password]'
+      },
+      {
+        option: '-c, --certificateFile [certificateFile]'
+      },
+      {
+        option: '--certificateBase64Encoded [certificateBase64Encoded]'
+      },
+      {
+        option: '--thumbprint [thumbprint]'
+      },
+      {
+        option: '--appId [appId]'
+      },
+      {
+        option: '--tenant [tenant]'
+      },
+      {
+        option: '-s, --secret [secret]'
+      },
+      {
+        option: '--cloud [cloud]',
+        autocomplete: misc.getEnums(CloudType)
+      }
+    );
+  }
+
+  #initValidators(): void {
+    this.validators.push(
+      async (args: CommandArgs) => {
+        if (args.options.authType === 'password') {
+          if (!args.options.userName) {
+            return 'Required option userName missing';
+          }
+
+          if (!args.options.password) {
+            return 'Required option password missing';
+          }
+        }
+
+        if (args.options.authType === 'certificate') {
+          if (args.options.certificateFile && args.options.certificateBase64Encoded) {
+            return 'Specify either certificateFile or certificateBase64Encoded, but not both.';
+          }
+
+          if (!args.options.certificateFile && !args.options.certificateBase64Encoded) {
+            return 'Specify either certificateFile or certificateBase64Encoded';
+          }
+
+          if (args.options.certificateFile) {
+            if (!fs.existsSync(args.options.certificateFile)) {
+              return `File '${args.options.certificateFile}' does not exist`;
+            }
+          }
+        }
+
+        if (args.options.authType &&
+          LoginCommand.allowedAuthTypes.indexOf(args.options.authType) < 0) {
+          return `'${args.options.authType}' is not a valid authentication type. Allowed authentication types are ${LoginCommand.allowedAuthTypes.join(', ')}`;
+        }
+
+        if (args.options.authType === 'secret') {
+          if (!args.options.secret) {
+            return 'Required option secret missing';
+          }
+        }
+
+        if (args.options.cloud &&
+          typeof CloudType[args.options.cloud as keyof typeof CloudType] === 'undefined') {
+          return `${args.options.cloud} is not a valid value for cloud. Valid options are ${misc.getEnums(CloudType).join(', ')}`;
+        }
+
+        return true;
+      }
+    );
   }
 
   public async commandAction(logger: Logger, args: CommandArgs): Promise<void> {
@@ -135,7 +195,12 @@ class LoginCommand extends Command {
           break;
       }
 
-      auth.connection.cloudType = args.options.cloud;
+      if (args.options.cloud) {
+        auth.connection.cloudType = CloudType[args.options.cloud as keyof typeof CloudType];
+      }
+      else {
+        auth.connection.cloudType = CloudType.Public;
+      }
 
       try {
         await auth.ensureAccessToken(auth.defaultResource, logger, this.debug);
@@ -177,4 +242,4 @@ class LoginCommand extends Command {
   }
 }
 
-export default new LoginCommand();
+module.exports = new LoginCommand();

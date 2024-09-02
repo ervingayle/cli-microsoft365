@@ -1,14 +1,15 @@
-import { cli, CommandOutput } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command, { CommandError } from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import spoSiteAddCommand, { Options as SpoSiteAddCommandOptions } from '../site/site-add.js';
-import spoSiteGetCommand from '../site/site-get.js';
-import spoSiteRemoveCommand from '../site/site-remove.js';
-import spoTenantAppCatalogUrlGetCommand from './tenant-appcatalogurl-get.js';
+import { cli, CommandOutput } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import * as spoSiteAddCommand from '../site/site-add';
+import { Options as SpoSiteAddCommandOptions } from '../site/site-add';
+import * as spoSiteGetCommand from '../site/site-get';
+import * as spoSiteRemoveCommand from '../site/site-remove';
+import * as spoTenantAppCatalogUrlGetCommand from './tenant-appcatalogurl-get';
 
 interface CommandArgs {
   options: Options;
@@ -183,4 +184,4 @@ class SpoTenantAppCatalogAddCommand extends SpoCommand {
   }
 }
 
-export default new SpoTenantAppCatalogAddCommand();
+module.exports = new SpoTenantAppCatalogAddCommand();

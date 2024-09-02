@@ -1,12 +1,12 @@
-import assert from 'assert';
-import fs from 'fs';
-import sinon from 'sinon';
-import { Logger } from '../../../cli/Logger.js';
-import { telemetry } from '../../../telemetry.js';
-import { CommandError } from '../../../Command.js';
-import { sinonUtil } from '../../../utils/sinonUtil.js';
-import commands from '../commands.js';
-import command from './context-init.js';
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as sinon from 'sinon';
+import { Logger } from '../../../cli/Logger';
+import { telemetry } from '../../../telemetry';
+import Command, { CommandError } from '../../../Command';
+import { sinonUtil } from '../../../utils/sinonUtil';
+import commands from '../commands';
+const command: Command = require('./context-init');
 
 describe(commands.INIT, () => {
   let log: any[];

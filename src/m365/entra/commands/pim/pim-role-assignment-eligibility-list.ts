@@ -1,12 +1,12 @@
 import { UnifiedRoleEligibilityScheduleInstance } from '@microsoft/microsoft-graph-types';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import { validation } from '../../../../utils/validation.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { entraGroup } from '../../../../utils/entraGroup.js';
-import { odata } from '../../../../utils/odata.js';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import { validation } from '../../../../utils/validation';
+import { entraUser } from '../../../../utils/entraUser';
+import { entraGroup } from '../../../../utils/entraGroup';
+import { odata } from '../../../../utils/odata';
 
 interface CommandArgs {
   options: Options;
@@ -173,4 +173,4 @@ class EntraPimRoleAssignmentEligibilityListCommand extends GraphCommand {
   }
 }
 
-export default new EntraPimRoleAssignmentEligibilityListCommand();
+module.exports = new EntraPimRoleAssignmentEligibilityListCommand();

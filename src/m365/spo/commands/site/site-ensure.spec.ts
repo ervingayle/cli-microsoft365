@@ -1,15 +1,16 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import { spo } from '../../../../utils/spo.js';
-import commands from '../../commands.js';
-import { WebProperties } from '../web/WebProperties.js';
-import command from './site-ensure.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { Logger } from '../../../../cli/Logger';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import { spo } from '../../../../utils/spo';
+import commands from '../../commands';
+import { WebProperties } from '../web/WebProperties';
+import Command from '../../../../Command';
+const command: Command = require('./site-ensure');
 
 describe(commands.SITE_ENSURE, () => {
   let log: any[];

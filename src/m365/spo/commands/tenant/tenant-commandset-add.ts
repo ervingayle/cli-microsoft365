@@ -1,15 +1,17 @@
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandOutput, cli } from '../../../../cli/cli.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import spoListItemAddCommand, { Options as spoListItemAddCommandOptions } from '../listitem/listitem-add.js';
-import spoListItemListCommand, { Options as spoListItemListCommandOptions } from '../listitem/listitem-list.js';
-import { Solution } from './Solution.js';
-import spoTenantAppCatalogUrlGetCommand from './tenant-appcatalogurl-get.js';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import { CommandOutput, cli } from '../../../../cli/cli';
+import { urlUtil } from '../../../../utils/urlUtil';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import * as spoListItemAddCommand from '../listitem/listitem-add';
+import * as spoListItemListCommand from '../listitem/listitem-list';
+import { Options as spoListItemAddCommandOptions } from '../listitem/listitem-add';
+import { Options as spoListItemListCommandOptions } from '../listitem/listitem-list';
+import { Solution } from './Solution';
+import * as spoTenantAppCatalogUrlGetCommand from './tenant-appcatalogurl-get';
 
 interface CommandArgs {
   options: Options;
@@ -246,4 +248,4 @@ class SpoTenantCommandSetAddCommand extends SpoCommand {
   }
 }
 
-export default new SpoTenantCommandSetAddCommand();
+module.exports = new SpoTenantCommandSetAddCommand();

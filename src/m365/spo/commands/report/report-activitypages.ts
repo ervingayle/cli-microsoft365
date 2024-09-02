@@ -1,5 +1,5 @@
-import PeriodBasedReport from '../../../base/PeriodBasedReport.js';
-import commands from '../../commands.js';
+import PeriodBasedReport from '../../../base/PeriodBasedReport';
+import commands from '../../commands';
 
 class SpoReportActivityPagesCommand extends PeriodBasedReport {
   public get name(): string {
@@ -15,4 +15,4 @@ class SpoReportActivityPagesCommand extends PeriodBasedReport {
   }
 }
 
-export default new SpoReportActivityPagesCommand();
+module.exports = new SpoReportActivityPagesCommand();

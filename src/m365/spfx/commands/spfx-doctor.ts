@@ -1,10 +1,10 @@
-import child_process from 'child_process';
+import * as child_process from 'child_process';
 import { satisfies } from 'semver';
-import GlobalOptions from '../../../GlobalOptions.js';
-import { Logger } from '../../../cli/Logger.js';
-import { CheckStatus, formatting } from '../../../utils/formatting.js';
-import commands from '../commands.js';
-import { BaseProjectCommand } from './project/base-project-command.js';
+import GlobalOptions from '../../../GlobalOptions';
+import { Logger } from '../../../cli/Logger';
+import { CheckStatus, formatting } from '../../../utils/formatting';
+import commands from '../commands';
+import { BaseProjectCommand } from './project/base-project-command';
 
 interface CommandArgs {
   options: Options;
@@ -1065,4 +1065,4 @@ class SpfxDoctorCommand extends BaseProjectCommand {
   }
 }
 
-export default new SpfxDoctorCommand();
+module.exports = new SpfxDoctorCommand();

@@ -1,14 +1,14 @@
 import { Permission } from '@microsoft/microsoft-graph-types';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { spo } from '../../../../utils/spo.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { spo } from '../../../../utils/spo';
+import { urlUtil } from '../../../../utils/urlUtil';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
 import { Drive } from '@microsoft/microsoft-graph-types';
-import commands from '../../commands.js';
-import { drive as driveItem } from '../../../../utils/drive.js';
+import commands from '../../commands';
+import { drive as driveItem } from '../../../../utils/drive';
 
 interface CommandArgs {
   options: Options;
@@ -122,4 +122,4 @@ class SpoFolderSharingLinkGetCommand extends SpoCommand {
   }
 }
 
-export default new SpoFolderSharingLinkGetCommand();
+module.exports = new SpoFolderSharingLinkGetCommand();

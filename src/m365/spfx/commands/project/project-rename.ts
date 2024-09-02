@@ -1,11 +1,11 @@
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
 import { v4 } from 'uuid';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import commands from '../../commands.js';
-import { BaseProjectCommand } from './base-project-command.js';
+import { Logger } from '../../../../cli/Logger';
+import { CommandError } from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import commands from '../../commands';
+import { BaseProjectCommand } from './base-project-command';
 
 interface CommandArgs {
   options: Options;
@@ -229,4 +229,4 @@ class SpfxProjectRenameCommand extends BaseProjectCommand {
   };
 }
 
-export default new SpfxProjectRenameCommand();
+module.exports = new SpfxProjectRenameCommand();

@@ -1,10 +1,10 @@
-import { cli } from '../../../cli/cli.js';
-import { Logger } from '../../../cli/Logger.js';
-import GlobalOptions from '../../../GlobalOptions.js';
-import { settingsNames } from '../../../settingsNames.js';
-import { browserUtil } from '../../../utils/browserUtil.js';
-import AppCommand from '../../base/AppCommand.js';
-import commands from '../commands.js';
+import { cli } from '../../../cli/cli';
+import { Logger } from '../../../cli/Logger';
+import GlobalOptions from '../../../GlobalOptions';
+import { settingsNames } from '../../../settingsNames';
+import { browserUtil } from '../../../utils/browserUtil';
+import AppCommand from '../../base/AppCommand';
+import commands from '../commands';
 
 interface CommandArgs {
   options: Options;
@@ -70,4 +70,4 @@ class AppOpenCommand extends AppCommand {
   }
 }
 
-export default new AppOpenCommand();
+module.exports = new AppOpenCommand();

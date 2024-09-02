@@ -1,14 +1,15 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import { cli } from '../../../../cli/cli.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { settingsNames } from '../../../../settingsNames.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import commands from '../../commands.js';
-import command from './config-reset.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import { cli } from '../../../../cli/cli';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { Logger } from '../../../../cli/Logger';
+import { settingsNames } from '../../../../settingsNames';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import commands from '../../commands';
+import Command from '../../../../Command';
+const command: Command = require('./config-reset');
 
 describe(commands.CONFIG_RESET, () => {
   let log: any[];

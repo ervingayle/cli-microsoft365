@@ -1,11 +1,11 @@
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
-import { ClientSidePageProperties } from './ClientSidePageProperties.js';
-import { CanvasColumn, CanvasSection, ClientSidePage, ClientSidePart } from './clientsidepages.js';
-import { PageItem } from './PageItem.js';
-import { getControlTypeDisplayName } from './pageMethods.js';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { urlUtil } from '../../../../utils/urlUtil';
+import { ClientSidePageProperties } from './ClientSidePageProperties';
+import { CanvasColumn, CanvasSection, ClientSidePage, ClientSidePart } from './clientsidepages';
+import { PageItem } from './PageItem';
+import { getControlTypeDisplayName } from './pageMethods';
 
 export const supportedPageLayouts = ['Article', 'Home', 'SingleWebPartAppPage', 'RepostPage', 'HeaderlessSearchResults', 'Spaces', 'Topic'];
 export const supportedPromoteAs = ['HomePage', 'NewsPage', 'Template'];

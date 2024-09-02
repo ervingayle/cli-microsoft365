@@ -1,8 +1,8 @@
-import { Logger } from '../../../../cli/Logger.js';
-import { odata } from '../../../../utils/odata.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import aadCommands from '../../aadCommands.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import { odata } from '../../../../utils/odata';
+import GraphCommand from '../../../base/GraphCommand';
+import aadCommands from '../../aadCommands';
+import commands from '../../commands';
 
 class EntraLicenseListCommand extends GraphCommand {
   public get name(): string {
@@ -38,4 +38,4 @@ class EntraLicenseListCommand extends GraphCommand {
   }
 }
 
-export default new EntraLicenseListCommand();
+module.exports = new EntraLicenseListCommand();

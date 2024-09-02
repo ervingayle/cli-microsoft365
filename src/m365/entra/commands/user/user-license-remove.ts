@@ -1,11 +1,11 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import commands from '../../commands.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { validation } from '../../../../utils/validation.js';
-import { cli } from '../../../../cli/cli.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import aadCommands from '../../aadCommands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import commands from '../../commands';
+import request, { CliRequestOptions } from '../../../../request';
+import { validation } from '../../../../utils/validation';
+import { cli } from '../../../../cli/cli';
+import GraphCommand from '../../../base/GraphCommand';
+import aadCommands from '../../aadCommands';
 
 interface CommandArgs {
   options: Options;
@@ -135,4 +135,4 @@ class EntraUserLicenseRemoveCommand extends GraphCommand {
   }
 }
 
-export default new EntraUserLicenseRemoveCommand();
+module.exports = new EntraUserLicenseRemoveCommand();

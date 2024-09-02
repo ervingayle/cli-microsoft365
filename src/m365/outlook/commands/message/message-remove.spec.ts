@@ -1,24 +1,24 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import commands from '../../commands.js';
-import request from '../../../../request.js';
-import { telemetry } from '../../../../telemetry.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import { cli } from '../../../../cli/cli.js';
-import { accessToken } from '../../../../utils/accessToken.js';
-import command from './message-remove.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import commands from '../../commands';
+import request from '../../../../request';
+import { telemetry } from '../../../../telemetry';
+import { Logger } from '../../../../cli/Logger';
+import Command, { CommandError } from '../../../../Command';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import { cli } from '../../../../cli/cli';
+import { accessToken } from '../../../../utils/accessToken';
+const command: Command = require('./message-remove');
+import { formatting } from '../../../../utils/formatting';
+import { CommandInfo } from '../../../../cli/CommandInfo';
 
 describe(commands.MESSAGE_REMOVE, () => {
   const messageId = 'AAMkAGRlM2Y5YTkzLWI2NzAtNDczOS05YWMyLTJhZGY2MGExMGU0MgBGAAAAAABIbfA8TbuRR7JKOZPl5FPxBwB8kpUvTuxuSYh8eqNsOdGBAAAAAAEMAAB8kpUvTuxuSYh8eqNsOdGBAADb58MCAAA=';
   const userId = '6799fd1a-723b-4eb7-8e52-41ae530274ca';
-  const userPrincipalName = 'john.doe@contoso.com';  
+  const userPrincipalName = 'john.doe@contoso.com';
 
   let log: string[];
   let logger: Logger;
@@ -145,7 +145,7 @@ describe(commands.MESSAGE_REMOVE, () => {
 
   it('removes specific message using delegated permissions from a shared mailbox specified by userPrincipalName without prompting for confirmation', async () => {
     const deleteRequestStub = sinon.stub(request, 'delete').callsFake(async (opts) => {
-      if (opts.url === `https://graph.microsoft.com/v1.0/users/${formatting.encodeQueryParameter(userPrincipalName)}/messages/${ messageId }`) {
+      if (opts.url === `https://graph.microsoft.com/v1.0/users/${formatting.encodeQueryParameter(userPrincipalName)}/messages/${messageId}`) {
         return;
       }
 

@@ -1,7 +1,7 @@
-import assert from 'assert';
-import parse from 'json-to-ast';
-import { JsonRule } from './JsonRule.js';
-import { JsonFile } from './project-model/index.js';
+import * as assert from 'assert';
+import * as parse from 'json-to-ast';
+import { JsonRule } from './JsonRule';
+import { JsonFile } from './project-model/index';
 
 class MockJsonRule extends JsonRule {
   get id(): string {

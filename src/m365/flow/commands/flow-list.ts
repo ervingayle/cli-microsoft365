@@ -1,9 +1,9 @@
-import { Logger } from '../../../cli/Logger.js';
-import GlobalOptions from '../../../GlobalOptions.js';
-import { formatting } from '../../../utils/formatting.js';
-import { odata } from '../../../utils/odata.js';
-import PowerAutomateCommand from '../../base/PowerAutomateCommand.js';
-import commands from '../commands.js';
+import { Logger } from '../../../cli/Logger';
+import GlobalOptions from '../../../GlobalOptions';
+import { formatting } from '../../../utils/formatting';
+import { odata } from '../../../utils/odata';
+import PowerAutomateCommand from '../../base/PowerAutomateCommand';
+import commands from '../commands';
 
 interface CommandArgs {
   options: Options;
@@ -163,4 +163,4 @@ class FlowListCommand extends PowerAutomateCommand {
   }
 }
 
-export default new FlowListCommand();
+module.exports = new FlowListCommand();

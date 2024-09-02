@@ -1,9 +1,9 @@
-import { cli } from '../../../cli/cli.js';
-import { Logger } from '../../../cli/Logger.js';
-import { settingsNames } from '../../../settingsNames.js';
-import { browserUtil } from '../../../utils/browserUtil.js';
-import AnonymousCommand from '../../base/AnonymousCommand.js';
-import commands from '../commands.js';
+import { cli } from '../../../cli/cli';
+import { Logger } from '../../../cli/Logger';
+import { settingsNames } from '../../../settingsNames';
+import { browserUtil } from '../../../utils/browserUtil';
+import AnonymousCommand from '../../base/AnonymousCommand';
+import commands from '../commands';
 
 class CliReconsentCommand extends AnonymousCommand {
   public get name(): string {
@@ -33,4 +33,4 @@ class CliReconsentCommand extends AnonymousCommand {
   }
 }
 
-export default new CliReconsentCommand();
+module.exports = new CliReconsentCommand();

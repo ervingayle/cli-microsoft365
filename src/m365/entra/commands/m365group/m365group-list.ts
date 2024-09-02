@@ -1,12 +1,12 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { odata } from '../../../../utils/odata.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import aadCommands from '../../aadCommands.js';
-import commands from '../../commands.js';
-import { GroupExtended } from './GroupExtended.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { odata } from '../../../../utils/odata';
+import GraphCommand from '../../../base/GraphCommand';
+import aadCommands from '../../aadCommands';
+import commands from '../../commands';
+import { GroupExtended } from './GroupExtended';
 
 interface CommandArgs {
   options: Options;
@@ -134,4 +134,4 @@ class EntraM365GroupListCommand extends GraphCommand {
   }
 }
 
-export default new EntraM365GroupListCommand();
+module.exports = new EntraM365GroupListCommand();

@@ -1,11 +1,11 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import Axios from 'axios';
 import { AddressInfo } from 'net';
-import sinon from 'sinon';
-import { Auth } from './Auth.js';
-import authServer from './AuthServer.js';
-import { Logger } from './cli/Logger.js';
-import { browserUtil } from './utils/browserUtil.js';
+import * as sinon from 'sinon';
+import { Auth } from './Auth';
+import authServer from './AuthServer';
+import { Logger } from './cli/Logger';
+import { browserUtil } from './utils/browserUtil';
 
 describe('AuthServer', () => {
   let log: any[];

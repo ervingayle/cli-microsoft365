@@ -1,13 +1,13 @@
-import child_process from 'child_process';
-import fs from 'fs';
+import * as child_process from 'child_process';
+import * as fs from 'fs';
 import { homedir } from 'os';
-import util from 'util';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { formatting } from '../../../../utils/formatting.js';
-import AnonymousCommand from '../../../base/AnonymousCommand.js';
-import commands from '../../commands.js';
+import * as util from 'util';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import { formatting } from '../../../../utils/formatting';
+import AnonymousCommand from '../../../base/AnonymousCommand';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -199,4 +199,4 @@ class TeamsCacheRemoveCommand extends AnonymousCommand {
   private exec = util.promisify(child_process.exec);
 }
 
-export default new TeamsCacheRemoveCommand();
+module.exports = new TeamsCacheRemoveCommand();

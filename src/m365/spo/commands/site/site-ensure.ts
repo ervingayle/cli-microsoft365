@@ -1,12 +1,12 @@
-import chalk from 'chalk';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { spo } from '../../../../utils/spo.js';
-import { validation } from '../../../../utils/validation.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { WebProperties } from '../web/WebProperties.js';
-import { SharingCapabilities } from './SharingCapabilities.js';
+import * as chalk from 'chalk';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import { spo } from '../../../../utils/spo';
+import { validation } from '../../../../utils/validation';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { WebProperties } from '../web/WebProperties';
+import { SharingCapabilities } from './SharingCapabilities';
 
 interface CommandArgs {
   options: Options;
@@ -305,4 +305,4 @@ class SpoSiteEnsureCommand extends SpoCommand {
   }
 }
 
-export default new SpoSiteEnsureCommand();
+module.exports = new SpoSiteEnsureCommand();

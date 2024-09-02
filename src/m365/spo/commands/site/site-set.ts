@@ -1,21 +1,23 @@
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
 import Command, {
   CommandError
-} from '../../../../Command.js';
-import config from '../../../../config.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { ClientSvcResponse, ClientSvcResponseContents, FormDigestInfo, spo, SpoOperation } from '../../../../utils/spo.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
-import { validation } from '../../../../utils/validation.js';
-import entraM365GroupSetCommand, { Options as EntraM365GroupSetCommandOptions } from '../../../entra/commands/m365group/m365group-set.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { SharingCapabilities } from '../site/SharingCapabilities.js';
-import spoSiteDesignApplyCommand, { Options as SpoSiteDesignApplyCommandOptions } from '../sitedesign/sitedesign-apply.js';
-import { FlowsPolicy } from './FlowsPolicy.js';
+} from '../../../../Command';
+import config from '../../../../config';
+import GlobalOptions from '../../../../GlobalOptions';
+import request, { CliRequestOptions } from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { ClientSvcResponse, ClientSvcResponseContents, FormDigestInfo, spo, SpoOperation } from '../../../../utils/spo';
+import { urlUtil } from '../../../../utils/urlUtil';
+import { validation } from '../../../../utils/validation';
+import * as entraM365GroupSetCommand from '../../../entra/commands/m365group/m365group-set';
+import { Options as EntraM365GroupSetCommandOptions } from '../../../entra/commands/m365group/m365group-set';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { SharingCapabilities } from '../site/SharingCapabilities';
+import * as spoSiteDesignApplyCommand from '../sitedesign/sitedesign-apply';
+import { Options as SpoSiteDesignApplyCommandOptions } from '../sitedesign/sitedesign-apply';
+import { FlowsPolicy } from './FlowsPolicy';
 import { setTimeout } from 'timers/promises';
 
 interface CommandArgs {
@@ -746,4 +748,4 @@ class SpoSiteSetCommand extends SpoCommand {
   }
 }
 
-export default new SpoSiteSetCommand();
+module.exports = new SpoSiteSetCommand();

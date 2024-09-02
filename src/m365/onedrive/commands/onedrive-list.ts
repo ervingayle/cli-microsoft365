@@ -1,11 +1,11 @@
-import { Logger } from '../../../cli/Logger.js';
-import config from "../../../config.js";
-import request, { CliRequestOptions } from "../../../request.js";
-import { ClientSvcResponse, ClientSvcResponseContents, FormDigestInfo, spo } from "../../../utils/spo.js";
-import SpoCommand from "../../base/SpoCommand.js";
-import { SiteProperties } from "../../spo/commands/site/SiteProperties.js";
-import { SPOSitePropertiesEnumerable } from "../../spo/commands/site/SPOSitePropertiesEnumerable.js";
-import commands from "../commands.js";
+import { Logger } from '../../../cli/Logger';
+import config from "../../../config";
+import request, { CliRequestOptions } from "../../../request";
+import { ClientSvcResponse, ClientSvcResponseContents, FormDigestInfo, spo } from "../../../utils/spo";
+import SpoCommand from "../../base/SpoCommand";
+import { SiteProperties } from "../../spo/commands/site/SiteProperties";
+import { SPOSitePropertiesEnumerable } from "../../spo/commands/site/SPOSitePropertiesEnumerable";
+import commands from "../commands";
 
 class OneDriveListCommand extends SpoCommand {
   private allSites?: SiteProperties[];
@@ -70,4 +70,4 @@ class OneDriveListCommand extends SpoCommand {
   }
 }
 
-export default new OneDriveListCommand();
+module.exports = new OneDriveListCommand();

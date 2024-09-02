@@ -1,12 +1,12 @@
-import { Logger } from '../../../../cli/Logger.js';
-import { CommandError } from '../../../../Command.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { odata } from '../../../../utils/odata.js';
-import { spo } from '../../../../utils/spo.js';
-import { urlUtil } from '../../../../utils/urlUtil.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import { ListItemInstance } from '../listitem/ListItemInstance.js';
+import { Logger } from '../../../../cli/Logger';
+import { CommandError } from '../../../../Command';
+import { formatting } from '../../../../utils/formatting';
+import { odata } from '../../../../utils/odata';
+import { spo } from '../../../../utils/spo';
+import { urlUtil } from '../../../../utils/urlUtil';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import { ListItemInstance } from '../listitem/ListItemInstance';
 
 class SpoTenantCommandSetListCommand extends SpoCommand {
   public get name(): string {
@@ -46,4 +46,4 @@ class SpoTenantCommandSetListCommand extends SpoCommand {
   }
 }
 
-export default new SpoTenantCommandSetListCommand();
+module.exports = new SpoTenantCommandSetListCommand();

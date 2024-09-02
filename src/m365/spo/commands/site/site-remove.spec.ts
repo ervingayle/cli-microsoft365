@@ -1,21 +1,22 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../../../../Auth.js';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import { telemetry } from '../../../../telemetry.js';
-import { pid } from '../../../../utils/pid.js';
-import { session } from '../../../../utils/session.js';
-import { sinonUtil } from '../../../../utils/sinonUtil.js';
-import { spo } from '../../../../utils/spo.js';
-import commands from '../../commands.js';
-import command from './site-remove.js';
-import { odata } from '../../../../utils/odata.js';
-import { settingsNames } from '../../../../settingsNames.js';
-import { CommandInfo } from '../../../../cli/CommandInfo.js';
-import { formatting } from '../../../../utils/formatting.js';
-import request from '../../../../request.js';
-import { CommandError } from '../../../../Command.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../../../../Auth';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import { telemetry } from '../../../../telemetry';
+import { pid } from '../../../../utils/pid';
+import { session } from '../../../../utils/session';
+import { sinonUtil } from '../../../../utils/sinonUtil';
+import { spo } from '../../../../utils/spo';
+import commands from '../../commands';
+import type * as Chalk from 'chalk';
+const command: Command = require('./site-remove');
+import { odata } from '../../../../utils/odata';
+import { settingsNames } from '../../../../settingsNames';
+import { CommandInfo } from '../../../../cli/CommandInfo';
+import { formatting } from '../../../../utils/formatting';
+import request from '../../../../request';
+import Command, { CommandError } from '../../../../Command';
 
 describe(commands.SITE_REMOVE, () => {
   let log: string[];
@@ -361,7 +362,7 @@ describe(commands.SITE_REMOVE, () => {
   });
 
   it(`correctly shows deprecation warning for option 'wait'`, async () => {
-    const chalk = (await import('chalk')).default;
+    const chalk: typeof Chalk = require('chalk');
     const loggerErrSpy = sinon.spy(logger, 'logToStderr');
 
     await command.action(logger, { options: { url: siteUrl, wait: true } });

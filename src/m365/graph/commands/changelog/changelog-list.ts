@@ -1,13 +1,13 @@
 import { DOMParser } from '@xmldom/xmldom';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { cli } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { md } from '../../../../utils/md.js';
-import { validation } from '../../../../utils/validation.js';
-import AnonymousCommand from '../../../base/AnonymousCommand.js';
-import { Changelog, ChangelogItem } from '../../Changelog.js';
-import commands from '../../commands.js';
+import GlobalOptions from '../../../../GlobalOptions';
+import { cli } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import { md } from '../../../../utils/md';
+import { validation } from '../../../../utils/validation';
+import AnonymousCommand from '../../../base/AnonymousCommand';
+import { Changelog, ChangelogItem } from '../../Changelog';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -206,4 +206,4 @@ class GraphChangelogListCommand extends AnonymousCommand {
   }
 }
 
-export default new GraphChangelogListCommand();
+module.exports = new GraphChangelogListCommand();

@@ -1,9 +1,9 @@
-import { Logger } from '../../../../cli/Logger.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { profileCardPropertyNames, ProfileCardProperty } from './profileCardProperties.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import GlobalOptions from '../../../../GlobalOptions';
+import GraphCommand from '../../../base/GraphCommand';
+import request, { CliRequestOptions } from '../../../../request';
+import { profileCardPropertyNames, ProfileCardProperty } from './profileCardProperties';
+import commands from '../../commands';
 
 interface CommandArgs {
   options: Options;
@@ -95,4 +95,4 @@ class TenantPeopleProfileCardPropertyGetCommand extends GraphCommand {
   }
 }
 
-export default new TenantPeopleProfileCardPropertyGetCommand();
+module.exports = new TenantPeopleProfileCardPropertyGetCommand();

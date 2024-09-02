@@ -1,15 +1,15 @@
-import os from 'os';
-import assert from 'assert';
-import sinon from 'sinon';
-import auth from '../Auth.js';
-import { Logger } from '../cli/Logger.js';
-import config from '../config.js';
-import { RoleDefinition } from '../m365/spo/commands/roledefinition/RoleDefinition.js';
-import request from '../request.js';
-import { sinonUtil } from '../utils/sinonUtil.js';
-import { FormDigestInfo, SpoOperation, spo } from '../utils/spo.js';
-import { entraGroup } from './entraGroup.js';
-import { formatting } from './formatting.js';
+import * as os from 'os';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import auth from '../Auth';
+import { Logger } from '../cli/Logger';
+import config from '../config';
+import { RoleDefinition } from '../m365/spo/commands/roledefinition/RoleDefinition';
+import request from '../request';
+import { sinonUtil } from '../utils/sinonUtil';
+import { FormDigestInfo, SpoOperation, spo } from '../utils/spo';
+import { entraGroup } from './entraGroup';
+import { formatting } from './formatting';
 import { Group } from '@microsoft/microsoft-graph-types';
 
 const stubPostResponses: any = (

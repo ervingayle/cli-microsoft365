@@ -1,8 +1,8 @@
-import assert from 'assert';
-import sinon from 'sinon';
-import request from '../request.js';
-import { sinonUtil } from './sinonUtil.js';
-import { roleAssignment } from './roleAssignment.js';
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import request from '../request';
+import { sinonUtil } from './sinonUtil';
+import { roleAssignment } from './roleAssignment';
 
 describe('utils/roleAssignment', () => {
   const roleDefinitionId = 'fe930be7-5e62-47db-91af-98c3a49a38b1';
@@ -29,7 +29,7 @@ describe('utils/roleAssignment', () => {
 
   it('correctly assigns a directory (Entra ID) role specified by id with administrative unit scope to a user specified by id', async () => {
     sinon.stub(request, 'post').callsFake(async (opts) => {
-      if (opts.url === 'https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments' && 
+      if (opts.url === 'https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments' &&
         JSON.stringify(opts.data) === JSON.stringify({
           "roleDefinitionId": roleDefinitionId,
           "principalId": userId,

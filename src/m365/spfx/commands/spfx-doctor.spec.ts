@@ -1,18 +1,20 @@
-import assert from 'assert';
-import child_process from 'child_process';
-import fs from 'fs';
-import sinon, { SinonSandbox } from 'sinon';
-import { CommandError } from '../../../Command.js';
-import { cli } from '../../../cli/cli.js';
-import { CommandInfo } from '../../../cli/CommandInfo.js';
-import { Logger } from '../../../cli/Logger.js';
-import { telemetry } from '../../../telemetry.js';
-import { formatting } from '../../../utils/formatting.js';
-import { pid } from '../../../utils/pid.js';
-import { session } from '../../../utils/session.js';
-import { sinonUtil } from '../../../utils/sinonUtil.js';
-import commands from '../commands.js';
-import command, { SpfxDoctorCheck } from './spfx-doctor.js';
+import * as assert from 'assert';
+import * as child_process from 'child_process';
+import * as fs from 'fs';
+import * as sinon from 'sinon';
+import { SinonSandbox } from 'sinon';
+import Command, { CommandError } from '../../../Command';
+import { cli } from '../../../cli/cli';
+import { CommandInfo } from '../../../cli/CommandInfo';
+import { Logger } from '../../../cli/Logger';
+import { telemetry } from '../../../telemetry';
+import { formatting } from '../../../utils/formatting';
+import { pid } from '../../../utils/pid';
+import { session } from '../../../utils/session';
+import { sinonUtil } from '../../../utils/sinonUtil';
+import commands from '../commands';
+import { SpfxDoctorCheck } from './spfx-doctor';
+const command: Command = require('./spfx-doctor');
 
 describe(commands.DOCTOR, () => {
   let log: string[];

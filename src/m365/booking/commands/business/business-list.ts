@@ -1,8 +1,8 @@
 import { BookingBusiness } from '@microsoft/microsoft-graph-types';
-import { Logger } from '../../../../cli/Logger.js';
-import { odata } from '../../../../utils/odata.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
+import { Logger } from '../../../../cli/Logger';
+import { odata } from '../../../../utils/odata';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
 
 class BookingBusinessListCommand extends GraphCommand {
   public get name(): string {
@@ -30,4 +30,4 @@ class BookingBusinessListCommand extends GraphCommand {
   }
 }
 
-export default new BookingBusinessListCommand();
+module.exports = new BookingBusinessListCommand();

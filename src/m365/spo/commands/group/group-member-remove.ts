@@ -1,14 +1,16 @@
-import { cli, CommandOutput } from '../../../../cli/cli.js';
-import { Logger } from '../../../../cli/Logger.js';
-import Command from '../../../../Command.js';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import request from '../../../../request.js';
-import { formatting } from '../../../../utils/formatting.js';
-import { validation } from '../../../../utils/validation.js';
-import entraUserGetCommand, { Options as EntraUserGetCommandOptions } from '../../../entra/commands/user/user-get.js';
-import SpoCommand from '../../../base/SpoCommand.js';
-import commands from '../../commands.js';
-import SpoGroupMemberListCommand, { Options as SpoGroupMemberListCommandOptions } from './group-member-list.js';
+import { cli, CommandOutput } from '../../../../cli/cli';
+import { Logger } from '../../../../cli/Logger';
+import Command from '../../../../Command';
+import GlobalOptions from '../../../../GlobalOptions';
+import request from '../../../../request';
+import { formatting } from '../../../../utils/formatting';
+import { validation } from '../../../../utils/validation';
+import * as entraUserGetCommand from '../../../entra/commands/user/user-get';
+import { Options as EntraUserGetCommandOptions } from '../../../entra/commands/user/user-get';
+import SpoCommand from '../../../base/SpoCommand';
+import commands from '../../commands';
+import * as SpoGroupMemberListCommand from './group-member-list';
+import { Options as SpoGroupMemberListCommandOptions } from './group-member-list';
 
 interface CommandArgs {
   options: Options;
@@ -262,4 +264,4 @@ class SpoGroupMemberRemoveCommand extends SpoCommand {
   }
 }
 
-export default new SpoGroupMemberRemoveCommand();
+module.exports = new SpoGroupMemberRemoveCommand();

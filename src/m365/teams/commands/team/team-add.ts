@@ -1,16 +1,16 @@
 import { Group, TeamsAsyncOperation } from '@microsoft/microsoft-graph-types';
 import { setTimeout } from 'timers/promises';
-import GlobalOptions from '../../../../GlobalOptions.js';
-import { Logger } from '../../../../cli/Logger.js';
-import request, { CliRequestOptions } from '../../../../request.js';
-import { entraGroup } from '../../../../utils/entraGroup.js';
-import GraphCommand from '../../../base/GraphCommand.js';
-import commands from '../../commands.js';
-import { validation } from '../../../../utils/validation.js';
-import { accessToken } from '../../../../utils/accessToken.js';
-import auth from '../../../../Auth.js';
-import { entraUser } from '../../../../utils/entraUser.js';
-import { formatting } from '../../../../utils/formatting.js';
+import GlobalOptions from '../../../../GlobalOptions';
+import { Logger } from '../../../../cli/Logger';
+import request, { CliRequestOptions } from '../../../../request';
+import { entraGroup } from '../../../../utils/entraGroup';
+import GraphCommand from '../../../base/GraphCommand';
+import commands from '../../commands';
+import { validation } from '../../../../utils/validation';
+import { accessToken } from '../../../../utils/accessToken';
+import auth from '../../../../Auth';
+import { entraUser } from '../../../../utils/entraUser';
+import { formatting } from '../../../../utils/formatting';
 
 interface CommandArgs {
   options: Options;
@@ -365,4 +365,4 @@ export interface TeamMember {
   "user@odata.bind": string
 }
 
-export default new TeamsTeamAddCommand();
+module.exports = new TeamsTeamAddCommand();
