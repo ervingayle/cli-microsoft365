@@ -5,5 +5,6 @@ export default {
   REQUEST: `request`,
   SETUP: `setup`,
   STATUS: `status`,
+  SPFXTOOLKIT: `spfxToolkit`,
   VERSION: 'version'
 };

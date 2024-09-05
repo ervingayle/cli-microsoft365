@@ -82,9 +82,9 @@ export class AuthServer {
 
     let body: string = "";
     if (hasCode === true) {
-      body = '<script type="text/JavaScript">setTimeout(function(){ window.location = "https://pnp.github.io/cli-microsoft365/"; },10000);</script>';
-      body += '<p><b>You have logged into CLI for Microsoft 365!</b></p>';
-      body += '<p>You can close this window, or we will redirect you to the <a href="https://pnp.github.io/cli-microsoft365/">CLI for Microsoft 365</a> documentation in 10 seconds.</p>';
+      body = '<script type="text/JavaScript">setTimeout(function(){ window.location = "https://github.com/pnp/vscode-viva/wiki"; },10000);</script>';
+      body += '<p><b>You successfully created SPFx Toolkit app registration!</b></p>';
+      body += '<p>You may close this window and sign in to your tenant in the SPFx Toolkit VS Code extension, or we will redirect you to the <a href="https://github.com/pnp/vscode-viva/wiki">SPFx Toolkit</a> documentation in 10 seconds.</p>';
 
       this.resolve(<InteractiveAuthorizationCodeResponse>{
         code: queryString.code as string,
@@ -121,7 +121,7 @@ export class AuthServer {
     }
 
     response.writeHead(200, { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'text/html' });
-    response.write(`<html><head><title>CLI for Microsoft 365</title></head><body>${body}</body></html>`);
+    response.write(`<html><head><title>SPFx Toolkit</title></head><body>${body}</body></html>`);
     response.end();
 
     this.httpServer.close();
