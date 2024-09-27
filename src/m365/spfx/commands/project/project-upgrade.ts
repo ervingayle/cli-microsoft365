@@ -11,9 +11,9 @@ import { packageManager } from '../../../../utils/packageManager';
 import { Dictionary, Hash } from '../../../../utils/types';
 import commands from '../../commands';
 import { BaseProjectCommand } from './base-project-command';
-import { Project } from './project-model';
+import { Project } from './project-model/index';
 import { FN017001_MISC_npm_dedupe } from './project-upgrade/rules/FN017001_MISC_npm_dedupe';
-import { Finding, FindingToReport, FindingTour, FindingTourStep } from './report-model';
+import { Finding, FindingToReport, FindingTour, FindingTourStep } from './report-model/index';
 import { ReportData, ReportDataModification } from './report-model/ReportData';
 import { Rule } from './Rule';
 
@@ -79,7 +79,8 @@ class SpfxProjectUpgradeCommand extends BaseProjectCommand {
     '1.18.0',
     '1.18.1',
     '1.18.2',
-    '1.19.0'
+    '1.19.0',
+    '1.20.0'
   ];
 
   public static ERROR_NO_PROJECT_ROOT_FOLDER: number = 1;
