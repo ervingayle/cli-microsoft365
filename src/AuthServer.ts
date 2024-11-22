@@ -54,7 +54,7 @@ export class AuthServer {
   private openUrl(url: string): void {
     browserUtil.open(url)
       .then(_ => {
-        this.logger.logToStderr("To sign in, use the web browser that just has been opened. Please sign-in there.");
+        this.logger.log("To sign in, use the web browser that just has been opened. Please sign-in there.");
       })
       .catch(_ => {
         const errorResponse: InteractiveAuthorizationErrorResponse = {
@@ -83,8 +83,8 @@ export class AuthServer {
     let body: string = "";
     if (hasCode === true) {
       body = '<script type="text/JavaScript">setTimeout(function(){ window.location = "https://github.com/pnp/vscode-viva/wiki"; },10000);</script>';
-      body += '<p><b>You successfully created SPFx Toolkit app registration!</b></p>';
-      body += '<p>You may close this window and sign in to your tenant in the SPFx Toolkit VS Code extension, or we will redirect you to the <a href="https://github.com/pnp/vscode-viva/wiki">SPFx Toolkit</a> documentation in 10 seconds.</p>';
+      body += '<p><b>SPFx Toolkit VS Code Extension</b></p>';
+      body += '<p>You may close this window or we will redirect you to the <a href="https://github.com/pnp/vscode-viva/wiki">SPFx Toolkit</a> documentation in 10 seconds.</p>';
 
       this.resolve(<InteractiveAuthorizationCodeResponse>{
         code: queryString.code as string,
@@ -98,7 +98,7 @@ export class AuthServer {
         errorDescription: queryString.error_description as string
       };
 
-      body = "<p>Oops! Azure Active Directory replied with an error message.</p>";
+      body = "<p>Oops! Entra ID replied with an error message.</p>";
       body += `<p>${errorMessage.error}</p>`;
       if (errorMessage.errorDescription !== undefined) {
         body += `<p>${errorMessage.errorDescription}</p>`;
