@@ -4,7 +4,6 @@ import * as fs from 'fs';
 import type { Inquirer } from 'inquirer';
 import type * as JMESPath from 'jmespath';
 import * as minimist from 'minimist';
-import * as ora from 'ora';
 import * as os from 'os';
 import * as path from 'path';
 import Command, { CommandArgs, CommandError, CommandTypes } from '../Command';
@@ -43,7 +42,6 @@ export class Cli {
   private static instance: Cli;
   private static defaultHelpMode = 'options';
   public static helpModes: string[] = ['options', 'examples', 'remarks', 'response', 'full'];
-  public spinner = ora('Running command...');
 
   private _config: Configstore | undefined;
   public get config(): Configstore {
@@ -207,13 +205,6 @@ export class Cli {
     const cli = Cli.getInstance();
     const parentCommandName: string | undefined = cli.currentCommandName;
     cli.currentCommandName = command.getCommandName(cli.currentCommandName);
-    const showSpinner = cli.getSettingWithDefaultValue<boolean>(settingsNames.showSpinner, true) && args.options.output !== 'none';
-
-    // don't show spinner if running tests
-    /* c8 ignore next 3 */
-    if (showSpinner && typeof global.it === 'undefined') {
-      cli.spinner.start();
-    }
 
     try {
       await command.action(logger, args as any);
@@ -226,11 +217,6 @@ export class Cli {
     finally {
       // restore the original command name
       cli.currentCommandName = parentCommandName;
-
-      /* c8 ignore next 3 */
-      if (cli.spinner.isSpinning) {
-        cli.spinner.stop();
-      }
     }
   }
 
@@ -619,7 +605,11 @@ export class Cli {
     // command doesn't specify default properties, return original data
     if (this.shouldTrimOutput(options.output)) {
       const cli: Cli = Cli.getInstance();
-      const currentCommand: CommandInfo | undefined = cli.commandToExecute;
+      let currentCommand: CommandInfo | undefined = cli.commandToExecute;
+
+      if (!currentCommand) {
+        currentCommand = cli.commands[0];
+      }
 
       if (arrayType === 'object' &&
         currentCommand && currentCommand.defaultProperties) {
@@ -636,7 +626,7 @@ export class Cli {
           }
 
           logStatement = logStatement.map((s: any) =>
-            formatting.filterObject(s, currentCommand.defaultProperties as string[]));
+            formatting.filterObject(s, currentCommand!.defaultProperties as string[]));
         }
       }
     }
@@ -919,35 +909,16 @@ export class Cli {
   }
 
   public static log(message?: any, ...optionalParams: any[]): void {
-    const cli = Cli.getInstance();
-    const spinnerSpinning = cli.spinner.isSpinning;
-
-    /* c8 ignore next 3 */
-    if (spinnerSpinning) {
-      cli.spinner.stop();
-    }
-
     if (message) {
       console.log(message, ...optionalParams);
     }
     else {
       console.log();
     }
-
-    // Restart the spinner if it was running before the log
-    /* c8 ignore next 3 */
-    if (spinnerSpinning) {
-      cli.spinner.start();
-    }
   }
 
   private static error(message?: any, ...optionalParams: any[]): void {
     const cli = Cli.getInstance();
-
-    /* c8 ignore next 3 */
-    if (cli.spinner.isSpinning) {
-      cli.spinner.stop();
-    }
 
     const errorOutput: string = cli.getSettingWithDefaultValue(settingsNames.errorOutput, 'stderr');
     if (errorOutput === 'stdout') {
@@ -956,31 +927,12 @@ export class Cli {
     else {
       console.error(message, ...optionalParams);
     }
-
-    // Restart the spinner if it was running before the log
-    /* c8 ignore next 3 */
-    if (cli.spinner.isSpinning) {
-      cli.spinner.start();
-    }
   }
 
   public static async prompt<T>(options: any, answers?: any): Promise<T> {
     const inquirer: Inquirer = require('inquirer');
-    const cli = Cli.getInstance();
-    const spinnerSpinning = cli.spinner.isSpinning;
-
-    /* c8 ignore next 3 */
-    if (spinnerSpinning) {
-      cli.spinner.stop();
-    }
 
     const response = await inquirer.prompt(options, answers) as T;
-
-    // Restart the spinner if it was running before the prompt
-    /* c8 ignore next 3 */
-    if (spinnerSpinning) {
-      cli.spinner.start();
-    }
 
     return response;
   }
