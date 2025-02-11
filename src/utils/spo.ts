@@ -17,6 +17,7 @@ import { SiteProperties } from '../m365/spo/commands/site/SiteProperties';
 import { aadGroup } from './aadGroup';
 import { SharingCapabilities } from '../m365/spo/commands/site/SharingCapabilities';
 import { WebProperties } from '../m365/spo/commands/web/WebProperties';
+import { Site } from '@microsoft/microsoft-graph-types';
 
 export interface ContextInfo {
   FormDigestTimeoutSeconds: number;
@@ -1476,6 +1477,32 @@ export const spo = {
     };
 
     await request.post(requestOptions);
+  },
+
+  /**
+   * Retrieves the site ID for a given web URL.
+   * @param webUrl The web URL for which to retrieve the site ID.
+   * @param logger The logger object.
+   * @param verbose Set for verbose logging
+   * @returns A promise that resolves to the site ID.
+   */
+  async getSiteId(webUrl: string, logger?: Logger, verbose?: boolean): Promise<string> {
+    if (verbose && logger) {
+      await logger.logToStderr(`Getting site id for URL: ${webUrl}...`);
+    }
+
+    const url: URL = new URL(webUrl);
+    const requestOptions: CliRequestOptions = {
+      url: `https://graph.microsoft.com/v1.0/sites/${formatting.encodeQueryParameter(url.host)}:${url.pathname}?$select=id`,
+      headers: {
+        accept: 'application/json;odata.metadata=none'
+      },
+      responseType: 'json'
+    };
+
+    const site: Site = await request.get<Site>(requestOptions);
+
+    return site.id as string;
   },
 
   /**
